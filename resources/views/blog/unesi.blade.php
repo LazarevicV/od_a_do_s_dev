@@ -3,55 +3,55 @@
 
 <div class="container my-5 col-6">
     <h1>{{$title}}</h1>
-    <form action="{{ route('blog.unesiSubmit') }}" method="POST">
+    <form action="{{ route('blog.unesiSubmit') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="naslov" class="form-label">Наслов:</label>
             <input type="text" class="form-control" name="naslov" required>
         </div>
-
+    
         <div class="mb-3">
             <label for="sadrzaj" class="form-label">Садржај:</label>
             <textarea id="editor" name="sadrzaj" required></textarea>
         </div>
-
-            <div class="mb-3">
-                <label for="kategorija" class="form-label">Категорија:</label>
-                <select required name="kategorija" class="form-control">
-                    @foreach ($kategorije as $kategorija)
-                        <option value="{{$kategorija->id}}" @if($kategorija->id == 4) selected @endif>{{$kategorija->naziv}}</option>
-                    @endforeach
-                </select>
+    
+        <div class="mb-3">
+            <label for="kategorija" class="form-label">Категорија:</label>
+            <select required name="kategorija" class="form-control">
+                @foreach ($kategorije as $kategorija)
+                    <option value="{{$kategorija->id}}" @if($kategorija->id == 4) selected @endif>{{$kategorija->naziv}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="slika" class="form-label">Слика:</label>
+            <input type="file" class="form-control" name="slika" required>
+        </div>
+    
+        <div class="mb-3">
+            <label for="objavljen" class="form-label">Објављен:</label>
+            <select class="form-select" name="objavljen">
+                <option value="0">Не</option>
+                <option value="1">Да</option>
+            </select>
+        </div>
+    
+        <div class="mb-3">
+            <label for="istaknut" class="form-label">Истакнути:</label>
+            <select class="form-select" name="istaknut">
+                <option value="0">Не</option>
+                <option value="1">Да</option>
+            </select>
+        </div>
+    
+        <div class="mb-3">
+            <div class="row justify-content-center">
+                <button type="submit" class="col-2 mx-1 btn btn-primary">Унеси</button>
+                <a href="{{route('blog.list')}}" class="col-2 mx-1 btn btn-link" style="border: 1px solid #214252;">Откажи</a>
             </div>
-            <div class="mb-3">
-                <label for="slika" class="form-label">Слика:</label>
-                <input type="text" class="form-control" name="slika" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="objavljen" class="form-label">Објављен:</label>
-                <select class="form-select" name="objavljen">
-                    <option value="0">Не</option>
-                    <option value="1">Да</option>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="istaknut" class="form-label">Истакнути:</label>
-                <select class="form-select" name="istaknut">
-                    <option value="0">Не</option>
-                    <option value="1">Да</option>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <div class="row justify-content-center">
-                    <button type="submit" class="col-2 mx-1 btn btn-primary">Унеси</button>
-                    <a href="{{route('blog.list')}}" class="col-2 mx-1 btn btn-link" style="border: 1px solid #214252;">Откажи</a>
-                </div>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 
 <script>
     tinymce.init({

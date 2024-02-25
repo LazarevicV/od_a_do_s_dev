@@ -71,13 +71,21 @@ class BlogController extends Controller
         $blog->naslov = $request->input('naslov');
         $blog->sadrzaj = $request->input('sadrzaj');
         $blog->kategorija_id = $request->input('kategorija');
-        $blog->slika = $request->input('slika');
+    
+        if ($request->hasFile('slika')) {
+            $slika = $request->file('slika');
+            $imeSlike = time() . '.' . $slika->getClientOriginalExtension();
+            $slika->move(public_path('img'), $imeSlike);
+            $blog->slika = $imeSlike;
+        }
+    
         $blog->objavljen = $request->input('objavljen');
         $blog->istaknut = $request->input('istaknut');
         $blog->save();
-
+    
         return redirect(route('blog.list'))->with('info', 'Запис је унет.');
     }
+    
 
     public function izmeni($id)
     {
@@ -97,20 +105,33 @@ class BlogController extends Controller
     public function izmeniSubmit(Request $request, $id)
     {
         $blog = Blog::find($id);
-        if (! $blog) {
+        if (!$blog) {
             return abort(404);
         }
 
         $blog->naslov = $request->input('naslov');
         $blog->sadrzaj = $request->input('sadrzaj');
         $blog->kategorija_id = $request->input('kategorija');
-        $blog->slika = $request->input('slika');
+
+        if ($request->hasFile('slika')) {
+            $staraSlika = public_path('img/' . $blog->slika);
+            if (file_exists($staraSlika)) {
+                @unlink($staraSlika);
+            }
+            $slika = $request->file('slika');
+            $imeSlike = time() . '.' . $slika->getClientOriginalExtension();
+            $slika->move(public_path('img'), $imeSlike);
+            $blog->slika = $imeSlike;
+        }
+
         $blog->objavljen = $request->input('objavljen');
         $blog->istaknut = $request->input('istaknut');
         $blog->save();
 
         return redirect(route('blog.list'))->with('info', 'Запис је измењен.');
     }
+
+
 
     public function publish($id)
     {
