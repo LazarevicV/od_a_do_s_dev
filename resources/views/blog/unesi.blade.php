@@ -17,9 +17,12 @@
 
             <div class="mb-3">
                 <label for="kategorija" class="form-label">Категорија:</label>
-                <input type="text" class="form-control" name="kategorija" required>
+                <select required name="kategorija" class="form-control">
+                    @foreach ($kategorije as $kategorija)
+                        <option value="{{$kategorija->id}}" @if($kategorija->id == 4) selected @endif>{{$kategorija->naziv}}</option>
+                    @endforeach
+                </select>
             </div>
-
             <div class="mb-3">
                 <label for="slika" class="form-label">Слика:</label>
                 <input type="text" class="form-control" name="slika" required>

@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kontakts', function (Blueprint $table) {
+        Schema::create('kategorija_blogs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('email', 64);
-            $table->boolean('procitano')->default(false);
-            $table->text('sadrzaj');
+            $table->string('naziv', 64)->charset('utf8mb4')->collate('utf8mb4_unicode_ci');;
         });
     }
 
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kontakts');
+        Schema::dropIfExists('kategorija_blogs');
     }
 };

@@ -14,10 +14,13 @@
                 <label for="sadrzaj" class="form-label">Садржај (*)</label>
                 <textarea id="editor" name="sadrzaj" required>{{$blog->sadrzaj}}</textarea>
             </div>
-
             <div class="mb-3">
                 <label for="kategorija" class="form-label">Категорија (*)</label>
-                <input type="text" required name="kategorija" class="form-control" value="{{ $blog->kategorija }}">
+                <select required name="kategorija" class="form-control">
+                    @foreach ($kategorije as $kategorija)
+                        <option value="{{$kategorija->id}}" @if($blog->kategorija->id == $kategorija->id) selected @endif>{{$kategorija->naziv}}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="mb-3">

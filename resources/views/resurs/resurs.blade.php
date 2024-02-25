@@ -1,8 +1,8 @@
 @extends('layouts.public')
 @section('content')
     <div class="container mt-5 col-8 mb-5">
-        <h1>{{$title}} <a href="{{route('fontovi')}}" class="btn btn-primary p-2">Приказ свих фонтова</a></h1> 
         @if (!empty($resurs->fontovi[0]))
+            <h1>{{$title}} <a href="{{route('fontovi')}}" class="btn btn-primary p-2">Приказ свих фонтова</a></h1> 
             @foreach ($resurs->fontovi as $font)
                 @if ($font->objavljen)
                     <hr>
@@ -20,8 +20,8 @@
                 @endif
             @endforeach
         @endif
-        @if (!empty($resurs->video_tutorijali[0]))
-            @foreach ($resurs->video_tutorijali as $vt)
+        @if (!empty($resurs->videoTutorijali[0]))
+            @foreach ($resurs->videoTutorijali as $vt)
                 {{-- @if ($vt->objavljen) --}}
                 <hr> 
                 <br>

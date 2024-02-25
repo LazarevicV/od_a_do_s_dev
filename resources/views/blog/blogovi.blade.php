@@ -14,7 +14,7 @@
                             {!! strlen(strip_tags($blog->sadrzaj)) > 140 ? '...' : '' !!}
                         </p>
                         
-                        <p class="card-text"><small class="text-muted">{{ $blog->kategorija }}</small></p>
+                        <p class="card-text"><small class="text-muted">{{ $blog->kategorija->naziv }}</small></p>
                         <a href="{{ route('blog.blog', $blog->id) }}" class="btn btn-primary p-2">Прочитај више</a>
                     </div>
                 </div>

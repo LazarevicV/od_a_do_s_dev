@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\KategorijaBlog;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -39,7 +40,7 @@ class BlogController extends Controller
 
     public static function uputstva()
     {
-        $blogovi = Blog::where('kategorija', 'Упутства')->where('objavljen', 1)->get();
+        $blogovi = Blog::where('kategorija_id', '1')->where('objavljen', 1)->get();
 
         return $blogovi;
     }
@@ -57,8 +58,10 @@ class BlogController extends Controller
 
     public function unesi()
     {
+        $kategorije=KategorijaBlog::all();
         return view('blog.unesi', [
             'title' => 'Унеси блог',
+            'kategorije' => $kategorije
         ]);
     }
 
@@ -67,7 +70,7 @@ class BlogController extends Controller
         $blog = new Blog();
         $blog->naslov = $request->input('naslov');
         $blog->sadrzaj = $request->input('sadrzaj');
-        $blog->kategorija = $request->input('kategorija');
+        $blog->kategorija_id = $request->input('kategorija');
         $blog->slika = $request->input('slika');
         $blog->objavljen = $request->input('objavljen');
         $blog->istaknut = $request->input('istaknut');
@@ -79,6 +82,7 @@ class BlogController extends Controller
     public function izmeni($id)
     {
         $blog = Blog::find($id);
+        $kategorije = KategorijaBlog::all();
         if (! $blog) {
             return abort(404);
         }
@@ -86,6 +90,7 @@ class BlogController extends Controller
         return view('blog.izmeni', [
             'blog' => $blog,
             'title' => $blog->naslov,
+            'kategorije' => $kategorije
         ]);
     }
 
@@ -98,7 +103,7 @@ class BlogController extends Controller
 
         $blog->naslov = $request->input('naslov');
         $blog->sadrzaj = $request->input('sadrzaj');
-        $blog->kategorija = $request->input('kategorija');
+        $blog->kategorija_id = $request->input('kategorija');
         $blog->slika = $request->input('slika');
         $blog->objavljen = $request->input('objavljen');
         $blog->istaknut = $request->input('istaknut');
@@ -161,7 +166,6 @@ class BlogController extends Controller
         if (! $blog) {
             return abort(404);
         }
-        $blog->komentari()->delete();
         $blog->delete();
 
         return redirect(route('blog.list'));

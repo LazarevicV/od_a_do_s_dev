@@ -118,7 +118,7 @@ class ResursController extends Controller
             $font->fajlovi()->delete();
             $font->delete();
         });
-        $resurs->video_tutorijali()->delete();
+        $resurs->videoTutorijali()->delete();
         $resurs->delete();
 
         return redirect(route('resurs.list'));

@@ -69,13 +69,11 @@
 											<a>Админ мени</a>
 											<ul class="dropdown" >
 												<li><a href="{{route('blog.list')}}" class="dropdaun">Блогови</a></li>
-												<li><a href="{{route('komentar.list')}}" class="dropdaun">Коментари</a></li>
 												<li><a href="{{route('alat.list')}}" class="dropdaun">Алати</a></li>
 												<li><a href="{{route('resurs.list')}}" class="dropdaun">Ресурси</a></li>
 												<li><a href="{{route('font.list')}}" class="dropdaun">Фонтови</a></li>
 												<li><a href="{{route('videoTutorijal.list')}}" class="dropdaun">Видео туторијали</a></li>
                                                 <li><a href="{{route('korisnici.list')}}" class="dropdaun">Корисници</a></li>
-												<li><a href="{{route('kontakt.list')}}" class="dropdaun">Контакт</a></li>
 											</ul>
 										</li>
 									@endif
@@ -147,25 +145,6 @@
                         <li><a href="#"><span class="icon-linkedin"></span></a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="col-lg-4 ps-lg-5">
-                <div class="widget">
-					<div style="text-align: center;"><h3>Контакт форма</h3></div>
-					<form action="#" method="post">
-						<div class="mb-3">
-							<label for="email" class="form-label">Е-пошта:</label>
-							<input type="email" class="form-control border border-white text-white" name="email" required>
-						</div>
-						<div class="mb-3">
-							<label for="message" class="form-label">Порука:</label>
-							<textarea class="form-control border border-white text-white" name="sadrzaj" rows="4" required></textarea>
-						</div>
-						<div class="d-flex justify-content-center">
-							<button type="submit" class="btn btn-primary bg-light text-primary">Пошаљи</button>
-						</div>
-					</form>
-				</div>
-				
             </div>
         </div>
 
