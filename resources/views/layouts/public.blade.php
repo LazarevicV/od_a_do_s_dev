@@ -69,6 +69,7 @@
 											<a>Админ мени</a>
 											<ul class="dropdown" >
 												<li><a href="{{route('blog.list')}}" class="dropdaun">Блогови</a></li>
+												<li><a href="{{route('kategorija.list')}}" class="dropdaun">Категорије блогова</a></li>
 												<li><a href="{{route('alat.list')}}" class="dropdaun">Алати</a></li>
 												<li><a href="{{route('resurs.list')}}" class="dropdaun">Ресурси</a></li>
 												<li><a href="{{route('font.list')}}" class="dropdaun">Фонтови</a></li>

@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('kategorija_blogs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('naziv', 64)->charset('utf8mb4')->collate('utf8mb4_unicode_ci');;
+            $table->string('naziv', 64)->charset('utf8mb4')->collate('utf8mb4_unicode_ci');
+            $table->boolean('objavljen')->default(0);
         });
     }
 

@@ -58,7 +58,7 @@ class BlogController extends Controller
 
     public function unesi()
     {
-        $kategorije=KategorijaBlog::all();
+        $kategorije=KategorijaBlog::where('objavljen',1)->get();
         return view('blog.unesi', [
             'title' => 'Унеси блог',
             'kategorije' => $kategorije
@@ -90,7 +90,7 @@ class BlogController extends Controller
     public function izmeni($id)
     {
         $blog = Blog::find($id);
-        $kategorije = KategorijaBlog::all();
+        $kategorije=KategorijaBlog::where('objavljen',1)->get();
         if (! $blog) {
             return abort(404);
         }
