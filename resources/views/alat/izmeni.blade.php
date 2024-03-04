@@ -31,9 +31,6 @@
             </div>
         </form>
     </div>
-<<<<<<< HEAD
-@endsection
-=======
 
     <script>
         tinymce.init({
@@ -50,4 +47,3 @@
     </script>
 
 @endsection
->>>>>>> origin/igor

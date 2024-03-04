@@ -18,11 +18,10 @@ class DatabaseSeeder extends Seeder
             FontSeeder::class,
             FileSeeder::class,
             VideoTutorijalSeeder::class,
+            KategorijaBlogSeeder::class,
             BlogSeeder::class,
             AlatSeeder::class,
             UserSeeder::class,
-            KomentarSeeder::class,
-            KontaktSeeder::class,
         ]);
     }
 }

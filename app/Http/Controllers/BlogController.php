@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\KategorijaBlog;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -39,7 +40,7 @@ class BlogController extends Controller
 
     public static function uputstva()
     {
-        $blogovi = Blog::where('kategorija', 'Упутства')->where('objavljen', 1)->get();
+        $blogovi = Blog::where('kategorija_id', '1')->where('objavljen', 1)->get();
 
         return $blogovi;
     }
@@ -57,8 +58,10 @@ class BlogController extends Controller
 
     public function unesi()
     {
+        $kategorije=KategorijaBlog::where('objavljen',1)->get();
         return view('blog.unesi', [
             'title' => 'Унеси блог',
+            'kategorije' => $kategorije
         ]);
     }
 
@@ -67,18 +70,27 @@ class BlogController extends Controller
         $blog = new Blog();
         $blog->naslov = $request->input('naslov');
         $blog->sadrzaj = $request->input('sadrzaj');
-        $blog->kategorija = $request->input('kategorija');
-        $blog->slika = $request->input('slika');
+        $blog->kategorija_id = $request->input('kategorija');
+    
+        if ($request->hasFile('slika')) {
+            $slika = $request->file('slika');
+            $imeSlike = time() . '.' . $slika->getClientOriginalExtension();
+            $slika->move(public_path('img'), $imeSlike);
+            $blog->slika = $imeSlike;
+        }
+    
         $blog->objavljen = $request->input('objavljen');
         $blog->istaknut = $request->input('istaknut');
         $blog->save();
-
+    
         return redirect(route('blog.list'))->with('info', 'Запис је унет.');
     }
+    
 
     public function izmeni($id)
     {
         $blog = Blog::find($id);
+        $kategorije=KategorijaBlog::where('objavljen',1)->get();
         if (! $blog) {
             return abort(404);
         }
@@ -86,26 +98,40 @@ class BlogController extends Controller
         return view('blog.izmeni', [
             'blog' => $blog,
             'title' => $blog->naslov,
+            'kategorije' => $kategorije
         ]);
     }
 
     public function izmeniSubmit(Request $request, $id)
     {
         $blog = Blog::find($id);
-        if (! $blog) {
+        if (!$blog) {
             return abort(404);
         }
 
         $blog->naslov = $request->input('naslov');
         $blog->sadrzaj = $request->input('sadrzaj');
-        $blog->kategorija = $request->input('kategorija');
-        $blog->slika = $request->input('slika');
+        $blog->kategorija_id = $request->input('kategorija');
+
+        if ($request->hasFile('slika')) {
+            $staraSlika = public_path('img/' . $blog->slika);
+            if (file_exists($staraSlika)) {
+                @unlink($staraSlika);
+            }
+            $slika = $request->file('slika');
+            $imeSlike = time() . '.' . $slika->getClientOriginalExtension();
+            $slika->move(public_path('img'), $imeSlike);
+            $blog->slika = $imeSlike;
+        }
+
         $blog->objavljen = $request->input('objavljen');
         $blog->istaknut = $request->input('istaknut');
         $blog->save();
 
         return redirect(route('blog.list'))->with('info', 'Запис је измењен.');
     }
+
+
 
     public function publish($id)
     {
@@ -161,7 +187,6 @@ class BlogController extends Controller
         if (! $blog) {
             return abort(404);
         }
-        $blog->komentari()->delete();
         $blog->delete();
 
         return redirect(route('blog.list'));

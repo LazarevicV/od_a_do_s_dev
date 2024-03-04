@@ -1,8 +1,3 @@
-## ############################################################################################ ##
-
-# Hakaton ćirilica - OD A DO Š - Tri praseta
-
-## ############################################################################################ ##
 
 # Inicijalno postavljanje projekta(sve što treba da se uradi pre nego se pokrene projekat)
 
@@ -42,7 +37,9 @@ U .env fajlu popunite vrednosti za DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME i 
 Kada je sve podešeno po koracima u .env fajlu možete migrirati bazu podataka. Ovo će kreirati sve tabele neophodne aplikaciji u vašoj bazi podataka.
 `php artisan migrate`
 
-## ############################################################################################ ##
+## 11. Seedovanje baze 
+Pokrenite seedovanje baze kako bi se podaci uneli u bazu podataka.
+`php artisan db:seed`
 
 # Pokretanje projekta na local hostu
 
@@ -53,16 +50,3 @@ Kada je sve podešeno po koracima u .env fajlu možete migrirati bazu podataka. 
 Da biste pokrenuli lokalni razvojni server, možete pokrenuti sledeću komandu. Ovo će pokrenuti razvojni server na http://localhost:8000.
 `php artisan serve`
 
-## ############################################################################################ ##
-
-## Dodatne informacije:
-
-## Da biste videli admin deo stranice možete da se prijavite sa podacima:
-## -email: peraperic@gmail.com
-## -lozinka: perapera
-
-## Ako želite da se prijavite kao obični korisnik možete ga dodati preko register stranice ili se prijaviti sa podacima:
-## -email: mikamikic@gmail.com
-## -lozinka: mika
-
-## ############################################################################################ ##
