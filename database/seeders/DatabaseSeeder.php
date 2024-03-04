@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             AlatSeeder::class,
             UserSeeder::class,
             KomentarSeeder::class,
+            KontaktSeeder::class,
         ]);
     }
 }

@@ -4,8 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
 class CheckRole
 {
@@ -19,11 +19,12 @@ class CheckRole
         $rolesToCheck = explode(':', $roles);
         if (Auth::check()) {
             foreach ($rolesToCheck as $r) {
-                if (Auth::user()->access_level == trim($r) && (!empty($r) || $r === null)) {
+                if (Auth::user()->access_level == trim($r) && (! empty($r) || $r === null)) {
                     return $next($request);
                 }
             }
         }
+
         return redirect()->route('pocetna');
     }
 }

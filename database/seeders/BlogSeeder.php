@@ -83,7 +83,7 @@ class BlogSeeder extends Seeder
                 'kategorija' => 'Ресурси',
                 'slika' => 'areal.png',
                 'objavljen' => 1,
-                'istaknut' => 1,    
+                'istaknut' => 1,
             ],
             [
                 'naslov' => 'Латиница и ћирилица на истом сајту: СЕО водич за подешавање хрефланг тага',

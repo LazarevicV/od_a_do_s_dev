@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class VideoTutorijal extends Model
 {
     use HasFactory;
+
     public function resurs()
     {
         return $this->belongsTo(Resurs::class);
