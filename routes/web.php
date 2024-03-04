@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlatController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\FontController;
 use App\Http\Controllers\KategorijaBlogController;
 use App\Http\Controllers\ProfileController;
@@ -38,6 +39,10 @@ Route::get('/упутства', function () {
         'title' => 'Упутства',
     ]);
 })->name('uputstva');
+
+Route::controller(Controller::class)->group(function () {
+    Route::get('/претрага', 'pretraga')->name('pretraga');
+});
 
 Route::get('/dashboard', function () {
     return redirect()->route('pocetna');
