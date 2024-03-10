@@ -103,7 +103,12 @@
                                     </li>
 
                                     <li><a href="{{route('blog.blogovi')}}">Блог</a></li>
-
+                                    <li>
+                                        <form action="{{ route('pretraga') }}" method="get">
+                                            <input type="text" name="pretraga" id="pretraga" placeholder="Претрага">
+                                            <button type="submit">Претражи</button>
+                                        </form>
+                                    </li>
                                     @if (Auth::check())
                                     <li><a href="{{route('profile.edit')}}">Профил</a></li>
                                     <form action="{{route('logout')}}" method="POST">

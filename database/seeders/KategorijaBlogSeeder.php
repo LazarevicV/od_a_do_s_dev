@@ -15,25 +15,25 @@ class KategorijaBlogSeeder extends Seeder
     {   
         $kb = new KategorijaBlog();
         $kb->id = 1;
-        $kb->naziv = 'упутство';
+        $kb->naziv = 'Упутства';
         $kb->objavljen = 1;
         $kb->save();
 
         $kb = new KategorijaBlog();
         $kb->id = 2;
-        $kb->naziv = 'ресурс';
+        $kb->naziv = 'Ресурси';
         $kb->objavljen = 1;
         $kb->save();
 
         $kb = new KategorijaBlog();
         $kb->id = 3;
-        $kb->naziv = 'занимљивост';
+        $kb->naziv = 'Занимљивости';
         $kb->objavljen = 1;
         $kb->save();
 
         $kb = new KategorijaBlog();
         $kb->id = 4;
-        $kb->naziv = 'некатегорисан';
+        $kb->naziv = 'Некатегорисани';
         $kb->objavljen = 1;
         $kb->save();
     }
