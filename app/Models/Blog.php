@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
-    public function komentari()
+    public function kategorija()
     {
-        return $this->hasMany(Komentar::class);
+        return $this->belongsTo(KategorijaBlog::class);
     }
 }

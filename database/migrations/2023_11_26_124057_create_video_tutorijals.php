@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('video_tutorijals', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('naziv',64)->charset('utf8mb4')->collate('utf8mb4_unicode_ci');
+            $table->string('naziv', 64)->charset('utf8mb4')->collate('utf8mb4_unicode_ci');
             $table->text('opis')->charset('utf8mb4')->collate('utf8mb4_unicode_ci');
             $table->text('embed_video');
             $table->boolean('objavljen')->default(0);

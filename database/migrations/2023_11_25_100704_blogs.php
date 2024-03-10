@@ -16,10 +16,12 @@ return new class extends Migration
             $table->timestamps();
             $table->string('naslov', 128)->charset('utf8mb4')->collate('utf8mb4_unicode_ci');
             $table->text('sadrzaj')->charset('utf8mb4')->collate('utf8mb4_unicode_ci');
-            $table->string('kategorija',32)->charset('utf8mb4')->collate('utf8mb4_unicode_ci');
-            $table->string('slika')->nullable();
+            $table->string('slika');
             $table->boolean('objavljen')->default(0);
             $table->boolean('istaknut')->default(0);
+
+            $table->unsignedBigInteger('kategorija_id');
+            $table->foreign('kategorija_id')->references('id')->on('kategorija_blogs');
         });
     }
 
