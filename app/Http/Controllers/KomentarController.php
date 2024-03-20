@@ -22,7 +22,7 @@ class KomentarController extends Controller
     public function unpublishKorisnik($id)
     {
         $komentar = Komentar::find($id);
-        if (! $komentar) {
+        if (!$komentar) {
             return abort(404);
         }
         $komentar->objavljen = 0;
@@ -45,7 +45,7 @@ class KomentarController extends Controller
     public function publish($id)
     {
         $komentar = Komentar::find($id);
-        if (! $komentar) {
+        if (!$komentar) {
             return abort(404);
         }
         $komentar->objavljen = 1;
@@ -57,7 +57,7 @@ class KomentarController extends Controller
     public function unpublish($id)
     {
         $komentar = Komentar::find($id);
-        if (! $komentar) {
+        if (!$komentar) {
             return abort(404);
         }
         $komentar->objavljen = 0;
@@ -69,7 +69,7 @@ class KomentarController extends Controller
     public function obrisi($id)
     {
         $komentar = Komentar::find($id);
-        if (! $komentar) {
+        if (!$komentar) {
             return abort(404);
         }
         $komentar->user()->dissociate();

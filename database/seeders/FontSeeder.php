@@ -134,9 +134,9 @@ class FontSeeder extends Seeder
         $f->opis = 'Неопланта БГ је деликатно књижно писмо израженог контраста међу потезима. Најбоље се понаша у величинама у којима се уобичајено слажу књиге, при штампи на квалитетнијем папиру. У увећањима долазе до изражаја његове елегантне класичне пропорције и фини издужени серифи.
 
         Неопланта је настала као резултат испитивања типографских писама у књигама деветнаестог века, штампаних после озваничења Вукове реформе. Као основ за реконструкцију изабран је пример писма из књиге »Словенски музеум« Валтазара Богишића, штампане у Платоновој књигопечатњи у Новом Саду, 1867. године. Даљим радом изведен је курзив, као и одговарајућа слова латинице.
-        
+
         Фонтови садрже сва слова и знаке из основног латиничног кодног распореда, као и слова српске ћирилице и латинице.
-        
+
         Фонтови су у OpenType формату, с обзиром да сви савремени оперативни системи и рачунарски програми могу да препознају и користе тај формат.';
         $f->link_detaljno = 'https://www.tipometar.org/aktuelno/akcija!/NeoplantaBG/Index.html';
         $f->resurs_id = 1;
@@ -194,123 +194,122 @@ class FontSeeder extends Seeder
         $f->resurs_id = 1;
         $f->objavljen = true;
         $f->save();
-        
-        $f=new Font();
-        $f->id=18;
-        $f->naziv="Banana";
-        $f->opis='';
-        $f->link_detaljno='https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
-        $f->resurs_id=1;
-        $f->objavljen=true;
+
+        $f = new Font();
+        $f->id = 18;
+        $f->naziv = "Banana";
+        $f->opis = '';
+        $f->link_detaljno = 'https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
+        $f->resurs_id = 1;
+        $f->objavljen = true;
         $f->save();
 
-        $f=new Font();
-        $f->id=19;
-        $f->naziv="Bipolar";
-        $f->opis='';
-        $f->link_detaljno='https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
-        $f->resurs_id=1;
-        $f->objavljen=true;
+        $f = new Font();
+        $f->id = 19;
+        $f->naziv = "Bipolar";
+        $f->opis = '';
+        $f->link_detaljno = 'https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
+        $f->resurs_id = 1;
+        $f->objavljen = true;
         $f->save();
 
-        $f=new Font();
-        $f->id=20;
-        $f->naziv="Cevka";
-        $f->opis='';
-        $f->link_detaljno='https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
-        $f->resurs_id=1;
-        $f->objavljen=true;
+        $f = new Font();
+        $f->id = 20;
+        $f->naziv = "Cevka";
+        $f->opis = '';
+        $f->link_detaljno = 'https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
+        $f->resurs_id = 1;
+        $f->objavljen = true;
         $f->save();
 
-        $f=new Font();
-        $f->id=21;
-        $f->naziv="Kapak";
-        $f->opis='';
-        $f->link_detaljno='https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
-        $f->resurs_id=1;
-        $f->objavljen=true;
+        $f = new Font();
+        $f->id = 21;
+        $f->naziv = "Kapak";
+        $f->opis = '';
+        $f->link_detaljno = 'https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
+        $f->resurs_id = 1;
+        $f->objavljen = true;
         $f->save();
 
-        $f=new Font();
-        $f->id=22;
-        $f->naziv="KarmaKasha";
-        $f->opis='';
-        $f->link_detaljno='https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
-        $f->resurs_id=1;
-        $f->objavljen=true;
+        $f = new Font();
+        $f->id = 22;
+        $f->naziv = "KarmaKasha";
+        $f->opis = '';
+        $f->link_detaljno = 'https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
+        $f->resurs_id = 1;
+        $f->objavljen = true;
         $f->save();
 
-        $f=new Font();
-        $f->id=23;
-        $f->naziv="KenzoTange";
-        $f->opis='';
-        $f->link_detaljno='https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
-        $f->resurs_id=1;
-        $f->objavljen=true;
+        $f = new Font();
+        $f->id = 23;
+        $f->naziv = "KenzoTange";
+        $f->opis = '';
+        $f->link_detaljno = 'https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
+        $f->resurs_id = 1;
+        $f->objavljen = true;
         $f->save();
 
-        $f=new Font();
-        $f->id=24;
-        $f->naziv="BukyVede";
-        $f->opis='';
-        $f->link_detaljno='https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
-        $f->resurs_id=1;
-        $f->objavljen=true;
+        $f = new Font();
+        $f->id = 24;
+        $f->naziv = "BukyVede";
+        $f->opis = '';
+        $f->link_detaljno = 'https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
+        $f->resurs_id = 1;
+        $f->objavljen = true;
         $f->save();
 
-        $f=new Font();
-        $f->id=25;
-        $f->naziv="Konstelacia";
-        $f->opis='';
-        $f->link_detaljno='https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
-        $f->resurs_id=1;
-        $f->objavljen=true;
+        $f = new Font();
+        $f->id = 25;
+        $f->naziv = "Konstelacia";
+        $f->opis = '';
+        $f->link_detaljno = 'https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
+        $f->resurs_id = 1;
+        $f->objavljen = true;
         $f->save();
 
-        $f=new Font();
-        $f->id=26;
-        $f->naziv="Mountain";
-        $f->opis='';
-        $f->link_detaljno='https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
-        $f->resurs_id=1;
-        $f->objavljen=true;
+        $f = new Font();
+        $f->id = 26;
+        $f->naziv = "Mountain";
+        $f->opis = '';
+        $f->link_detaljno = 'https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
+        $f->resurs_id = 1;
+        $f->objavljen = true;
         $f->save();
 
-        $f=new Font();
-        $f->id=27;
-        $f->naziv="Prestilka";
-        $f->opis='';
-        $f->link_detaljno='https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
-        $f->resurs_id=1;
-        $f->objavljen=true;
+        $f = new Font();
+        $f->id = 27;
+        $f->naziv = "Prestilka";
+        $f->opis = '';
+        $f->link_detaljno = 'https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
+        $f->resurs_id = 1;
+        $f->objavljen = true;
         $f->save();
 
-        $f=new Font();
-        $f->id=28;
-        $f->naziv="Skorid";
-        $f->opis='';
-        $f->link_detaljno='https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
-        $f->resurs_id=1;
-        $f->objavljen=true;
+        $f = new Font();
+        $f->id = 28;
+        $f->naziv = "Skorid";
+        $f->opis = '';
+        $f->link_detaljno = 'https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
+        $f->resurs_id = 1;
+        $f->objavljen = true;
         $f->save();
 
-        $f=new Font();
-        $f->id=29;
-        $f->naziv="Topola";
-        $f->opis='';
-        $f->link_detaljno='https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
-        $f->resurs_id=1;
-        $f->objavljen=true;
+        $f = new Font();
+        $f->id = 29;
+        $f->naziv = "Topola";
+        $f->opis = '';
+        $f->link_detaljno = 'https://www.behance.net/gallery/14508699/TYPOKITCHEN-typography-workshop-(free-fonts)';
+        $f->resurs_id = 1;
+        $f->objavljen = true;
         $f->save();
 
-        $f=new Font();
-        $f->id=30;
-        $f->naziv="Constantine";
-        $f->opis='';
-        $f->link_detaljno='https://www.dafont.com/constantine.font';
-        $f->resurs_id=1;
-        $f->objavljen=true;
+        $f = new Font();
+        $f->id = 30;
+        $f->naziv = "Constantine";
+        $f->opis = '';
+        $f->link_detaljno = 'https://www.dafont.com/constantine.font';
+        $f->resurs_id = 1;
+        $f->objavljen = true;
         $f->save();
-        
     }
 }

@@ -59,7 +59,7 @@ class ResursController extends Controller
     public function izmeni($id)
     {
         $resurs = Resurs::find($id);
-        if (! $resurs) {
+        if (!$resurs) {
             return abort(404);
         }
 
@@ -72,7 +72,7 @@ class ResursController extends Controller
     public function izmeniSubmit(Request $request, $id)
     {
         $resurs = Resurs::find($id);
-        if (! $resurs) {
+        if (!$resurs) {
             return abort(404);
         }
 
@@ -87,7 +87,7 @@ class ResursController extends Controller
     public function publish($id)
     {
         $resurs = Resurs::find($id);
-        if (! $resurs) {
+        if (!$resurs) {
             return abort(404);
         }
         $resurs->objavljen = 1;
@@ -99,7 +99,7 @@ class ResursController extends Controller
     public function unpublish($id)
     {
         $resurs = Resurs::find($id);
-        if (! $resurs) {
+        if (!$resurs) {
             return abort(404);
         }
         $resurs->objavljen = 0;
@@ -111,14 +111,14 @@ class ResursController extends Controller
     public function obrisi($id)
     {
         $resurs = Resurs::find($id);
-        if (! $resurs) {
+        if (!$resurs) {
             return abort(404);
         }
         $resurs->fontovi->each(function ($font) {
             $font->fajlovi()->delete();
             $font->delete();
         });
-        $resurs->video_tutorijali()->delete();
+        $resurs->videoTutorijali()->delete();
         $resurs->delete();
 
         return redirect(route('resurs.list'));

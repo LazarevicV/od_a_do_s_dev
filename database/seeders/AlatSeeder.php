@@ -87,6 +87,5 @@ class AlatSeeder extends Seeder
         $a->url = 'https://wordpress.org/plugins/allow-cyrillic-usernames/';
         $a->objavljen = true;
         $a->save();
-
     }
 }

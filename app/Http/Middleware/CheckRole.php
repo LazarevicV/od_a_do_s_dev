@@ -19,7 +19,7 @@ class CheckRole
         $rolesToCheck = explode(':', $roles);
         if (Auth::check()) {
             foreach ($rolesToCheck as $r) {
-                if (Auth::user()->access_level == trim($r) && (! empty($r) || $r === null)) {
+                if (Auth::user()->access_level == trim($r) && (!empty($r) || $r === null)) {
                     return $next($request);
                 }
             }

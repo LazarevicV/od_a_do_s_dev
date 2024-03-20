@@ -64,33 +64,33 @@ class FileSeeder extends Seeder
 
             ['naziv' => 'InfluBG.zip', 'font_id' => 16],
 
-            ['naziv'=> 'TeslaOTF.zip', 'font_id'=> 17],
-            
-            ['naziv'=> 'Banana.zip', 'font_id'=> 18],
-            
-            ['naziv'=> 'Bipolar.zip', 'font_id'=> 19],
+            ['naziv' => 'TeslaOTF.zip', 'font_id' => 17],
 
-            ['naziv'=> 'Cevka.zip', 'font_id'=> 20],
+            ['naziv' => 'Banana.zip', 'font_id' => 18],
 
-            ['naziv'=> 'Kapak.zip', 'font_id'=> 21],
+            ['naziv' => 'Bipolar.zip', 'font_id' => 19],
 
-            ['naziv'=> 'KarmaKasha.zip', 'font_id'=> 22],
+            ['naziv' => 'Cevka.zip', 'font_id' => 20],
 
-            ['naziv'=> 'KenzoTange.zip', 'font_id'=> 23],
+            ['naziv' => 'Kapak.zip', 'font_id' => 21],
 
-            ['naziv'=> 'BukyVede.zip', 'font_id'=> 24],
+            ['naziv' => 'KarmaKasha.zip', 'font_id' => 22],
 
-            ['naziv'=> 'Konstelacia.zip', 'font_id'=> 25],
+            ['naziv' => 'KenzoTange.zip', 'font_id' => 23],
 
-            ['naziv'=> 'Mountain.zip', 'font_id'=> 26],
+            ['naziv' => 'BukyVede.zip', 'font_id' => 24],
 
-            ['naziv'=> 'Prestilka.zip', 'font_id'=> 27],
+            ['naziv' => 'Konstelacia.zip', 'font_id' => 25],
 
-            ['naziv'=> 'Skorid.zip', 'font_id'=> 28],
+            ['naziv' => 'Mountain.zip', 'font_id' => 26],
 
-            ['naziv'=> 'Topola.zip', 'font_id'=> 29],
+            ['naziv' => 'Prestilka.zip', 'font_id' => 27],
 
-            ['naziv'=> 'Constantine.zip', 'font_id'=> 30]
+            ['naziv' => 'Skorid.zip', 'font_id' => 28],
+
+            ['naziv' => 'Topola.zip', 'font_id' => 29],
+
+            ['naziv' => 'Constantine.zip', 'font_id' => 30]
         ]);
     }
 }

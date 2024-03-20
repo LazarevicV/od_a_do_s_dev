@@ -1,43 +1,52 @@
 @extends('layouts.public')
 @section('content')
 
-    <div class="container mt-5 col-6">
-        <h1>{{$title}}</h1>
-        <form method="POST" action="{{ route('blog.izmeniSubmit', $blog->id) }}">
-            @csrf
-            <div class="mb-3">
-                <label for="naslov" class="form-label">Наслов (*)</label>
-                <input type="text" required name="naslov" class="form-control" value="{{ $blog->naslov }}">
-            </div>
+<div class="container mt-5 col-6">
+    <h1>{{$title}}</h1>
+    <form method="POST" action="{{ route('blog.izmeniSubmit', $blog->id) }}" enctype="multipart/form-data">
+        @csrf
+        <div class="mb-3">
+            <label for="naslov" class="form-label">Наслов (*)</label>
+            <input type="text" required name="naslov" class="form-control" value="{{ $blog->naslov }}">
+        </div>
 
-            <div class="mb-3">
-                <label for="sadrzaj" class="form-label">Садржај (*)</label>
-                <textarea id="editor" name="sadrzaj" required>{{$blog->sadrzaj}}</textarea>
-            </div>
+        <div class="mb-3">
+            <label for="sadrzaj" class="form-label">Садржај (*)</label>
+            <textarea id="editor" name="sadrzaj" required>{{$blog->sadrzaj}}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="kategorija" class="form-label">Категорија (*)</label>
+            <select required name="kategorija" class="form-control">
+                @foreach ($kategorije as $kategorija)
+                <option value="{{$kategorija->id}}" @if($blog->kategorija->id == $kategorija->id) selected
+                    @endif>{{$kategorija->naziv}}</option>
+                @endforeach
+            </select>
+        </div>
 
-            <div class="mb-3">
-                <label for="kategorija" class="form-label">Категорија (*)</label>
-                <input type="text" required name="kategorija" class="form-control" value="{{ $blog->kategorija }}">
-            </div>
+        <div class="mb-3">
+            <label for="slika" class="form-label">Слика:</label>
+            <input type="file" class="form-control" name="slika" required>
+            @if ($blog->slika)
+            Тренутна слика:
+            <img src="{{ asset('img/' . $blog->slika) }}" width="100" alt="Trenutna slika">
+            @endif
+        </div>
 
-            <div class="mb-3">
-                <label for="slika" class="form-label">Слика:</label>
-                <input type="text" class="form-control" name="slika" value="{{ $blog->slika }}">
-            </div>
+        <input type="hidden" name="objavljen" value="{{ $blog->objavljen }}" readonly>
+        <input type="hidden" name="istaknut" value="{{ $blog->istaknut }}" readonly>
 
-            <input type="hidden" name="objavljen" value="{{ $blog->objavljen }}" readonly>
-            <input type="hidden" name="istaknut" value="{{ $blog->istaknut }}" readonly>
-
-            <div class="mb-3">
-                <div class="row justify-content-center">
-                    <button class="col-3 mx-1 btn btn-primary">
-                        Сачувај
-                    </button>
-                    <a href="{{route('blog.list')}}" class="col-3 mx-1 btn btn-link" style="border: 1px solid #214252;">Откажи</a>
-                </div>
+        <div class="mb-3">
+            <div class="row justify-content-center">
+                <button class="col-3 mx-1 btn btn-primary">
+                    Сачувај
+                </button>
+                <a href="{{route('blog.list')}}" class="col-3 mx-1 btn btn-link"
+                    style="border: 1px solid #214252;">Откажи</a>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 
 
 <script>

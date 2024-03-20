@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\AlatController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\FontController;
-use App\Http\Controllers\KomentarController;
-use App\Http\Controllers\KontaktController;
+use App\Http\Controllers\KategorijaBlogController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResursController;
 use App\Http\Controllers\UserController;
@@ -40,6 +40,10 @@ Route::get('/упутства', function () {
     ]);
 })->name('uputstva');
 
+Route::controller(Controller::class)->group(function () {
+    Route::get('/претрага', 'pretraga')->name('pretraga');
+});
+
 Route::get('/dashboard', function () {
     return redirect()->route('pocetna');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -69,7 +73,6 @@ Route::prefix('/блог')->group(function () {
                 Route::get('/обриши/{id}', 'obrisi')->name('obrisi');
             });
 
-            Route::get('/категорија/{kategorija}', 'kategorija')->name('kategorija');
             Route::get('/{id}', 'blog')->name('blog');
         });
     });
@@ -125,26 +128,6 @@ Route::prefix('/ресурс')->group(function () {
     });
 });
 
-Route::prefix('/коментар')->group(function () {
-    Route::controller(KomentarController::class)->group(function () {
-        Route::name('komentar.')->group(function () {
-            Route::middleware('check_role:admin:user')->group(function () {
-                Route::post('/додај/{blog_id}', 'dodajSubmit')->name('dodajSubmit');
-                Route::get('/обриши-за-корисника/{id}', 'unpublishKorisnik')->name('unpublishKorisnik');
-            });
-
-            Route::middleware('check_role:admin')->group(function () {
-                Route::get('/листа', 'list')->name('list');
-
-                Route::get('/publish/{id}', 'publish')->name('publish');
-                Route::get('/unpublish/{id}', 'unpublish')->name('unpublish');
-
-                Route::get('/обриши/{id}', 'obrisi')->name('obrisi');
-            });
-        });
-    });
-});
-
 Route::get('/фонтови', [FontController::class, 'preview'])->name('fontovi');
 
 Route::prefix('/фонт')->group(function () {
@@ -194,9 +177,9 @@ Route::prefix('/видео-упутство')->group(function () {
 });
 
 Route::middleware('check_role:admin')->group(function () {
-    Route::prefix('/корисници')->group(function() {
-        Route::name('korisnici.')->group(function() {
-            Route::controller(UserController::class)->group(function() {
+    Route::prefix('/корисници')->group(function () {
+        Route::name('korisnici.')->group(function () {
+            Route::controller(UserController::class)->group(function () {
                 Route::get('/листа', 'list')->name('list');
                 Route::get('/измени/{id}', 'izmeni')->name('izmeni');
                 Route::post('/измени/{id}', 'izmeniSubmit')->name('izmeniSubmit');
@@ -209,15 +192,24 @@ Route::middleware('check_role:admin')->group(function () {
 });
 
 Route::middleware('check_role:admin')->group(function () {
-    Route::prefix('/контакт')->group(function() {
-        Route::name('kontakt.')->group(function() {
-            Route::controller(KontaktController::class)->group(function() {
-                Route::get('/листа', 'index')->name('list');
+    Route::prefix('/категорије-блогова')->group(function () {
+        Route::name('kategorija.')->group(function () {
+            Route::controller(KategorijaBlogController::class)->group(function () {
+                Route::get('/листа', 'list')->name('list');
+
+                Route::get('/унеси', 'unesi')->name('unesi');
+                Route::post('/унеси', 'unesiSubmit')->name('unesiSubmit');
+
+                Route::get('/измени/{id}', 'izmeni')->name('izmeni');
+                Route::post('/измени/{id}', 'izmeniSubmit')->name('izmeniSubmit');
+
                 Route::get('/обриши/{id}', 'obrisi')->name('obrisi');
-                Route::get('/прочитано/{id}', 'procitano')->name('check');
+
+                Route::get('/publish/{id}', 'publish')->name('publish');
+                Route::get('/unpublish/{id}', 'unpublish')->name('unpublish');
             });
         });
     });
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

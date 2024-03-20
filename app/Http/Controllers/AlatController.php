@@ -20,7 +20,7 @@ class AlatController extends Controller
     public function alat($id)
     {
         $alat = Alat::find($id);
-        if (! $alat) {
+        if (!$alat) {
             return abort(404);
         }
 
@@ -63,7 +63,7 @@ class AlatController extends Controller
     public function izmeni($id)
     {
         $alat = Alat::find($id);
-        if (! $alat) {
+        if (!$alat) {
             return abort(404);
         }
 
@@ -76,7 +76,7 @@ class AlatController extends Controller
     public function izmeniSubmit(Request $request, $id)
     {
         $alat = Alat::find($id);
-        if (! $alat) {
+        if (!$alat) {
             return abort(404);
         }
 
@@ -92,7 +92,7 @@ class AlatController extends Controller
     public function publish($id)
     {
         $alat = Alat::find($id);
-        if (! $alat) {
+        if (!$alat) {
             return abort(404);
         }
         $alat->objavljen = 1;
@@ -104,7 +104,7 @@ class AlatController extends Controller
     public function unpublish($id)
     {
         $alat = Alat::find($id);
-        if (! $alat) {
+        if (!$alat) {
             return abort(404);
         }
         $alat->objavljen = 0;
@@ -116,7 +116,7 @@ class AlatController extends Controller
     public function obrisi($id)
     {
         $alat = Alat::find($id);
-        if (! $alat) {
+        if (!$alat) {
             return abort(404);
         }
         $alat->delete();

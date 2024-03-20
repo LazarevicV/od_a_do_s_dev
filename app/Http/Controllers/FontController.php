@@ -41,7 +41,7 @@ class FontController extends Controller
     public function unesifile($font_id)
     {
         $font = Font::find($font_id);
-        if (! $font) {
+        if (!$font) {
             return abort(404);
         }
 
@@ -64,7 +64,7 @@ class FontController extends Controller
     public function izmeni($id)
     {
         $font = Font::find($id);
-        if (! $font) {
+        if (!$font) {
             return abort(404);
         }
 
@@ -77,7 +77,7 @@ class FontController extends Controller
     public function izmeniSubmit(Request $request, $id)
     {
         $font = Font::find($id);
-        if (! $font) {
+        if (!$font) {
             return abort(404);
         }
 
@@ -94,7 +94,7 @@ class FontController extends Controller
     public function publish($id)
     {
         $font = Font::find($id);
-        if (! $font) {
+        if (!$font) {
             return abort(404);
         }
         $font->objavljen = 1;
@@ -106,7 +106,7 @@ class FontController extends Controller
     public function unpublish($id)
     {
         $font = Font::find($id);
-        if (! $font) {
+        if (!$font) {
             return abort(404);
         }
         $font->objavljen = 0;
@@ -134,7 +134,7 @@ class FontController extends Controller
     public function obrisi($id)
     {
         $font = Font::find($id);
-        if (! $font) {
+        if (!$font) {
             return abort(404);
         }
         $font->fajlovi()->delete();

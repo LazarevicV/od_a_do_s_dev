@@ -40,7 +40,7 @@ class VideoTutorijalController extends Controller
     public function izmeni($id)
     {
         $videoTutorijal = VideoTutorijal::find($id);
-        if (! $videoTutorijal) {
+        if (!$videoTutorijal) {
             return abort(404);
         }
 
@@ -53,7 +53,7 @@ class VideoTutorijalController extends Controller
     public function izmeniSubmit(Request $request, $id)
     {
         $videoTutorijal = VideoTutorijal::find($id);
-        if (! $videoTutorijal) {
+        if (!$videoTutorijal) {
             return abort(404);
         }
         $videoTutorijal->naziv = $request->input('naziv');
@@ -69,7 +69,7 @@ class VideoTutorijalController extends Controller
     public function publish($id)
     {
         $videoTutorijal = VideoTutorijal::find($id);
-        if (! $videoTutorijal) {
+        if (!$videoTutorijal) {
             return abort(404);
         }
         $videoTutorijal->objavljen = 1;
@@ -81,7 +81,7 @@ class VideoTutorijalController extends Controller
     public function unpublish($id)
     {
         $videoTutorijal = VideoTutorijal::find($id);
-        if (! $videoTutorijal) {
+        if (!$videoTutorijal) {
             return abort(404);
         }
         $videoTutorijal->objavljen = 0;
@@ -93,7 +93,7 @@ class VideoTutorijalController extends Controller
     public function obrisi($id)
     {
         $font = VideoTutorijal::find($id);
-        if (! $font) {
+        if (!$font) {
             return abort(404);
         }
         $font->delete();
