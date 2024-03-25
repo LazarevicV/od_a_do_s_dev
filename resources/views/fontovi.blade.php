@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container mt-4">
+        {{ Breadcrumbs::render('prikaz-svih-fontova') }}
         <div class="col-6 mx-auto">
             <form action="{{ route('fontovi') }}" method="GET" class="mb-3" style="display: flex;">
                 <div class="input-group">
@@ -11,7 +12,7 @@
                     <button type="submit" class="btn btn-primary">Прикажи</button>
                 </div>
             </form>
-            
+
             <div class="row">
                 @foreach ($fonts as $font)
                     <div class="col-12 mb-2">

@@ -2,6 +2,7 @@
 @section('content')
 
 <section class="section posts-entry">
+    {{-- {{ Breadcrumbs::render('home') }} --}}
     <div class="container px-5" style="position: relative; top: 10px;">
         <div class="row mb-4" style="padding-left: 20px">
             <div class="col-sm-6">

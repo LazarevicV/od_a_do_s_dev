@@ -22,6 +22,7 @@ class ResursController extends Controller
         $resurs = Resurs::find($id);
 
         return view('resurs.resurs', [
+            'id' => $id,
             'resurs' => $resurs,
             'title' => $resurs->naziv,
         ]);

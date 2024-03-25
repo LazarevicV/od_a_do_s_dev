@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="container mt-5">
+    {{-- {{ Breadcrumbs::render('uputstva') }} --}}
     <div class="row">
         @foreach ($blogovi as $blog)
         <div class="col-4 mb-4">
