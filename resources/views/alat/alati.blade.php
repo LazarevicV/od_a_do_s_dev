@@ -1,5 +1,8 @@
 @extends('layouts.public')
 @section('content')
+<div>
+    {{-- {{ Breadcrumbs::render('alati') }} --}}
+</div>
 <div class="container mt-5 col-8 mb-5">
     <h1>{{$title}}</h1>
     @if (!empty($alati[0]))

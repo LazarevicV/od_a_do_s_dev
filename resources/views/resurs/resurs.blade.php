@@ -1,6 +1,12 @@
 @extends('layouts.public')
 @section('content')
 <div class="container mt-5 col-8 mb-5">
+
+    @if ($id == 1)
+    {{ Breadcrumbs::render('baza-fontova') }}
+    @else
+    {{ Breadcrumbs::render('video-tutorijali') }}
+    @endif
     @if (!empty($resurs->fontovi[0]))
     <h1>{{$title}} <a href="{{route('fontovi')}}" class="btn btn-primary p-2">Приказ свих фонтова</a></h1>
     @foreach ($resurs->fontovi as $font)
