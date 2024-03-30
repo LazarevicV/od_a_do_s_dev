@@ -17,7 +17,7 @@
                     <div class="col-12 mb-2">
                         <div class="font-preview" style="font-family: '{{ $font->naziv }}'; font-size: 22px;">
                             <p style="display: flex; justify-content: space-between; font-family: 'Roboto Light', sans-serif; font-size: 15px;">
-                                <span>{{ $font->naziv }}</span>
+                                <a href="{{route('font.font',$font->id)}}">{{ $font->naziv }}</a>
                                 <a href="/fonts/cirilica/{{$font->fajlovi[0]->naziv}}">
                                     <i class="bi bi-file-earmark-arrow-down" style="font-size: 22px"></i>
                                 </a>

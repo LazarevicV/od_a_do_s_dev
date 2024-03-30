@@ -137,6 +137,8 @@ Route::prefix('/фонт')->group(function () {
             Route::middleware('check_role:admin')->group(function () {
                 Route::get('/листа', 'list')->name('list');
 
+                Route::get('/{font_id}', 'font')->name('font');
+
                 Route::get('/унеси', 'unesi')->name('unesi');
                 Route::post('/унеси', 'unesiSubmit')->name('unesiSubmit');
                 Route::get('/унеси-датотеку/{font_id}', 'unesifile')->name('unesifile');

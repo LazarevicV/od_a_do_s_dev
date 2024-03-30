@@ -17,6 +17,18 @@ class FontController extends Controller
             'title' => 'Листа фонтова',
         ]);
     }
+    public function font($font_id=null)
+    {
+        $font = Font::find($font_id);
+        if (!$font) {
+            return abort(404);
+        }
+
+        return view('font.font', [
+            'font' => $font,
+            'title' => $font->naziv,
+        ]);
+    }
 
     public function unesi()
     {
