@@ -1,20 +1,51 @@
 @extends('layouts.public')
 @section('content')
-<div>
-    {{-- {{ Breadcrumbs::render('alati') }} --}}
-</div>
-<div class="container mt-5 col-8 mb-5">
-    <h1>{{$title}}</h1>
-    @if (!empty($alati[0]))
-        @foreach ($alati as $alat)
-            @if ($alat->objavljen)
-                <hr>
-                <h4>{{$alat->naziv}} </h4>
-                <img src="{{asset('img/' . $alat->ikonica)}}" alt="">
-                <p>{{$alat->opis}}</p>
-                <a href="{{$alat->url}}" class="btn btn-primary p-2">Линк ка алату</a>
+<section style="height: 60px">
+
+</section>
+<section>
+    <div class="container my-5">
+        <h1 style="font-size: 80px">{{$title}}</h1>
+        <div class="my-5" style="font-size: 22px">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="alati">
+            @if (!empty($alati[0]))
+                @foreach ($alati as $alat)
+                    @if ($alat->objavljen)
+                        <div class="alat d-flex flex-column justify-content-between p-4">
+                            <div class="naslov d-flex justify-content-between pb-3">
+                                <h4>{{$alat->naziv}}</h4>
+                                {{-- <img src="{{ asset('img/.png') }}" alt="" class=""> --}}
+                            </div>
+                            <p class="mb-4">{{$alat->opis}}</p>
+                            <a href="{{$alat->url}}" class="">Линк ка алату</a>
+                        </div>
+                    @endif
+                @endforeach
             @endif
-        @endforeach
-    @endif
-</div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .alati {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+        gap: 25px;
+    }
+
+    .alat {
+        font-size: 18px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background-color: #EFEBDC ;
+    }
+    .alat a{
+        font-size: 22px;
+    }
+    *{
+        color: #000933;
+    }
+</style>
 @endsection

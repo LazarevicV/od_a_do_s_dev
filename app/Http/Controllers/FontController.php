@@ -126,13 +126,21 @@ class FontController extends Controller
 
         return redirect(route('font.list'));
     }
-
     public function preview(Request $request)
     {
-        $fonts = Font::all()->sortByDesc('id');
-        $message = $request->input('message', 'Упишите поруку коју желите да видите');
-
-        return view('fontovi', compact('fonts', 'message'), ['title' => 'Fontovi']);
+        $fonts = Font::all()->sortBy('id');
+        $message = $request->input('message', 'Овде иде текст за тестирање фонтова');
+        $style = $request->input('style', 'svi');
+    
+        if ($style === 'all' || $style === 'svi') {
+            $filteredFonts = $fonts;
+        } else {
+            $filteredFonts = $fonts->filter(function ($font) use ($style) {
+                return stripos($font->naziv, $style) !== false;
+            });
+        }
+    
+        return view('fontovi', compact('filteredFonts', 'message', 'style'), ['title' => 'Фонтови']);
     }
 
     public function obrisi($id)
