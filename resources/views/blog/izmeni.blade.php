@@ -26,7 +26,7 @@
 
         <div class="mb-3">
             <label for="slika" class="form-label">Слика:</label>
-            <input type="file" class="form-control" name="slika" required>
+            <input type="file" class="form-control" name="slika">
             @if ($blog->slika)
             Тренутна слика:
             <img src="{{ asset('img/' . $blog->slika) }}" width="100" alt="Trenutna slika">
