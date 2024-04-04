@@ -136,13 +136,8 @@
                 @foreach ($filteredFonts as $font)
                     <div class="col-12 mb-2">
                         <div class="font-preview" style="font-family: '{{ $font->naziv }}'; font-size: 22px;">
-<<<<<<< HEAD
                             <p style="display: flex; justify-content: space-between; font-size: 15px;">
                                 <span>{{ $font->naziv }}</span>
-=======
-                            <p style="display: flex; justify-content: space-between; font-family: 'Roboto Light', sans-serif; font-size: 15px;">
-                                <a href="{{route('font.font',$font->id)}}">{{ $font->naziv }}</a>
->>>>>>> origin/mgacic
                                 <a href="/fonts/cirilica/{{$font->fajlovi[0]->naziv}}">
                                     <i class="bi bi-file-earmark-arrow-down" style="font-size: 22px"></i>
                                 </a>

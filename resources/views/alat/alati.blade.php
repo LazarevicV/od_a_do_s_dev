@@ -1,6 +1,5 @@
 @extends('layouts.public')
 @section('content')
-
 <section style="height: 60px">
 
 </section>

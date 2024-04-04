@@ -2,7 +2,6 @@
 @section('content')
 <section style="height: 60px">
 
-
 </section>
 <section>
     <div class="container my-5">
@@ -10,10 +9,6 @@
         <div class="my-5" style="font-size: 22px">
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
         </div>
-    </div>
-<section>
-
-<div class="container mt-5">
     <div class="row">
         @foreach ($blogovi as $blog)
         <div class="col-4 mb-4">
