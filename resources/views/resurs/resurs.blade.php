@@ -5,15 +5,7 @@
 <section style="height: 60px">
 
 </section>
-
-<div class="container mt-5 col-8 mb-5">
-
-    {{-- @if ($id == 1)
-    {{ Breadcrumbs::render('baza-fontova') }}
-    @else
-    {{ Breadcrumbs::render('video-tutorijali') }}
-    @endif --}}
-
+<div class="container my-5">
     @if (!empty($resurs->fontovi[0]))
         <div style="height: 500px;" class="d-flex ">
             <div class="col-7">

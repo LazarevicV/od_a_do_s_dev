@@ -4,7 +4,7 @@
 
     <div class="container " style="background-color: #EFEBDC">
         <section style="height: 160px">
-            {{ Breadcrumbs::render('prikaz-svih-fontova') }}
+
         </section>
         <div class="col-6 mx-auto">
             <form action="{{ route('fontovi') }}" method="GET" class="mb-3" style="display: flex;">
