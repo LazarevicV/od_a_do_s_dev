@@ -2,7 +2,7 @@
 @section('content')
 <div class="container my-5 col-6">
     <h1>{{$title}}</h1>
-    <form action="{{ route('alat.unesiSubmit') }}" method="POST">
+    <form action="{{ route('alat.unesiSubmit') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="naziv" class="form-label">Назив:</label>
@@ -12,6 +12,12 @@
         <div class="mb-3">
             <label for="opis" class="form-label">Опис:</label>
             <textarea class="form-control" name="opis" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="ikonica" class="form-label">Иконица:</label>
+            <input type="file" class="form-control" name="ikonica" id="ikonica" accept="image/*" required>
+            <img id="imagePreview" src="#" alt="Odabrana ikonica" style="display:none" width="100"/>
         </div>
 
         <div class="mb-3">
@@ -35,7 +41,17 @@
         </div>
     </form>
 </div>
-
+<script>
+    document.getElementById('ikonica').addEventListener('change', function(event){
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('imagePreview');
+            output.src = reader.result;
+            output.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    });
+</script>
 <script>
     tinymce.init({
             selector: '#editor',

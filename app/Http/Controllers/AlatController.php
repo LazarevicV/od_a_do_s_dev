@@ -54,6 +54,14 @@ class AlatController extends Controller
         $alat->naziv = $request->input('naziv');
         $alat->opis = $request->input('opis');
         $alat->objavljen = $request->input('objavljen');
+
+        if ($request->hasFile('ikonica')) {
+            $ikonica = $request->file('ikonica');
+            $imeSlike = time() . '.' . $ikonica->getClientOriginalExtension();
+            $ikonica->move(public_path('img'), $imeSlike);
+            $alat->ikonica = $imeSlike;
+        }
+
         $alat->url = $request->input('url');
         $alat->save();
 
@@ -83,6 +91,18 @@ class AlatController extends Controller
         $alat->naziv = $request->input('naziv');
         $alat->opis = $request->input('opis');
         $alat->objavljen = $request->input('objavljen');
+        
+        if ($request->hasFile('ikonica')) {
+            $staraIkonica = public_path('img/' . $alat->ikonica);
+            if (file_exists($staraIkonica)) {
+                @unlink($staraIkonica);
+            }
+            $ikonica = $request->file('ikonica');
+            $imeIkonice = time() . '.' . $ikonica->getClientOriginalExtension();
+            $ikonica->move(public_path('img'), $imeIkonice);
+            $alat->ikonica = $imeIkonice;
+        }
+
         $alat->url = $request->input('url');
         $alat->save();
 

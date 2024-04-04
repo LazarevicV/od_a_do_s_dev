@@ -25,7 +25,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <script src="https://cdn.tiny.cloud/1/YOUR_API_KEY/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/8v3b971q7hj0d1fl7gh8kxyl31oyrlout36k8wr8ykfoiliy/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
     <link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}">
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
@@ -50,23 +50,19 @@
 
         <nav class="site-nav">
             <div class="container">
-                <div class="menu-bg-wrap">
-                    <div class="site-navigation">
-                        <div class="row g-0 align-items-center">
-                            <div class="col-3 d-flex align-items-center">
-                                <a href="{{route('pocetna')}}">
-                                    <img src="{{ asset('img/logo1.png') }}" alt="" class="img-fluid">
+                    <div class="site-navigation col-12 d-flex align-items-center justify-content-between">
+                            <div class="col-1 d-flex justify-content-left">
+                                <a class="mt-5" href="{{route('pocetna')}}">
+                                    <img src="{{ asset('img/logo.png') }}" alt="" class="" style="width: 100%">
                                 </a>
                             </div>
-
-                            <div class="col-9">
-                                <form action="#" class="search-form d-inline-block d-lg-none">
+                            <div class="col-7">
+                                {{-- <form action="#" class="search-form d-inline-block d-lg-none">
                                     <input type="text" class="form-control" placeholder="Search...">
                                     <span class="bi-search"></span>
-                                </form>
+                                </form> --}}
 
-                                <ul class="col-8 js-clone-nav text-start site-menu d-flex justify-content-between"
-                                    style="margin-left:150px!important;">
+                                <ul class=" js-clone-nav text-start site-menu d-flex justify-content-between">
                                     @if (Auth::check() and Auth::user()->hasRole('admin'))
                                     <li class="has-children">
                                         <a>Админ мени</a>
@@ -101,12 +97,23 @@
                                                     туторијали</a></li>
                                         </ul>
                                     </li>
+                                    <li><a href="#">Форум</a></li>
 
                                     <li><a href="{{route('blog.blogovi')}}">Блог</a></li>
                                     <li>
-                                        <form action="{{ route('pretraga') }}" method="get">
-                                            <input type="text" name="pretraga" id="pretraga" placeholder="Претрага">
-                                            <button type="submit">Претражи</button>
+                                        <form action="{{ route('pretraga') }}" method="get" class="d-flex align-items-center">
+                                            <input type="text" name="pretraga" id="pretraga" placeholder="Претрага" style="width: 135px; height: 35px;">
+                                            <button 
+                                            type="submit"
+                                            style="background-color: transparent;
+											border: none;
+											cursor: pointer;
+											padding-top: 0.3em;
+											font-family: inherit;
+											font-size: 24px;
+											color: #b7bbbf;">                                                
+                                                <span class="bi-search"></span>
+                                            </button>
                                         </form>
                                     </li>
                                     @if (Auth::check())
@@ -126,14 +133,17 @@
                                     </form>
                                     {{-- </li> --}}
                                     @else
-                                    <li><a href="{{route('login')}}">Улогуј се</a></li>
-                                    <li><a href="{{route('register')}}">Региструј се</a></li>
+                                    <li style="background-color: #D6CFBA;
+                                    border: none;
+                                    border-radius: 5px;
+                                    padding: 0px 10px;
+                                    cursor: pointer;
+                                    "><a style="color: #000E75!important;" href="{{route('login')}}">Пријавите се</a></li>
+                                    {{-- <li><a href="{{route('register')}}">Региструј се</a></li> --}}
                                     @endif
                                 </ul>
                             </div>
-                        </div>
                     </div>
-                </div>
             </div>
         </nav>
     </nav>
@@ -143,32 +153,40 @@
     @yield('content')
 
 
-    <footer class="site-footer mt-auto">
+    <footer class="site-footer mt-auto pb-0">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 offset-lg-2">
-                    <div class="widget">
-                        <p>Добродошли на наш веб портал, где се заступамо за коришћење ћирилице на интернету. Пружамо
-                            платформу за креативно и инклузивно дељење информација и искустава на ћириличном писму.</p>
+                <div class="container d-flex justify-content-between">
+                    <div class="widget col-7 d-flex white align-items-end">
+                        <div class="col-2">
+                            <img src="{{ asset('img/logo.png') }}" alt="" class="" style="width: 100%">
+                        </div>
+                        <div class="col-8 p-3">
+                            <p class="m-0" style="font-size: 18px">Иницијална верзија сајта иманаћирилици.срб настала је на истоименом хакатону. Млади програмери који су креирали решење наставили су разраду уз подршку РНИДС-а и испоручили сајт који нуди алате, ресурсе и креира простор за размену знања за употребу ћирилице у дигиталном окружењу. </p>
+                        </div>
                     </div>
-                    <div class="widget">
-                        <h3>Друштвене мреже</h3>
-                        <ul class="list-unstyled social">
-                            <li><a href="#"><span class="icon-instagram"></span></a></li>
-                            <li><a href="#"><span class="icon-twitter"></span></a></li>
-                            <li><a href="#"><span class="icon-facebook"></span></a></li>
-                            <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                        </ul>
+                    <div class="widget col-3 d-flex flex-column white justify-content-center align-items-end m-0">
+                        <div class="col-8">
+                            <img src="{{ asset('img/rnids_logo_footer.png') }}" alt="" class="" style="width: 100%">
+                        </div>
+                        <div class="col-12 py-3 d-flex flex-column align-items-end">
+                            <p class="mb-1" style="text-align: right">Пратите нас на друштвеним мрежама</p>
+                            <ul class="list-unstyled social">
+                                <li><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                                <li><a href="#"><span class="icon-instagram"></span></a></li>
+                                <li><a href="#"><span class="icon-youtube bi bi-youtube"></span></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="row mt-2">
-                <div class="col-12 text-center">
-                    <p class="m-0">Copyright &copy;<script>
-                            document.write(new Date().getFullYear());
-                        </script>. Три прасета.</p>
-                </div>
+        </div>
+        <div class="py-2" style="background-color: #EFEBDC; padding: 0px 240px;">
+            <div>
+                <p class="m-0" style="text-align: right; font-size:18px; color:#000E75;">Copyrights &copy;<script>
+                        document.write(new Date().getFullYear());
+                    </script>.</p>
             </div>
         </div>
     </footer>
@@ -185,6 +203,9 @@
 
         .dropdaun {
             font-size: 16px !important;
+        }
+        .site-footer *{
+            color: #ffffff;
         }
     </style>
 

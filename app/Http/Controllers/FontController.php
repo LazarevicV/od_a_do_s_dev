@@ -17,6 +17,18 @@ class FontController extends Controller
             'title' => 'Листа фонтова',
         ]);
     }
+    public function font($font_id=null)
+    {
+        $font = Font::find($font_id);
+        if (!$font) {
+            return abort(404);
+        }
+
+        return view('font.font', [
+            'font' => $font,
+            'title' => $font->naziv,
+        ]);
+    }
 
     public function unesi()
     {
@@ -117,10 +129,10 @@ class FontController extends Controller
     public function preview(Request $request)
     {
         $fonts = Font::all()->sortBy('id');
-        $message = $request->input('message', 'Упишите поруку коју желите да видите');
-        $style = $request->input('style', 'all');
+        $message = $request->input('message', 'Овде иде текст за тестирање фонтова');
+        $style = $request->input('style', 'svi');
     
-        if ($style === 'all') {
+        if ($style === 'all' || $style === 'svi') {
             $filteredFonts = $fonts;
         } else {
             $filteredFonts = $fonts->filter(function ($font) use ($style) {
@@ -128,7 +140,7 @@ class FontController extends Controller
             });
         }
     
-        return view('fontovi', compact('filteredFonts', 'message', 'style'), ['title' => 'Fontovi']);
+        return view('fontovi', compact('filteredFonts', 'message', 'style'), ['title' => 'Фонтови']);
     }
 
     public function obrisi($id)

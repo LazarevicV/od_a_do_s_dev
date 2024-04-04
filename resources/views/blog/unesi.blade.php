@@ -26,7 +26,8 @@
         </div>
         <div class="mb-3">
             <label for="slika" class="form-label">Слика:</label>
-            <input type="file" class="form-control" name="slika" required>
+            <input type="file" class="form-control" name="slika" id="imageUpload" accept="image/*" required>
+            <img id="imagePreview" src="#" alt="Odabrana slika" style="display:none; max-width: 500px; max-height: 500px;"/>
         </div>
 
         <div class="mb-3">
@@ -54,7 +55,19 @@
         </div>
     </form>
 </div>
-
+<script>
+    document.getElementById('imageUpload').addEventListener('change', function(event){
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('imagePreview');
+            output.src = reader.result;
+            output.style.display = 'block';
+            output.style.height = '50px';
+            output.style.width = 'auto';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    });
+</script>
 <script>
     tinymce.init({
             selector: '#editor',
@@ -65,7 +78,8 @@
             },
             plugins: 'code powerpaste casechange importcss searchreplace autolink advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker imagetools textpattern noneditable help formatpainter permanentpen pageembed charmap mentions quickbars linkchecker advtable',
             menubar: 'edit view insert format tools table tc',
-            toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | charmap | fullscreen code | insertfile image media pageembed link anchor'
+            toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | charmap | fullscreen code | insertfile image media pageembed link anchor',
+            content_style: "* {font-family: 'OrtoRNIDS-Regular'; }"
         });
 </script>
 
