@@ -1,11 +1,14 @@
 @extends('layouts.public')
 
 @section('content')
-
-<section style="height: 60px">
-
-</section>
-<div class="container my-5">
+<div class="container mt-5  mb-5">
+    <section class="d-flex align-items-center pt-4" style="height: 70px">
+        @if ($id == 1)
+        {{ Breadcrumbs::render('baza-fontova') }}
+        @else
+        {{ Breadcrumbs::render('video-tutorijali') }}
+        @endif
+    </section>
     @if (!empty($resurs->fontovi[0]))
         <div style="height: 500px;" class="d-flex ">
             <div class="col-7">
