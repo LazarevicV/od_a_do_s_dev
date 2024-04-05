@@ -141,10 +141,6 @@
     height: 33.333%;
 }
 
-*{
-    color: #000933;
-}
-
 .site-footer{
     color: #ffffff;
 }

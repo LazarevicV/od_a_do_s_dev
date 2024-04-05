@@ -136,9 +136,11 @@
                                     <li style="background-color: #D6CFBA;
                                     border: none;
                                     border-radius: 5px;
-                                    padding: 0px 10px;
+                                    padding: 0px 4px!important;
                                     cursor: pointer;
-                                    "><a style="color: #000E75!important;" href="{{route('login')}}">Пријавите се</a></li>
+                                    height: 37px;
+                                    margin-top: 4px;
+                                    "><a style="color: #000E75!important; font-size: 16px;" href="{{route('login')}}">Пријавите се</a></li>
                                     {{-- <li><a href="{{route('register')}}">Региструј се</a></li> --}}
                                     @endif
                                 </ul>

@@ -12169,7 +12169,7 @@ fieldset:disabled .btn {
 .site-nav .site-navigation .site-menu > li > a {
     width: auto;
     font-size: 18px;
-    padding: 10px 10px;
+    padding: 8px 4px;
     display: inline-block;
     text-decoration: none !important;
     color: rgba(255, 255, 255, 0.7);
