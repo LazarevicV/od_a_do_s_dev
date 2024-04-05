@@ -68,6 +68,66 @@
                             </div>                        
                         </div>
                     </div>
+                <div class="container-fluid p-0">
+                    <div class="col-12 d-flex mb-2">
+                        <div class="col-6 pe-2">
+                            <div class="d-flex">
+                                <form action="{{ route('pretraga') }}" method="get">
+                                    <input type="text" name="pretraga" id="pretraga" placeholder="Претражите фонтове" class="border-0 col-10 p-2" style="font-size: 18px;">
+                                    <button 
+                                    class="rounded-end col-2"
+                                    type="submit"
+                                    style="background-color: transparent;
+                                    display: flex;
+                                    justify-content: center;
+                                    border: none;
+                                    cursor: pointer;
+                                    padding-top: 0.3em;
+                                    font-family: inherit;
+                                    font-size: 24px;
+                                    color: #ffffff;
+                                    background-color: #000E75">                                                
+                                        <span class="bi-search"></span>
+                                    </button>
+                                </form>                            
+                            </div>                        
+                        </div>
+
+                        {{-- treba izbaciti style i ubaciti promenjive za vrste i tezine --}}
+
+                        <div class="col-3 p-0 ">
+                            <select name="style" class="col-12 border-0 rounded-0 bg-white" style="height: 100%">
+                                <option value="svi"{{ $style === 'svi' ? ' selected' : '' }}>Врста</option>
+                                <option value="all"{{ $style === 'all' ? ' selected' : '' }}>Врста 1</option>
+                                <option value="regular"{{ $style === 'regular' ? ' selected' : '' }}>Врста 2</option>
+                                <option value="bold"{{ $style === 'bold' ? ' selected' : '' }}>Врста 3</option>
+                                <option value="italic"{{ $style === 'italic' ? ' selected' : '' }}>Врста 4</option>
+                                <option value="bolditalic"{{ $style === 'bolditalic' ? ' selected' : '' }}>Врста 5</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-3 p-0 ps-2">
+                            <select name="style" class="col-12 border-0 rounded-0 bg-white" style="height: 100%">
+                                <option value="svi"{{ $style === 'svi' ? ' selected' : '' }}>Тежина</option>
+                                <option value="all"{{ $style === 'all' ? ' selected' : '' }}>Svi</option>
+                                <option value="regular"{{ $style === 'regular' ? ' selected' : '' }}>Regular</option>
+                                <option value="bold"{{ $style === 'bold' ? ' selected' : '' }}>Bold</option>
+                                <option value="italic"{{ $style === 'italic' ? ' selected' : '' }}>Italic</option>
+                                <option value="bolditalic"{{ $style === 'bolditalic' ? ' selected' : '' }}>Bold Italic</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class=" mb-1">
+                        <div class="col-12">
+                            <div class="input-group">
+                                <textarea name="message" id="message" class="col-10 m-0 border-0 p-2 bg-white">{{ $message }}</textarea>
+                                <div class="col-2">
+                                    <button type="submit" class="btn btn-primary" style="height: 100%; width:100%;">Прикажи</button>
+                                </div>
+                            </div>                        
+                        </div>
+                    </div>
                 </div>
                 
             </form>
