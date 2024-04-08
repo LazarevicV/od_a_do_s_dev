@@ -117,7 +117,7 @@
                                         </form>
                                     </li>
                                     @if (Auth::check())
-                                    <li><a href="{{route('profile.edit')}}">Профил</a></li>
+                                    {{-- <li><a href="{{route('profile.edit')}}">Профил</a></li> --}}
                                     <form action="{{route('logout')}}" method="POST">
                                         @csrf
                                         <button style="background-color: transparent;

@@ -15,9 +15,9 @@
                 @foreach ($alati as $alat)
                     @if ($alat->objavljen)
                         <div class="alat d-flex flex-column justify-content-between p-4">
-                            <div class="naslov d-flex justify-content-between pb-3">
+                            <div class="naslov d-flex justify-content-between align-items-center pb-3">
                                 <h4>{{$alat->naziv}}</h4>
-                                {{-- <img src="{{ asset('img/.png') }}" alt="" class=""> --}}
+                                <img src="{{ asset('img/' . $alat->ikonica) }}" alt="" class="" style="height: 100%">
                             </div>
                             <p class="mb-4">{{$alat->opis}}</p>
                             <a href="{{$alat->url}}" class="">Линк ка алату</a>

@@ -13940,12 +13940,7 @@ textarea {
     color: #000e75;
 }
 
-.font-preview {
-    border-radius: 8px;
-    background-color: #f4f4f4;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+
 
 @font-face {
     font-family: "Adamant_BG";

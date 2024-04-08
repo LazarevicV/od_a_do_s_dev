@@ -14,11 +14,10 @@
             <div class="col-7">
                 <h1 class="mb-5" style="font-size: 80px; color: #000E75;">База фонтова</h1>
                 <p style="font-size: 22px">
-                    Видео туториjали представљају неизоставан извор образовања за широк спектар интересовања, укључујући области као што су SEO оптимизација и употреба ћирилице.
+                    Фонтови играју кључну улогу у дизајну пружајући визуелни идентитет, тон и побољшавајући читљивост.
                 </p>
                 <p style="font-size: 22px">
-                    Ови туториали обезбеђују визуелно и лако разумљиво учење, што је посебно битно за брзо усвајање и примену комплексних концепата. Независно од области примене, видео туториали су кључни за унапређење разумевања и успешну примену различитих вештина и техника.
-                </p>      
+                    За дизајнере који стварају садржај на српском, доступност различитих ћириличних фонтова је од суштинског значаја, омогућавајући им усаглашавање са културним нијансама и постизање хармоничне комбинације естетског привлачења и језичке аутентичности у њиховим дизајнима.                </p>      
                 <a href="{{route('fontovi')}}" class="btn btn-primary p-3" style="font-size: 16px">Тестирајте приказе</a>
             </div>
             <div class="col-5 d-flex justify-content-center">
@@ -30,7 +29,7 @@
                 <div class="p-4 d-flex flex-column justify-content-between" style="width: 49%; background-color:#EFEBDC;">
                     @if ($font->objavljen)
                     <div>
-                        <h4 class="mb-4" style="font-size: 42px">{{$font->naziv}} </h4>
+                        <h4 class="mb-4" style="font-size: 42px"><a href="{{ route('font.font', $font->id) }}">{{ $font->naziv }}</a> </h4>
                         <p style="font-size: 18px">{{$font->opis}}</p>
                         @if (!empty($font->link_detaljno))
                             <a href="{{$font->link_detaljno}}" target="_blank" style="font-size: 18px">Детаљније о фонту.</a>

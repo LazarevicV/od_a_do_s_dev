@@ -133,11 +133,10 @@ Route::get('/фонтови', [FontController::class, 'preview'])->name('fontovi
 Route::prefix('/фонт')->group(function () {
     Route::controller(FontController::class)->group(function () {
         Route::name('font.')->group(function () {
-
+            Route::get('/{font_id}', 'font')->name('font');
+            
             Route::middleware('check_role:admin')->group(function () {
                 Route::get('/листа', 'list')->name('list');
-
-                Route::get('/{font_id}', 'font')->name('font');
 
                 Route::get('/унеси', 'unesi')->name('unesi');
                 Route::post('/унеси', 'unesiSubmit')->name('unesiSubmit');
