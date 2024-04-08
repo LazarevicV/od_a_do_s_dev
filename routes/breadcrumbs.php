@@ -2,6 +2,8 @@
 
 // Note: Laravel will automatically resolve `Breadcrumbs::` without
 // this import. This is nice for IDE syntax and refactoring.
+
+use App\Models\Blog;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 
 // This import is also not required, and you could replace `BreadcrumbTrail $trail`
@@ -10,35 +12,39 @@ use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 // Home
 Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
-    $trail->push('Home', route('pocetna'));
+    $trail->push('Почетна', route('pocetna'));
+});
+
+Breadcrumbs::for('blogovi', function (BreadcrumbTrail $trail) {
+    $trail->push('Блог', route('blog.blogovi'));
 });
 
 Breadcrumbs::for('razvoj', function (BreadcrumbTrail $trail) {
-    $trail->push('Razvoj', route('resurs.resursi'));
+    $trail->push('Развој', route('resurs.resursi'));
 });
 
 Breadcrumbs::for('alati', function (BreadcrumbTrail $trail) {
     $trail->parent('razvoj');
-    $trail->push('Alati', route('alat.list'));
+    $trail->push('Алати', route('alat.list'));
 });
 
 Breadcrumbs::for('uputstva', function (BreadcrumbTrail $trail) {
     $trail->parent('razvoj');
-    $trail->push('Uputstva', route('uputstva'));
+    $trail->push('Упутства', route('uputstva'));
 });
 
 Breadcrumbs::for('resursi', function (BreadcrumbTrail $trail) {
-    $trail->push('Resursi', route('resurs.resursi'));
+    $trail->push('Ресурси', route('resurs.resursi'));
 });
 
 Breadcrumbs::for('baza-fontova', function (BreadcrumbTrail $trail) {
     $trail->parent('resursi');
-    $trail->push('Baza fontova', route('resurs.resurs', 1));
+    $trail->push('База фонтова', route('resurs.resurs', 1));
 });
 
 Breadcrumbs::for('video-tutorijali', function (BreadcrumbTrail $trail) {
     $trail->parent('resursi');
-    $trail->push('Video tutorijali', route('resurs.resurs', 2));
+    $trail->push('Видео туторијали', route('resurs.resurs', 2));
 });
 
 Breadcrumbs::for('prikaz-svih-fontova', function (BreadcrumbTrail $trail) {
@@ -46,7 +52,15 @@ Breadcrumbs::for('prikaz-svih-fontova', function (BreadcrumbTrail $trail) {
     $trail->push('Приказ свих фонтова', route('fontovi'));
 });
 
+Breadcrumbs::for('blog', function (BreadcrumbTrail $trail) {
+    $trail->push('Блог', route('blog.blogovi'));
+});
 
+Breadcrumbs::for('single-blog', function (BreadcrumbTrail $trail, $id) {
+    $trail->parent('blog');
+    $trenutni_blog = Blog::find($id);
+    $trail->push($trenutni_blog['naslov'], route('blog.blog', ['id' => $id]));
+});
 
 // // Home > Blog
 // Breadcrumbs::for('blog', function (BreadcrumbTrail $trail) {

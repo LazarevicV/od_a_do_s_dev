@@ -4,7 +4,7 @@
 <section>
     <div class="container my-5">
         <section class="d-flex align-items-center pt-4" style="height: 70px">
-            {{ Breadcrumbs::render('uputstva') }}
+            {{ Breadcrumbs::render('blog') }}
         </section>
         <h1 style="font-size: 80px">{{$title}}</h1>
         <div class="my-5" style="font-size: 22px">
