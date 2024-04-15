@@ -2,6 +2,8 @@
 
 // Note: Laravel will automatically resolve `Breadcrumbs::` without
 // this import. This is nice for IDE syntax and refactoring.
+
+use App\Models\Blog;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 
 // This import is also not required, and you could replace `BreadcrumbTrail $trail`
@@ -50,7 +52,15 @@ Breadcrumbs::for('prikaz-svih-fontova', function (BreadcrumbTrail $trail) {
     $trail->push('Приказ свих фонтова', route('fontovi'));
 });
 
+Breadcrumbs::for('blog', function (BreadcrumbTrail $trail) {
+    $trail->push('Блог', route('blog.blogovi'));
+});
 
+Breadcrumbs::for('single-blog', function (BreadcrumbTrail $trail, $id) {
+    $trail->parent('blog');
+    $trenutni_blog = Blog::find($id);
+    $trail->push($trenutni_blog['naslov'], route('blog.blog', ['id' => $id]));
+});
 
 // // Home > Blog
 // Breadcrumbs::for('blog', function (BreadcrumbTrail $trail) {

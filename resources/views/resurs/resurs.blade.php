@@ -47,29 +47,32 @@
         </div>
     @endif
     @if (!empty($resurs->videoTutorijali[0]))
-        <div style="height: 500px;" class="d-flex ">
-            <div class="col-7">
-                <h1 class="mb-5" style="font-size: 80px; color: #000E75;">Видео туторијали</h1>
-                <p style="font-size: 22px">
-                    Видео туториjали представљају неизоставан извор образовања за широк спектар интересовања, укључујући области као што су SEO оптимизација и употреба ћирилице.
-                </p>
-                <p style="font-size: 22px">
-                    Ови туториали обезбеђују визуелно и лако разумљиво учење, што је посебно битно за брзо усвајање и примену комплексних концепата. Независно од области примене, видео туториали су кључни за унапређење разумевања и успешну примену различитих вештина и техника.
-                </p>            
-            </div>
-            <div class="col-5">
-                <img src="{{ asset('img/video-tutorijali.png') }}" alt="" style="width: 100%">
-            </div>
+    <div style="height: 500px;" class="d-flex ">
+        <div class="col-7">
+            <h1 class="mb-5" style="font-size: 80px; color: #000E75;">Видео туторијали</h1>
+            <p style="font-size: 22px">
+                Видео туториjали представљају неизоставан извор образовања за широк спектар интересовања, укључујући
+                области као што су SEO оптимизација и употреба ћирилице.
+            </p>
+            <p style="font-size: 22px">
+                Ови туториали обезбеђују визуелно и лако разумљиво учење, што је посебно битно за брзо усвајање и
+                примену комплексних концепата. Независно од области примене, видео туториали су кључни за унапређење
+                разумевања и успешну примену различитих вештина и техника.
+            </p>
         </div>
-        @foreach ($resurs->videoTutorijali as $vt)
-            {{-- @if ($vt->objavljen) --}}
-            <div class="p-5 mb-5" style="background-color: #EFEBDC">
-                <h4 class="mb-5 mt-3" style="font-size: 42px">{{$vt->naziv}}</h4>
-                <p class="mb-5" style="font-size: 18px">{{$vt->opis}}</p>
-                <div style="text-align: center;">{!! $vt->embed_video !!}</div>
-            </div>
-            {{-- @endif --}}
-        @endforeach
+        <div class="col-5">
+            <img src="{{ asset('img/video-tutorijali.png') }}" alt="" style="width: 100%">
+        </div>
+    </div>
+    @foreach ($resurs->videoTutorijali as $vt)
+    {{-- @if ($vt->objavljen) --}}
+    <div class="p-5 mb-5" style="background-color: #EFEBDC">
+        <h4 class="mb-5 mt-3" style="font-size: 42px">{{$vt->naziv}}</h4>
+        <p class="mb-5" style="font-size: 18px">{{$vt->opis}}</p>
+        <div style="text-align: center;">{!! $vt->embed_video !!}</div>
+    </div>
+    {{-- @endif --}}
+    @endforeach
     @endif
 </div>
 @endsection
