@@ -24,7 +24,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $istaknuti_blogovi = BlogController::istaknuti();
-
     return view('pocetna', [
         'istaknuti_blogovi' => $istaknuti_blogovi,
         'title' => 'Почетна страница',
