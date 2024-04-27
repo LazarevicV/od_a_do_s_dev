@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Familija;
 use App\Models\File;
 use App\Models\Font;
+use App\Models\Tezina;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FontController extends Controller
 {
@@ -32,8 +35,12 @@ class FontController extends Controller
 
     public function unesi()
     {
+        $familije=Familija::all();
+        $tezine=Tezina::all();
         return view('font.unesi', [
             'title' => 'Унеси фонт',
+            'familije' => $familije,
+            'tezine' => $tezine
         ]);
     }
 
@@ -45,7 +52,15 @@ class FontController extends Controller
         $font->link_detaljno = $request->input('link_detaljno');
         $font->objavljen = $request->input('objavljen');
         $font->resurs_id = $request->input('resurs_id');
+        $font->familija_id = $request->input('familija');
         $font->save();
+
+        $tezine = $request->input('tezine', []);
+        foreach ($tezine as $kljuc => $id) {
+            DB::table('tezinas_fonts')->insert([
+                ['font_id'=> intval($font->id), 'tezina_id'=> intval($id)],
+            ]);
+        }
 
         return redirect(route('font.list'))->with('info', 'Запис је унет.');
     }
@@ -79,10 +94,14 @@ class FontController extends Controller
         if (!$font) {
             return abort(404);
         }
+        $familije=Familija::all();
+        $tezine=Tezina::all();
 
         return view('font.izmeni', [
             'font' => $font,
             'title' => $font->naziv,
+            'familije' => $familije,
+            'tezine' => $tezine
         ]);
     }
 
@@ -98,7 +117,15 @@ class FontController extends Controller
         $font->link_detaljno = $request->input('link_detaljno');
         $font->objavljen = $request->input('objavljen');
         $font->resurs_id = $request->input('resurs_id');
+        $font->familija_id = $request->input('familija');
         $font->save();
+        $font->tezine()->detach();
+        $tezine = $request->input('tezine', []);
+        foreach ($tezine as $kljuc => $id) {
+            DB::table('tezinas_fonts')->insert([
+                ['font_id'=> intval($font->id), 'tezina_id'=> intval($id)],
+            ]);
+        }
 
         return redirect(route('font.list'))->with('info', 'Запис је измењен.');
     }
@@ -129,18 +156,62 @@ class FontController extends Controller
     public function preview(Request $request)
     {
         $fonts = Font::all()->sortBy('id');
-        $message = $request->input('message', 'Овде иде текст за тестирање фонтова');
-        $style = $request->input('style', 'svi');
+        $familije = Familija::all();
+        $tezine = Tezina::all();
     
-        if ($style === 'all' || $style === 'svi') {
-            $filteredFonts = $fonts;
-        } else {
-            $filteredFonts = $fonts->filter(function ($font) use ($style) {
-                return stripos($font->naziv, $style) !== false;
-            });
+        return view('fontovi', [
+            'title' => 'Фонтови',
+            'fonts' => $fonts,
+            'familije' => $familije,
+            'tezine'=>$tezine
+        ]);
+    }
+
+    public function pretraga(Request $request)
+    {
+        $familije = Familija::all();
+        $tezine = Tezina::all();
+        if (!empty($request->input('pretraga'))) {
+            $upit=$request->input('pretraga');
+            $pretraga = Font::where(function($query) use ($upit) {
+                $query->where('naziv', 'LIKE', "%$upit%")->orWhere('opis', 'LIKE', "%$upit%");
+            })->where('objavljen', 1)->get();
         }
-    
-        return view('fontovi', compact('filteredFonts', 'message', 'style'), ['title' => 'Фонтови']);
+        else {
+            if (!empty($request->input('familija')) && !empty($request->input('tezina_id'))) {
+                $familija_id = $request->input('familija');
+                $tezina_id = $request->input('tezina_id');
+
+                $pretraga = Font::where('familija_id', $familija_id)
+                    ->whereHas('tezine', function ($query) use ($tezina_id) {
+                        $query->where('tezinas.id', $tezina_id);
+                    })
+                    ->where('objavljen', 1)
+                    ->get();
+            }
+            else if (empty($request->input('tezina_id')) && !empty($request->input('familija'))) {
+                $familija_id=$request->input('familija');
+                $pretraga = Font::where('familija_id', $familija_id)->where('objavljen', 1)->get();
+            }
+            else if (empty($request->input('familija')) && !empty($request->input('tezina_id'))) {
+                $tezina_id=$request->input('tezina_id');
+                $pretraga = Font::whereHas('tezine', function ($query) use ($tezina_id) {
+                    $query->where('tezinas.id', $tezina_id);
+                })->get();
+
+            }
+            if (empty($pretraga)) {
+                return redirect(route('fontovi'));
+            }
+        }
+
+        return view('fontovi', [
+            'title' => 'Фонтови',
+            'fonts' => $pretraga,
+            'familije' => $familije,
+            'tezine'=>$tezine,
+            'message'=>$request->input('message')
+        ]);
     }
 
     public function obrisi($id)
@@ -149,6 +220,7 @@ class FontController extends Controller
         if (!$font) {
             return abort(404);
         }
+        $font->tezine()->detach();
         $font->fajlovi()->delete();
         $font->delete();
 

@@ -26,71 +26,71 @@ class FileSeeder extends Seeder
 
             ['naziv' => 'OrtoRNIDS-woff2.zip', 'font_id' => 3],
 
-            ['naziv' => 'ArealRNIDS-otf.zip', 'font_id' => 4],
+            ['naziv' => 'ArealRNIDS-otf.zip', 'font_id' => 5],
 
-            ['naziv' => 'ArealRNIDS-woff2.zip', 'font_id' => 4],
+            ['naziv' => 'ArealRNIDS-woff2.zip', 'font_id' => 5],
 
-            ['naziv' => 'Optina-otf.zip', 'font_id' => 5],
+            ['naziv' => 'Optina-otf.zip', 'font_id' => 6],
 
-            ['naziv' => 'Optina-woff2.zip', 'font_id' => 5],
+            ['naziv' => 'Optina-woff2.zip', 'font_id' => 6],
 
-            ['naziv' => 'Optina-VF.zip', 'font_id' => 5],
+            ['naziv' => 'Optina-VF.zip', 'font_id' => 6],
 
-            ['naziv' => 'Dijakritika-otf.zip', 'font_id' => 6],
+            ['naziv' => 'Dijakritika-otf.zip', 'font_id' => 7],
 
-            ['naziv' => 'Dijakritika-woff2.zip', 'font_id' => 6],
+            ['naziv' => 'Dijakritika-woff2.zip', 'font_id' => 7],
 
-            ['naziv' => 'NocturnoBG.zip', 'font_id' => 7],
+            ['naziv' => 'NocturnoBG.zip', 'font_id' => 8],
 
-            ['naziv' => 'Resavska BG OTF.zip', 'font_id' => 8],
+            ['naziv' => 'Resavska BG OTF.zip', 'font_id' => 9],
 
-            ['naziv' => 'Resavska BG Sans OTF.zip', 'font_id' => 9],
+            ['naziv' => 'Resavska BG Sans OTF.zip', 'font_id' => 10],
 
-            ['naziv' => 'Resavska BG Sans TTF.zip', 'font_id' => 9],
+            ['naziv' => 'Resavska BG Sans TTF.zip', 'font_id' => 10],
 
-            ['naziv' => 'Adamant BG OTF.zip', 'font_id' => 10],
+            ['naziv' => 'Adamant BG OTF.zip', 'font_id' => 11],
 
-            ['naziv' => 'Adamant BG TTF.zip', 'font_id' => 10],
+            ['naziv' => 'Adamant BG TTF.zip', 'font_id' => 11],
 
-            ['naziv' => 'AdamantSans BG.zip', 'font_id' => 11],
+            ['naziv' => 'AdamantSans BG.zip', 'font_id' => 12],
 
-            ['naziv' => 'NeoplantaBG.zip', 'font_id' => 12],
+            ['naziv' => 'NeoplantaBG.zip', 'font_id' => 13],
 
-            ['naziv' => 'PlatanBG.zip', 'font_id' => 13],
+            ['naziv' => 'PlatanBG.zip', 'font_id' => 14],
 
-            ['naziv' => 'NiokiBG.zip', 'font_id' => 14],
+            ['naziv' => 'NiokiBG.zip', 'font_id' => 15],
 
-            ['naziv' => 'LovelyBG.zip', 'font_id' => 15],
+            ['naziv' => 'LovelyBG.zip', 'font_id' => 16],
 
-            ['naziv' => 'InfluBG.zip', 'font_id' => 16],
+            ['naziv' => 'InfluBG.zip', 'font_id' => 17],
 
-            ['naziv' => 'TeslaOTF.zip', 'font_id' => 17],
+            // ['naziv' => 'TeslaOTF.zip', 'font_id' => 18],
 
-            ['naziv' => 'Banana.zip', 'font_id' => 18],
+            // ['naziv' => 'Banana.zip', 'font_id' => 19],
 
-            ['naziv' => 'Bipolar.zip', 'font_id' => 19],
+            // ['naziv' => 'Bipolar.zip', 'font_id' => 20],
 
-            ['naziv' => 'Cevka.zip', 'font_id' => 20],
+            // ['naziv' => 'Cevka.zip', 'font_id' => 21],
 
-            ['naziv' => 'Kapak.zip', 'font_id' => 21],
+            // ['naziv' => 'Kapak.zip', 'font_id' => 22],
 
-            ['naziv' => 'KarmaKasha.zip', 'font_id' => 22],
+            // ['naziv' => 'KarmaKasha.zip', 'font_id' => 23],
 
-            ['naziv' => 'KenzoTange.zip', 'font_id' => 23],
+            // ['naziv' => 'KenzoTange.zip', 'font_id' => 24],
 
-            ['naziv' => 'BukyVede.zip', 'font_id' => 24],
+            // ['naziv' => 'BukyVede.zip', 'font_id' => 24],
 
-            ['naziv' => 'Konstelacia.zip', 'font_id' => 25],
+            // ['naziv' => 'Konstelacia.zip', 'font_id' => 25],
 
-            ['naziv' => 'Mountain.zip', 'font_id' => 26],
+            // ['naziv' => 'Mountain.zip', 'font_id' => 26],
 
-            ['naziv' => 'Prestilka.zip', 'font_id' => 27],
+            // ['naziv' => 'Prestilka.zip', 'font_id' => 27],
 
-            ['naziv' => 'Skorid.zip', 'font_id' => 28],
+            // ['naziv' => 'Skorid.zip', 'font_id' => 28],
 
-            ['naziv' => 'Topola.zip', 'font_id' => 29],
+            // ['naziv' => 'Topola.zip', 'font_id' => 29],
 
-            ['naziv' => 'Constantine.zip', 'font_id' => 30]
+            // ['naziv' => 'Constantine.zip', 'font_id' => 30]
         ]);
     }
 }

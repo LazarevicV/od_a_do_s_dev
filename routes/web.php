@@ -128,12 +128,11 @@ Route::prefix('/ресурс')->group(function () {
 });
 
 Route::get('/фонтови', [FontController::class, 'preview'])->name('fontovi');
+Route::post('/фонтови', [FontController::class, 'pretraga'])->name('font.pretraga');
 
 Route::prefix('/фонт')->group(function () {
     Route::controller(FontController::class)->group(function () {
         Route::name('font.')->group(function () {
-            Route::get('/{font_id}', 'font')->name('font');
-            
             Route::middleware('check_role:admin')->group(function () {
                 Route::get('/листа', 'list')->name('list');
 
@@ -150,6 +149,7 @@ Route::prefix('/фонт')->group(function () {
 
                 Route::get('/обриши/{id}', 'obrisi')->name('obrisi');
             });
+            Route::get('/{font_id}', 'font')->name('font')->where('font_id', '[0-9]+');
         });
     });
 });

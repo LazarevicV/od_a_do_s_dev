@@ -18,4 +18,12 @@ class Font extends Model
     {
         return $this->belongsTo(Resurs::class);
     }
+    public function familija()
+    {
+        return $this->belongsTo(Familija::class);
+    }
+    public function tezine()
+    {
+        return $this->belongsToMany(Tezina::class, 'tezinas_fonts', 'font_id', 'tezina_id');
+    }
 }
