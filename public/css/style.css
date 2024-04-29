@@ -12169,12 +12169,29 @@ fieldset:disabled .btn {
 .site-nav .site-navigation .site-menu > li > a {
     width: auto;
     font-size: 18px;
-    padding: 8px 4px;
+    padding: 8px 8px;
     display: inline-block;
     text-decoration: none !important;
     color: rgba(255, 255, 255, 0.7);
 }
 .site-nav .site-navigation .site-menu > li > a:hover {
+    color: #fff;
+}
+
+.site-nav .site-navigation .site-menu > div > li {
+    white-space: nowrap;
+    width: auto;
+    display: inline-block;
+}
+.site-nav .site-navigation .site-menu > div > li > a {
+    width: auto;
+    font-size: 18px;
+    padding: 8px 8px;
+    display: inline-block;
+    text-decoration: none !important;
+    color: rgba(255, 255, 255, 0.7);
+}
+.site-nav .site-navigation .site-menu > div >li > a:hover {
     color: #fff;
 }
 
@@ -12194,19 +12211,8 @@ header .bi-search {
 }
 .site-nav .site-navigation .site-menu .has-children > a {
     position: relative;
-    padding-right: 20px;
 }
-.site-nav .site-navigation .site-menu .has-children > a:before {
-    position: absolute;
-    content: "\e313";
-    font-size: 14px;
-    top: 50%;
-    right: 0;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    font-family: "icomoon";
-}
+
 .site-nav .site-navigation .site-menu .has-children .dropdown {
     width: 170px;
     visibility: hidden;
@@ -12498,21 +12504,7 @@ header .bi-search {
     border-radius: 50%;
     border: 1px solid #f8f9fa;
 }
-.site-mobile-menu .site-nav-wrap .arrow-collapse:before {
-    font-size: 14px;
-    z-index: 20;
-    font-family: "icomoon";
-    content: "\e313";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%) rotate(-180deg);
-    -ms-transform: translate(-50%, -50%) rotate(-180deg);
-    transform: translate(-50%, -50%) rotate(-180deg);
-    -webkit-transition: 0.3s all ease;
-    -o-transition: 0.3s all ease;
-    transition: 0.3s all ease;
-}
+
 .site-mobile-menu .site-nav-wrap .arrow-collapse.collapsed:before {
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);

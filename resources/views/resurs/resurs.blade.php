@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
 @section('content')
-<div class="container mt-5  mb-5">
+<div class="container my-5">
     <section class="d-flex align-items-center pt-4" style="height: 70px">
         @if ($id == 1)
         {{ Breadcrumbs::render('baza-fontova') }}

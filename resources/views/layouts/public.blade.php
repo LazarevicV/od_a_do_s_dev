@@ -63,46 +63,50 @@
                                 </form> --}}
 
                                 <ul class=" js-clone-nav text-start site-menu d-flex justify-content-between">
-                                    @if (Auth::check() and Auth::user()->hasRole('admin'))
-                                    <li class="has-children">
-                                        <a>Админ мени</a>
-                                        <ul class="dropdown">
-                                            <li><a href="{{route('blog.list')}}" class="dropdaun">Блогови</a></li>
-                                            <li><a href="{{route('kategorija.list')}}" class="dropdaun">Категорије
-                                                    блогова</a></li>
-                                            <li><a href="{{route('alat.list')}}" class="dropdaun">Алати</a></li>
-                                            <li><a href="{{route('resurs.list')}}" class="dropdaun">Ресурси</a></li>
-                                            <li><a href="{{route('font.list')}}" class="dropdaun">Фонтови</a></li>
-                                            <li><a href="{{route('videoTutorijal.list')}}" class="dropdaun">Видео
-                                                    туторијали</a></li>
-                                            <li><a href="{{route('korisnici.list')}}" class="dropdaun">Корисници</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    @endif
-                                    <li><a href="{{route('pocetna')}}">Почетна</a></li>
-                                    <li class="has-children">
-                                        <a>Развој</a>
-                                        <ul class="dropdown">
-                                            <li><a href="{{route('alat.alati')}}" class="dropdaun">Алати</a></li>
-                                            <li><a href="{{route('uputstva')}}" class="dropdaun">Упутства</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-children">
-                                        <a href="{{route('resurs.resursi')}}">Ресурси</a>
-                                        <ul class="dropdown">
-                                            <li><a href="{{route('resurs.resurs', 1)}}" class="dropdaun">База
-                                                    фонтова</a></li>
-                                            <li><a href="{{route('resurs.resurs', 2)}}" class="dropdaun">Видео
-                                                    туторијали</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Форум</a></li>
 
-                                    <li><a href="{{route('blog.blogovi')}}">Блог</a></li>
+                                    <div class="d-flex text-white ">
+                                        @if (Auth::check() and Auth::user()->hasRole('admin'))
+                                        <li class="has-children">
+                                            <a>Админ мени</a>
+                                            <ul class="dropdown">
+                                                <li><a href="{{route('blog.list')}}" class="dropdaun">Блогови</a></li>
+                                                <li><a href="{{route('kategorija.list')}}" class="dropdaun">Категорије
+                                                        блогова</a></li>
+                                                <li><a href="{{route('alat.list')}}" class="dropdaun">Алати</a></li>
+                                                <li><a href="{{route('resurs.list')}}" class="dropdaun">Ресурси</a></li>
+                                                <li><a href="{{route('font.list')}}" class="dropdaun">Фонтови</a></li>
+                                                <li><a href="{{route('videoTutorijal.list')}}" class="dropdaun">Видео
+                                                        туторијали</a></li>
+                                                <li><a href="{{route('korisnici.list')}}" class="dropdaun">Корисници</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        @endif
+                                        <li><a href="{{route('pocetna')}}">Почетна</a></li>
+                                        <li class="has-children">
+                                            <a>Развој<i class="bi bi-chevron-down" style="padding-left: 3px;"></i></a>
+                                            <ul class="dropdown">
+                                                <li><a href="{{route('alat.alati')}}" class="dropdaun">Алати</a></li>
+                                                <li><a href="{{route('uputstva')}}" class="dropdaun">Упутства</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <a href="{{route('resurs.resursi')}}">Ресурси<i class="bi bi-chevron-down" style="padding-left: 3px;"></i></a>
+                                            <ul class="dropdown">
+                                                <li><a href="{{route('resurs.resurs', 1)}}" class="dropdaun">База
+                                                        фонтова</a></li>
+                                                <li><a href="{{route('resurs.resurs', 2)}}" class="dropdaun">Видео
+                                                        туторијали</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Форум</a></li>
+    
+                                        <li><a href="{{route('blog.blogovi')}}">Блог</a></li>
+                                    </div>
+                                    
                                     <li>
                                         <form action="{{ route('pretraga') }}" method="get" class="d-flex align-items-center">
-                                            <input type="text" name="pretraga" id="pretraga" placeholder="Претрага" style="width: 135px; height: 35px;">
+                                            <input type="text" name="pretraga" id="pretraga" placeholder="Претрага" style="width: 135px; height: 35px; border: none; border-radius: 5px; padding-left: 5px">
                                             <button 
                                             type="submit"
                                             style="background-color: transparent;
