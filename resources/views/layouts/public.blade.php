@@ -84,19 +84,27 @@
                                         @endif
                                         <li><a href="{{route('pocetna')}}">Почетна</a></li>
                                         <li class="has-children">
-                                            <a>Развој<i class="bi bi-chevron-down" style="padding-left: 3px;"></i></a>
+                                            <a>
+                                                Развој
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16" style="padding-left: 3px;">
+                                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                                                </svg>                                                
+                                            </a>
                                             <ul class="dropdown">
                                                 <li><a href="{{route('alat.alati')}}" class="dropdaun">Алати</a></li>
                                                 <li><a href="{{route('uputstva')}}" class="dropdaun">Упутства</a></li>
                                             </ul>
                                         </li>
                                         <li class="has-children">
-                                            <a href="{{route('resurs.resursi')}}">Ресурси<i class="bi bi-chevron-down" style="padding-left: 3px;"></i></a>
+                                            <a href="{{route('resurs.resursi')}}">
+                                                Ресурси
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16" style="padding-left: 3px;">
+                                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                                                </svg>                                                
+                                            </a>
                                             <ul class="dropdown">
-                                                <li><a href="{{route('resurs.resurs', 1)}}" class="dropdaun">База
-                                                        фонтова</a></li>
-                                                <li><a href="{{route('resurs.resurs', 2)}}" class="dropdaun">Видео
-                                                        туторијали</a></li>
+                                                <li><a href="{{route('resurs.resurs', 1)}}" class="dropdaun">База фонтова</a></li>
+                                                <li><a href="{{route('resurs.resurs', 2)}}" class="dropdaun">Видео туторијали</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">Форум</a></li>
