@@ -8,7 +8,9 @@
         </section>
         <h1 style="font-size: 80px">{{$title}}</h1>
         <div class="my-5" style="font-size: 22px">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
         </div>
         <div class="alati">
             @if (!empty($alati[0]))
@@ -40,12 +42,14 @@
         font-size: 18px;
         border: 1px solid #ccc;
         padding: 10px;
-        background-color: #EFEBDC ;
+        background-color: #EFEBDC;
     }
-    .alat a{
+
+    .alat a {
         font-size: 22px;
     }
-    *{
+
+    * {
         color: #000933;
     }
 </style>

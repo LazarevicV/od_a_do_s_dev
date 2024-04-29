@@ -28,6 +28,7 @@ class BlogController extends Controller
         }
 
         return view('blog.blog', [
+            'id' => $id,
             'blog' => $blog,
             'title' => $blog->naslov,
         ]);

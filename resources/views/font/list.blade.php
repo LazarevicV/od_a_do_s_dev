@@ -14,6 +14,7 @@
                     <tr>
                         <th>Назив фонта</th>
                         <th>Фајлови</th>
+                        <th>Фамилија</th>
                         <th style="width: 3em"></th>
                         <th>Измени</th>
                         <th>Објави</th>
@@ -31,6 +32,7 @@
                             {{ $file->naziv }}&nbsp;
                             @endforeach
                         </td>
+                        <td class="align-middle">{{ $font->familija->naziv }}</td>
                         <td>
                             <a href="{{ route('font.unesifile', $font->id) }}" class="btn btn-link btn-sm py-1"
                                 style="border: 1px solid #214252;">

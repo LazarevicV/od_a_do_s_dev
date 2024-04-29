@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             ResursSeeder::class,
+            FamilijaSeeder::class,
             FontSeeder::class,
             FileSeeder::class,
             VideoTutorijalSeeder::class,
@@ -22,6 +23,8 @@ class DatabaseSeeder extends Seeder
             BlogSeeder::class,
             AlatSeeder::class,
             UserSeeder::class,
+            TezinaSeeder::class,
+            TezinaFontSeeder::class,
         ]);
     }
 }

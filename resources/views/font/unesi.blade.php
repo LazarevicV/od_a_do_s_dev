@@ -10,6 +10,31 @@
             </div>
 
             <div class="mb-3">
+                <label for="familija">Врста:</label>
+                <select id="familija" name="familija" class="form-control">
+                    <option disabled selected></option>
+                    @foreach ($familije as $familija)
+                        <option value="{{$familija->id}}">{{$familija->naziv}}</option>
+                    @endforeach
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label for="tezine">Тежине:</label>
+                <div style="display: flex;flex-direction:row;flex-wrap:wrap">
+                    @foreach ($tezine as $tezina)
+                        <div style="display: flex;width:50%;">
+                            <option disabled selected></option>
+                            <div class="form-group">
+                                <input type="checkbox" id="tezine" name="tezine[]" value="{{$tezina->id}}">
+                                <label for="tezine">{{ucwords(str_replace("_", " ", $tezina->naziv))}}</label><br>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="mb-3">
                 <label for="opis" class="form-label">Опис:</label>
                 <textarea class="form-control" name="opis" required></textarea>
             </div>
@@ -18,7 +43,9 @@
                 <label for="link_detaljno" class="form-label">Линк за детаљније:</label>
                 <input type="text" class="form-control" name="link_detaljno">
             </div>
+
             <input type="number" name="resurs_id" value="1" hidden readonly>
+
             <div class="mb-3">
                 <label for="objavljen" class="form-label">Објављен:</label>
                 <select class="form-select" name="objavljen">

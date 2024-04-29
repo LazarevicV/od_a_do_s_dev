@@ -18,6 +18,10 @@ return new class extends Migration
             $table->text('opis')->nullable()->charset('utf8mb4')->collate('utf8mb4_unicode_ci');
             $table->string('link_detaljno')->nullable();
             $table->boolean('objavljen')->default(0);
+            $table->boolean('downloadable')->default(0);
+
+            $table->unsignedBigInteger('familija_id');
+            $table->foreign('familija_id')->references('id')->on('familijas');
 
             $table->unsignedBigInteger('resurs_id');
             $table->foreign('resurs_id')->references('id')->on('resurs');
