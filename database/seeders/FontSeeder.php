@@ -232,6 +232,15 @@ class FontSeeder extends Seeder
         // $f->objavljen = true;
         // $f->save();
         //---------------------------DODATI-------------------------------
+
+
+
+
+
+
+
+
+        
         // $f = new Font();
         // $f->id = 17;
         // $f->naziv = 'Tesla';

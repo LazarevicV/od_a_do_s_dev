@@ -48,12 +48,14 @@
             </div>
         </div>
 
-        <a href="/fonts/cirilica/{{ $font->fajlovi[0]->naziv }}">
-            <button class="btn btn-primary px-3 pt-2 d-flex align-items-center" style="font-size: 15px; padding-bottom: 3px">
-                <p class="mb-0">Преузмите фонт</p> 
-                <i class="ps-2 bi bi-file-earmark-arrow-down" style="font-size: 30px"></i>
-            </button>
-        </a>
+        @if ($font->downloadable)
+            <a href="/fonts/cirilica/{{ $font->fajlovi[0]->naziv }}">
+                <button class="btn btn-primary px-3 pt-2 d-flex align-items-center" style="font-size: 15px; padding-bottom: 3px">
+                    <p class="mb-0">Преузмите фонт</p> 
+                    <i class="ps-2 bi bi-file-earmark-arrow-down" style="font-size: 30px"></i>
+                </button>
+            </a>
+        @endif
         
     </div>
 </div>

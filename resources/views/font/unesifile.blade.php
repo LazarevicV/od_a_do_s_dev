@@ -8,7 +8,7 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" for="images">Фајл:</label>
                 <div class="col-sm-10">
-                    <input type="file" class="form-control" id="fajl" name="fajl" multiple>
+                    <input type="file" class="form-control" id="fajl" name="fajl">
                 </div>
             </div>
 

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Testing\File as TestingFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use ZipArchive;
 
 class FontController extends Controller
 {
@@ -95,7 +96,18 @@ class FontController extends Controller
             $file->move($destination, $path);
                 
             Storage::delete($path);
+            
+            if ($file->getClientOriginalExtension() == 'zip' && empty($font->fajlovi[0])) {
+                $zip = new ZipArchive();
+                $zipPath = $destination . '/' . $naziv;
     
+                if ($zip->open($zipPath) === true) {
+                    $extractPath = $destination . '/fontovi';
+                    $zip->extractTo($extractPath);
+                    $zip->close();
+                }
+            }
+
             $newFile = new File();
             $newFile->font_id = $font->id;
             $newFile->naziv = $naziv;
