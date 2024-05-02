@@ -35,12 +35,14 @@
                             <a href="{{$font->link_detaljno}}" target="_blank" style="font-size: 18px">Детаљније о фонту.</a>
                         @endif
                     </div>
-                    <p style="font-size: 22px;">
-                        @foreach ($font->fajlovi as $file)
-                            <br>
-                            <a href="/fonts/cirilica/{{$file->naziv}}" download> <i class="bi bi-download" style="color: red;"> </i>{{$file->naziv}}</a>
-                        @endforeach
-                    </p>
+                    @if ($font->downloadable)
+                        <p style="font-size: 22px;">
+                            @foreach ($font->fajlovi as $file)
+                                <br>
+                                <a href="/fonts/cirilica/{{$file->naziv}}" download> <i class="bi bi-download" style="color: red;"> </i>{{$file->naziv}}</a>
+                            @endforeach
+                        </p>
+                    @endif
                 @endif
                 </div>
             @endforeach
