@@ -73,6 +73,7 @@
                                             <li><a href="{{route('alat.list')}}" class="dropdaun">Алати</a></li>
                                             <li><a href="{{route('resurs.list')}}" class="dropdaun">Ресурси</a></li>
                                             <li><a href="{{route('font.list')}}" class="dropdaun">Фонтови</a></li>
+                                            <li><a href="{{route('familija.list')}}" class="dropdaun">Фамилије</a>
                                             <li><a href="{{route('videoTutorijal.list')}}" class="dropdaun">Видео
                                                     туторијали</a></li>
                                             <li><a href="{{route('korisnici.list')}}" class="dropdaun">Корисници</a>

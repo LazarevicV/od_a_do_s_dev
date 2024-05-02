@@ -7,7 +7,9 @@ use App\Models\File;
 use App\Models\Font;
 use App\Models\Tezina;
 use Illuminate\Http\Request;
+use Illuminate\Http\Testing\File as TestingFile;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class FontController extends Controller
 {
@@ -80,10 +82,25 @@ class FontController extends Controller
 
     public function unesifileSubmit(Request $request, $font_id)
     {
-        $file = new File();
-        $file->naziv = $request->input('naziv');
-        $file->font_id = $request->input('font_id');
-        $file->save();
+        $font = Font::find($font_id);
+        if (!$font) {
+            return abort(404);
+        }
+        if ($request->hasFile('fajl')) {
+            $file = $request->file('fajl');
+            // $naziv=time() . '_' . $file->getClientOriginalName();
+            $naziv=$file->getClientOriginalName();
+            $path=$file->storeAs('public/fonts/cirilica', $naziv);
+            $destination=public_path('\fonts\cirilica');
+            $file->move($destination, $path);
+                
+            Storage::delete($path);
+    
+            $newFile = new File();
+            $newFile->font_id = $font->id;
+            $newFile->naziv = $naziv;
+            $newFile->save();
+        }
 
         return redirect(route('font.list'))->with('info', 'Запис је унет.');
     }
@@ -221,6 +238,13 @@ class FontController extends Controller
             return abort(404);
         }
         $font->tezine()->detach();
+        foreach ($font->fajlovi as $fajl) {
+            $path = public_path("fonts\cirilica\\" . $fajl->naziv);
+            if (file_exists($path)) {
+                // dd($path);
+                unlink($path);
+            }
+        }
         $font->fajlovi()->delete();
         $font->delete();
 

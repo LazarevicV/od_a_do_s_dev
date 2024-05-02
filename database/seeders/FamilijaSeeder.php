@@ -15,26 +15,32 @@ class FamilijaSeeder extends Seeder
     {
         $f=new Familija();
         $f->naziv='Sanserif';
+        $f->objavljen=1;
         $f->save();
 
         $f=new Familija();
         $f->naziv='Serif';
+        $f->objavljen=1;
         $f->save();
 
         $f=new Familija();
         $f->naziv='Slabserif';
+        $f->objavljen=1;
         $f->save();
 
         $f=new Familija();
         $f->naziv='Knjižno pismo';
+        $f->objavljen=1;
         $f->save();
 
         $f=new Familija();
         $f->naziv='Semiserif';
+        $f->objavljen=1;
         $f->save();
 
         $f=new Familija();
         $f->naziv='Kurziv';
+        $f->objavljen=1;
         $f->save();
     }
 }

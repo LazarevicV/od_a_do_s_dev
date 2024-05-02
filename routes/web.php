@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlatController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\FamilijaController;
 use App\Http\Controllers\FontController;
 use App\Http\Controllers\KategorijaBlogController;
 use App\Http\Controllers\ProfileController;
@@ -208,6 +209,29 @@ Route::middleware('check_ip')->group(function () {
         Route::prefix('/категорије-блогова')->group(function () {
             Route::name('kategorija.')->group(function () {
                 Route::controller(KategorijaBlogController::class)->group(function () {
+                    Route::get('/листа', 'list')->name('list');
+
+                    Route::get('/унеси', 'unesi')->name('unesi');
+                    Route::post('/унеси', 'unesiSubmit')->name('unesiSubmit');
+
+                    Route::get('/измени/{id}', 'izmeni')->name('izmeni');
+                    Route::post('/измени/{id}', 'izmeniSubmit')->name('izmeniSubmit');
+
+                    Route::get('/обриши/{id}', 'obrisi')->name('obrisi');
+
+                    Route::get('/publish/{id}', 'publish')->name('publish');
+                    Route::get('/unpublish/{id}', 'unpublish')->name('unpublish');
+                });
+            });
+        });
+    });
+});
+
+Route::middleware('check_ip')->group(function () {
+    Route::middleware('check_role:admin')->group(function () {
+        Route::prefix('/врста-фонта')->group(function () {
+            Route::name('familija.')->group(function () {
+                Route::controller(FamilijaController::class)->group(function () {
                     Route::get('/листа', 'list')->name('list');
 
                     Route::get('/унеси', 'unesi')->name('unesi');

@@ -2,11 +2,14 @@
 @section('content')
     <div class="container my-5 col-4">
         <h1>{{$title}}</h1>
-        <form action="{{ route('font.unesifileSubmit', $font->id) }}" method="POST">
+        <form action="{{ route('font.unesifileSubmit', $font->id) }}" method="POST"  enctype="multipart/form-data">
             @csrf
-            <div class="mb-3">
-                <label for="naziv" class="form-label">Назив(са екстензијом):</label>
-                <input type="text" class="form-control" name="naziv" required>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="images">Фајл:</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" id="fajl" name="fajl" multiple>
+                </div>
             </div>
 
             <div class="mb-3">
