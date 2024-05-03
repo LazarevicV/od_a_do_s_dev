@@ -63,6 +63,45 @@
                                 </form> --}}
 
                                 <ul class=" js-clone-nav text-start site-menu d-flex justify-content-between">
+<<<<<<< HEAD
+=======
+                                    @if (Auth::check() and Auth::user()->hasRole('admin'))
+                                    <li class="has-children">
+                                        <a>Админ мени</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{{route('blog.list')}}" class="dropdaun">Блогови</a></li>
+                                            <li><a href="{{route('kategorija.list')}}" class="dropdaun">Категорије
+                                                    блогова</a></li>
+                                            <li><a href="{{route('alat.list')}}" class="dropdaun">Алати</a></li>
+                                            <li><a href="{{route('resurs.list')}}" class="dropdaun">Ресурси</a></li>
+                                            <li><a href="{{route('font.list')}}" class="dropdaun">Фонтови</a></li>
+                                            <li><a href="{{route('familija.list')}}" class="dropdaun">Фамилије</a>
+                                            <li><a href="{{route('videoTutorijal.list')}}" class="dropdaun">Видео
+                                                    туторијали</a></li>
+                                            <li><a href="{{route('korisnici.list')}}" class="dropdaun">Корисници</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    @endif
+                                    <li><a href="{{route('pocetna')}}">Почетна</a></li>
+                                    <li class="has-children">
+                                        <a>Развој</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{{route('alat.alati')}}" class="dropdaun">Алати</a></li>
+                                            <li><a href="{{route('uputstva')}}" class="dropdaun">Упутства</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-children">
+                                        <a href="{{route('resurs.resursi')}}">Ресурси</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{{route('resurs.resurs', 1)}}" class="dropdaun">База
+                                                    фонтова</a></li>
+                                            <li><a href="{{route('resurs.resurs', 2)}}" class="dropdaun">Видео
+                                                    туторијали</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Форум</a></li>
+>>>>>>> origin/master
 
                                     <div class="d-flex text-white ">
                                         @if (Auth::check() and Auth::user()->hasRole('admin'))

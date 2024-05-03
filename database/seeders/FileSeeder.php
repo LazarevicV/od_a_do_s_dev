@@ -26,6 +26,10 @@ class FileSeeder extends Seeder
 
             ['naziv' => 'OrtoRNIDS-woff2.zip', 'font_id' => 3],
 
+            ['naziv' => 'NeoGeoRNIDS-otf.zip', 'font_id' => 4],
+
+            ['naziv' => 'NeoGeoRNIDS-woff2.zip', 'font_id' => 4],
+
             ['naziv' => 'ArealRNIDS-otf.zip', 'font_id' => 5],
 
             ['naziv' => 'ArealRNIDS-woff2.zip', 'font_id' => 5],
@@ -63,10 +67,6 @@ class FileSeeder extends Seeder
             ['naziv' => 'LovelyBG.zip', 'font_id' => 16],
 
             ['naziv' => 'InfluBG.zip', 'font_id' => 17],
-
-            // ['naziv' => 'TeslaOTF.zip', 'font_id' => 18],
-
-            // ['naziv' => 'Banana.zip', 'font_id' => 19],
 
             // ['naziv' => 'Bipolar.zip', 'font_id' => 20],
 

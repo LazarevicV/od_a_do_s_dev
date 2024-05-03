@@ -2,7 +2,7 @@
 @section('content')
 <div class="container mt-4">
     <div class="row">
-        <div class="col-8 offset-2">
+        <div class="col-10 offset-1">
             <div class="d-flex justify-content-between align-items-center">
                 <h1>{{ $title }}</h1>
                 <a href="{{ route('font.unesi') }}" class="btn btn-primary btn-sm p-2">

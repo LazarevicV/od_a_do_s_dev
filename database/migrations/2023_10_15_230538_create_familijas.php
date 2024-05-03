@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('naziv');
+            $table->boolean('objavljen')->default(0);
         });
     }
 
