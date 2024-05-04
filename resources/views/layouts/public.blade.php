@@ -25,7 +25,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <script src="https://cdn.tiny.cloud/1/8v3b971q7hj0d1fl7gh8kxyl31oyrlout36k8wr8ykfoiliy/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/8v3b971q7hj0d1fl7gh8kxyl31oyrlout36k8wr8ykfoiliy/tinymce/7/tinymce.min.js"
+        referrerpolicy="origin"></script>
 
     <link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}">
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
@@ -50,81 +51,77 @@
 
         <nav class="site-nav">
             <div class="container">
-                    <div class="site-navigation col-12 d-flex align-items-center justify-content-between">
-                            <div class="col-1 d-flex justify-content-left">
-                                <a class="mt-5" href="{{route('pocetna')}}">
-                                    <img src="{{ asset('img/logo.png') }}" alt="" class="" style="width: 100%">
-                                </a>
-                            </div>
-                            <div class="col-7">
-                                {{-- <form action="#" class="search-form d-inline-block d-lg-none">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="bi-search"></span>
-                                </form> --}}
+                <div class="site-navigation col-12 d-flex align-items-center justify-content-between">
+                    <div class="col-1 d-flex justify-content-left">
+                        <a class="mt-5" href="{{route('pocetna')}}">
+                            <img src="{{ asset('img/logo.png') }}" alt="" class="" style="width: 100%">
+                        </a>
+                    </div>
+                    <div class="col-7">
+                        {{-- <form action="#" class="search-form d-inline-block d-lg-none">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="bi-search"></span>
+                        </form> --}}
 
-                                <ul class=" js-clone-nav text-start site-menu d-flex justify-content-between">
+                        <ul class=" js-clone-nav text-start site-menu d-flex justify-content-between">
+                            @if (Auth::check() and Auth::user()->hasRole('admin'))
+                            <li class="has-children">
+                                <a>Админ мени</a>
+                                <ul class="dropdown">
+                                    <li><a href="{{route('blog.list')}}" class="dropdaun">Блогови</a></li>
+                                    <li><a href="{{route('kategorija.list')}}" class="dropdaun">Категорије
+                                            блогова</a></li>
+                                    <li><a href="{{route('alat.list')}}" class="dropdaun">Алати</a></li>
+                                    <li><a href="{{route('resurs.list')}}" class="dropdaun">Ресурси</a></li>
+                                    <li><a href="{{route('font.list')}}" class="dropdaun">Фонтови</a></li>
+                                    <li><a href="{{route('familija.list')}}" class="dropdaun">Фамилије</a>
+                                    <li><a href="{{route('videoTutorijal.list')}}" class="dropdaun">Видео
+                                            туторијали</a></li>
+                                    <li><a href="{{route('korisnici.list')}}" class="dropdaun">Корисници</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            @endif
+                            <li><a href="{{route('pocetna')}}">Почетна</a></li>
+                            <li class="has-children">
+                                <a>Развој</a>
+                                <ul class="dropdown">
+                                    <li><a href="{{route('alat.alati')}}" class="dropdaun">Алати</a></li>
+                                    <li><a href="{{route('uputstva')}}" class="dropdaun">Упутства</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-children">
+                                <a href="{{route('resurs.resursi')}}">Ресурси</a>
+                                <ul class="dropdown">
+                                    <li><a href="{{route('resurs.resurs', 1)}}" class="dropdaun">База
+                                            фонтова</a></li>
+                                    <li><a href="{{route('resurs.resurs', 2)}}" class="dropdaun">Видео
+                                            туторијали</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Форум</a></li>
 
-                                    <div class="d-flex text-white ">
-                                        @if (Auth::check() and Auth::user()->hasRole('admin'))
-                                        <li class="has-children">
-                                            <a>Админ мени</a>
-                                            <ul class="dropdown">
-                                                <li><a href="{{route('blog.list')}}" class="dropdaun">Блогови</a></li>
-                                                <li><a href="{{route('kategorija.list')}}" class="dropdaun">Категорије
-                                                        блогова</a></li>
-                                                <li><a href="{{route('alat.list')}}" class="dropdaun">Алати</a></li>
-                                                <li><a href="{{route('resurs.list')}}" class="dropdaun">Ресурси</a></li>
-                                                <li><a href="{{route('font.list')}}" class="dropdaun">Фонтови</a></li>
-                                                <li><a href="{{route('videoTutorijal.list')}}" class="dropdaun">Видео
-                                                        туторијали</a></li>
-                                                <li><a href="{{route('korisnici.list')}}" class="dropdaun">Корисници</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        @endif
-                                        <li><a href="{{route('pocetna')}}">Почетна</a></li>
-                                        <li class="has-children">
-                                            <a>Развој<i class="bi bi-chevron-down" style="padding-left: 3px;"></i></a>
-                                            <ul class="dropdown">
-                                                <li><a href="{{route('alat.alati')}}" class="dropdaun">Алати</a></li>
-                                                <li><a href="{{route('uputstva')}}" class="dropdaun">Упутства</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-children">
-                                            <a href="{{route('resurs.resursi')}}">Ресурси<i class="bi bi-chevron-down" style="padding-left: 3px;"></i></a>
-                                            <ul class="dropdown">
-                                                <li><a href="{{route('resurs.resurs', 1)}}" class="dropdaun">База
-                                                        фонтова</a></li>
-                                                <li><a href="{{route('resurs.resurs', 2)}}" class="dropdaun">Видео
-                                                        туторијали</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Форум</a></li>
-    
-                                        <li><a href="{{route('blog.blogovi')}}">Блог</a></li>
-                                    </div>
-                                    
-                                    <li>
-                                        <form action="{{ route('pretraga') }}" method="get" class="d-flex align-items-center">
-                                            <input type="text" name="pretraga" id="pretraga" placeholder="Претрага" style="width: 135px; height: 35px; border: none; border-radius: 5px; padding-left: 5px">
-                                            <button 
-                                            type="submit"
-                                            style="background-color: transparent;
+                            <li><a href="{{route('blog.blogovi')}}">Блог</a></li>
+                            <li>
+                                <form action="{{ route('pretraga') }}" method="get" class="d-flex align-items-center">
+                                    <input type="text" name="pretraga" id="pretraga" placeholder="Претрага"
+                                        style="width: 135px; height: 35px; border: none; border-radius: 5px; padding-left: 5px">
+                                    <button type="submit" style="background-color: transparent;
 											border: none;
 											cursor: pointer;
 											padding-top: 0.3em;
 											font-family: inherit;
 											font-size: 24px;
-											color: #b7bbbf;">                                                
-                                                <span class="bi-search"></span>
-                                            </button>
-                                        </form>
-                                    </li>
-                                    @if (Auth::check())
-                                    {{-- <li><a href="{{route('profile.edit')}}">Профил</a></li> --}}
-                                    <form action="{{route('logout')}}" method="POST">
-                                        @csrf
-                                        <button style="background-color: transparent;
+											color: #b7bbbf;">
+                                        <span class="bi-search"></span>
+                                    </button>
+                                </form>
+                            </li>
+                            @if (Auth::check())
+                            {{-- <li><a href="{{route('profile.edit')}}">Профил</a></li> --}}
+                            <form action="{{route('logout')}}" method="POST">
+                                @csrf
+                                <button style="background-color: transparent;
 											border: none;
 											cursor: pointer;
 											padding-top: 0.6em;
@@ -132,24 +129,25 @@
 											font-size: 18px;
 											width: 98px;
 											color: #b7bbbf;">
-                                            Одјави се
-                                        </button>
-                                    </form>
-                                    {{-- </li> --}}
-                                    @else
-                                    <li style="background-color: #D6CFBA;
+                                    Одјави се
+                                </button>
+                            </form>
+                            {{-- </li> --}}
+                            @else
+                            <li style="background-color: #D6CFBA;
                                     border: none;
                                     border-radius: 5px;
                                     padding: 0px 4px!important;
                                     cursor: pointer;
                                     height: 37px;
                                     margin-top: 4px;
-                                    "><a style="color: #000E75!important; font-size: 16px;" href="{{route('login')}}">Пријавите се</a></li>
-                                    {{-- <li><a href="{{route('register')}}">Региструј се</a></li> --}}
-                                    @endif
-                                </ul>
-                            </div>
+                                    "><a style="color: #000E75!important; font-size: 16px;"
+                                    href="{{route('login')}}">Пријавите се</a></li>
+                            {{-- <li><a href="{{route('register')}}">Региструј се</a></li> --}}
+                            @endif
+                        </ul>
                     </div>
+                </div>
             </div>
         </nav>
     </nav>
@@ -168,7 +166,10 @@
                             <img src="{{ asset('img/logo.png') }}" alt="" class="" style="width: 100%">
                         </div>
                         <div class="col-8 p-3">
-                            <p class="m-0" style="font-size: 18px">Иницијална верзија сајта иманаћирилици.срб настала је на истоименом хакатону. Млади програмери који су креирали решење наставили су разраду уз подршку РНИДС-а и испоручили сајт који нуди алате, ресурсе и креира простор за размену знања за употребу ћирилице у дигиталном окружењу. </p>
+                            <p class="m-0" style="font-size: 18px">Иницијална верзија сајта иманаћирилици.срб настала је
+                                на истоименом хакатону. Млади програмери који су креирали решење наставили су разраду уз
+                                подршку РНИДС-а и испоручили сајт који нуди алате, ресурсе и креира простор за размену
+                                знања за употребу ћирилице у дигиталном окружењу. </p>
                         </div>
                     </div>
                     <div class="widget col-3 d-flex flex-column white justify-content-center align-items-end m-0">
@@ -210,7 +211,8 @@
         .dropdaun {
             font-size: 16px !important;
         }
-        .site-footer *{
+
+        .site-footer * {
             color: #ffffff;
         }
     </style>

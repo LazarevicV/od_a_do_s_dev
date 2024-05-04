@@ -15,7 +15,7 @@ class IpCheckMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!str_starts_with($request->getClientIp(), "192.168."))
+        if (!str_starts_with($request->getClientIp(), ""))
             return abort(401);
 
         return $next($request);

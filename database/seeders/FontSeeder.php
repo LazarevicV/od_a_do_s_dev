@@ -205,33 +205,42 @@ class FontSeeder extends Seeder
          //---------------------------DODATI-------------------------------
         // dodati zip fajlove i opis za sledece fontove
 
-        // $f = new Font();
-        // $f->naziv = 'NotoSans';
-        // $f->opis = '';
-        // $f->link_detaljno = 'https://fonts.google.com/noto/specimen/Noto+Sans';
-        // $f->resurs_id = 1;
-        // $f->familija_id=1;
-        // $f->objavljen = true;
-        // $f->save();
+        $f = new Font();
+        $f->naziv = 'NotoSans';
+        $f->opis = '';
+        $f->link_detaljno = 'https://fonts.google.com/noto/specimen/Noto+Sans';
+        $f->resurs_id = 1;
+        $f->familija_id=1;
+        $f->objavljen = true;
+        $f->save();
 
-        // $f = new Font();
-        // $f->naziv = 'Montserrat';
-        // $f->opis = '';
-        // $f->link_detaljno = 'https://fonts.google.com/specimen/Montserrat';
-        // $f->resurs_id = 1;
-        // $f->familija_id=1;
-        // $f->objavljen = true;
-        // $f->save();
+        $f = new Font();
+        $f->naziv = 'Montserrat';
+        $f->opis = '';
+        $f->link_detaljno = 'https://fonts.google.com/specimen/Montserrat';
+        $f->resurs_id = 1;
+        $f->familija_id=1;
+        $f->objavljen = true;
+        $f->save();
 
-        // $f = new Font();
-        // $f->naziv = 'Merriweather';
-        // $f->opis = '';
-        // $f->link_detaljno = 'https://fonts.google.com/specimen/Merriweather?stroke=Serif&subset=cyrillic-ext&noto.lang=bg_Cyrl';
-        // $f->resurs_id = 1;
-        // $f->familija_id=2;
-        // $f->objavljen = true;
-        // $f->save();
+        $f = new Font();
+        $f->naziv = 'Merriweather';
+        $f->opis = '';
+        $f->link_detaljno = 'https://fonts.google.com/specimen/Merriweather?stroke=Serif&subset=cyrillic-ext&noto.lang=bg_Cyrl';
+        $f->resurs_id = 1;
+        $f->familija_id=2;
+        $f->objavljen = true;
+        $f->save();
         //---------------------------DODATI-------------------------------
+
+
+
+
+
+
+
+
+        
         // $f = new Font();
         // $f->id = 17;
         // $f->naziv = 'Tesla';
