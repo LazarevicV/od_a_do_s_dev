@@ -2,7 +2,7 @@
 @section('content')
 <div class="container mt-4">
     <div class="row">
-        <div class="col-8 offset-2">
+        <div class="col-8 offset-2 mt-4">
             <div class="d-flex justify-content-between align-items-center">
                 <h1>{{ $title }}</h1>
             </div>
@@ -31,19 +31,19 @@
                         @if ($komentar->objavljen)
                         <td style="width: 40px; height: 40px;" class="align-middle">
                             <a href="{{ route('komentar.unpublish', $komentar->id) }}"
-                                class="btn btn-success btn-sm py-1">
+                                class="btn btn-success btn-sm py-1 pt-2">
                                 <span class="bi bi-check-lg" style="font-size: 1.2em;"></span>
                             </a>
                         </td>
                         @else
                         <td style="width: 40px; height: 40px;" class="align-middle">
-                            <a href="{{ route('komentar.publish', $komentar->id) }}" class="btn btn-danger btn-sm py-1">
+                            <a href="{{ route('komentar.publish', $komentar->id) }}" class="btn btn-danger btn-sm py-1 pt-2">
                                 <span class="bi bi-x-lg" style="font-size: 1.2em;"></span>
                             </a>
                         </td>
                         @endif
                         <td style="width: 40px; height: 40px;" class="align-middle">
-                            <a href="{{ route('komentar.obrisi', $komentar->id) }}" class="btn btn-danger btn-sm py-1">
+                            <a href="{{ route('komentar.obrisi', $komentar->id) }}" class="btn btn-danger btn-sm py-1 pt-2">
                                 <span class="bi bi-trash" style="font-size: 1.2em;"></span>
                             </a>
                         </td>

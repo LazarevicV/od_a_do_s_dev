@@ -31,6 +31,7 @@ class FontController extends Controller
         }
 
         return view('font.font', [
+            'id' => $font_id,
             'font' => $font,
             'title' => $font->naziv,
         ]);
@@ -81,41 +82,86 @@ class FontController extends Controller
         ]);
     }
 
+    // public function unesifileSubmit(Request $request, $font_id)
+    // {
+    //     $font = Font::find($font_id);
+    //     if (!$font) {
+    //         return abort(404);
+    //     }
+    //     if ($request->hasFile('fajl')) {
+    //         $file = $request->file('fajl');
+    //         // $naziv=time() . '_' . $file->getClientOriginalName();
+    //         $naziv=$file->getClientOriginalName();
+    //         $path=$file->storeAs('public/fonts/cirilica', $naziv);
+    //         $destination=public_path('\fonts\cirilica');
+    //         $file->move($destination, $path);
+                
+    //         Storage::delete($path);
+            
+    //         if ($file->getClientOriginalExtension() == 'zip' && empty($font->fajlovi[0])) {
+    //             $zip = new ZipArchive();
+    //             $zipPath = $destination . '/' . $naziv;
+    
+    //             if ($zip->open($zipPath) === true) {
+    //                 $extractPath = $destination . '/fontovi';
+    //                 $zip->extractTo($extractPath);
+    //                 $zip->close();
+    //             }
+    //         }
+
+    //         $newFile = new File();
+    //         $newFile->font_id = $font->id;
+    //         $newFile->naziv = $naziv;
+    //         $newFile->save();
+    //     }
+
+    //     return redirect(route('font.list'))->with('info', 'Запис је унет.');
+    // }
+
     public function unesifileSubmit(Request $request, $font_id)
     {
         $font = Font::find($font_id);
         if (!$font) {
             return abort(404);
         }
+    
         if ($request->hasFile('fajl')) {
             $file = $request->file('fajl');
-            // $naziv=time() . '_' . $file->getClientOriginalName();
-            $naziv=$file->getClientOriginalName();
-            $path=$file->storeAs('public/fonts/cirilica', $naziv);
-            $destination=public_path('\fonts\cirilica');
-            $file->move($destination, $path);
-                
-            Storage::delete($path);
-            
+            $naziv = $file->getClientOriginalName();
+            $path = $file->storeAs('public/fonts/cirilica', $naziv);
+            $destination = public_path('\fonts\cirilica');
+            $file->move($destination, $naziv);
+    
+            Storage::delete('public/fonts/cirilica/' . $naziv);
+    
             if ($file->getClientOriginalExtension() == 'zip' && empty($font->fajlovi[0])) {
                 $zip = new ZipArchive();
                 $zipPath = $destination . '/' . $naziv;
     
                 if ($zip->open($zipPath) === true) {
                     $extractPath = $destination . '/fontovi';
-                    $zip->extractTo($extractPath);
+                    // Extract files individually, checking if it's not a directory
+                    for ($i = 0; $i < $zip->numFiles; $i++) {
+                        $fileName = $zip->getNameIndex($i);
+                        // Check if the entry is a directory
+                        if (substr($fileName, -1) !== '/') {
+                            $fileContents = $zip->getFromIndex($i);
+                            file_put_contents($extractPath . '/' . basename($fileName), $fileContents);
+                        }
+                    }
                     $zip->close();
                 }
             }
-
+    
             $newFile = new File();
             $newFile->font_id = $font->id;
             $newFile->naziv = $naziv;
             $newFile->save();
         }
-
+    
         return redirect(route('font.list'))->with('info', 'Запис је унет.');
     }
+    
 
     public function izmeni($id)
     {

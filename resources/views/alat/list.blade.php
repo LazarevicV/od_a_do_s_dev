@@ -1,8 +1,8 @@
 @extends('layouts.public')
 @section('content')
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-8 offset-2">
+<div class="container mt-4" >
+    <div class="row" >
+        <div class="col-8 offset-2 mt-4">
             <div class="d-flex justify-content-between align-items-center">
                 <h1>{{ $title }}</h1>
                 <a href="{{ route('alat.unesi') }}" class="btn btn-primary btn-sm p-2">
@@ -28,27 +28,27 @@
                         <td class="align-middle">
                             <a href="{{ $alat->url }}">{{ $alat->url }}</a>
                         </td>
-                        <td style="width: 40px; height: 40px;" class="align-middle">
-                            <a href="{{ route('alat.izmeni', $alat->id) }}" class="btn btn-primary btn-sm py-1">
-                                <span class="bi bi-pencil" style="font-size: 1.2em;"></span>
+                        <td class="align-middle btn-cell">
+                            <a href="{{ route('alat.izmeni', $alat->id) }}" class="btn btn-primary btn-sm py-1 pt-2">
+                                <span class="bi bi-pencil"></span>
                             </a>
                         </td>
                         @if ($alat->objavljen)
-                        <td style="width: 40px; height: 40px;" class="align-middle">
-                            <a href="{{ route('alat.unpublish', $alat->id) }}" class="btn btn-success btn-sm py-1">
-                                <span class="bi bi-check-lg" style="font-size: 1.2em;"></span>
+                        <td class="align-middle btn-cell">
+                            <a href="{{ route('alat.unpublish', $alat->id) }}" class="btn btn-success btn-sm py-1 pt-2">
+                                <span class="bi bi-check-lg"></span>
                             </a>
                         </td>
                         @else
-                        <td style="width: 40px; height: 40px;" class="align-middle">
-                            <a href="{{ route('alat.publish', $alat->id) }}" class="btn btn-danger btn-sm py-1">
-                                <span class="bi bi-x-lg" style="font-size: 1.2em;"></span>
+                        <td class="align-middle btn-cell">
+                            <a href="{{ route('alat.publish', $alat->id) }}" class="btn btn-danger btn-sm py-1 pt-2">
+                                <span class="bi bi-x-lg"></span>
                             </a>
                         </td>
                         @endif
-                        <td style="width: 40px; height: 40px;" class="align-middle">
-                            <a href="{{ route('alat.obrisi', $alat->id) }}" class="btn btn-danger btn-sm py-1">
-                                <span class="bi bi-trash" style="font-size: 1.2em;"></span>
+                        <td class="align-middle btn-cell">
+                            <a href="{{ route('alat.obrisi', $alat->id) }}" class="btn btn-danger btn-sm py-1  pt-2">
+                                <span class="bi bi-trash"></span>
                             </a>
                         </td>
                     </tr>
@@ -58,4 +58,15 @@
         </div>
     </div>
 </div>
+
+<style>
+    .btn-cell {
+        width: 40px; 
+        height: 40px;
+    }
+
+    .bi {
+        font-size: 1.2em;
+    }
+</style>
 @endsection

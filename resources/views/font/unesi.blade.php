@@ -1,6 +1,6 @@
 @extends('layouts.public')
 @section('content')
-    <div class="container my-5 col-4">
+    <div class="container my-5 col-6">
         <h1>{{$title}}</h1>
         <form action="{{ route('font.unesiSubmit') }}" method="POST">
             @csrf
@@ -10,7 +10,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="familija">Врста:</label>
+                <label for="familija" class="form-label">Врста:</label>
                 <select id="familija" name="familija" class="form-control">
                     <option disabled selected></option>
                     @foreach ($familije as $familija)
@@ -20,10 +20,10 @@
             </div>
             
             <div class="mb-3">
-                <label for="tezine">Тежине:</label>
-                <div style="display: flex;flex-direction:row;flex-wrap:wrap">
+                <label for="tezine" class="form-label">Тежине:</label>
+                <div class="tezine">
                     @foreach ($tezine as $tezina)
-                        <div style="display: flex;width:50%;">
+                        <div class="tezina">
                             <option disabled selected></option>
                             <div class="form-group">
                                 <input type="checkbox" id="tezine" name="tezine[]" value="{{$tezina->id}}">
@@ -54,8 +54,15 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Унеси</button>
-            <a href="{{route('font.list')}}" class="col-3 mx-1 btn btn-link" style="border: 1px solid #214252;">Откажи</a>
+
+            <div class="mb-3">
+                <div class="row justify-content-center">
+                    <button type="submit" class="col-2 btn btn-primary">Унеси</button>
+                    <a href="{{route('font.list')}}" class="col-2 mx-1 btn btn-link otkazi">Откажи</a>
+                </div>
+            </div>
         </form>
     </div>
+
+
 @endsection

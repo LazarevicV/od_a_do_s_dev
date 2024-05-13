@@ -4,6 +4,7 @@
 // this import. This is nice for IDE syntax and refactoring.
 
 use App\Models\Blog;
+use App\Models\Font;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 
 // This import is also not required, and you could replace `BreadcrumbTrail $trail`
@@ -50,6 +51,12 @@ Breadcrumbs::for('video-tutorijali', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('prikaz-svih-fontova', function (BreadcrumbTrail $trail) {
     $trail->parent('baza-fontova');
     $trail->push('Приказ свих фонтова', route('fontovi'));
+});
+
+Breadcrumbs::for('single-font', function (BreadcrumbTrail $trail, $id) {
+    $trail->parent('baza-fontova');
+    $trenutni_font = Font::find($id);
+    $trail->push($trenutni_font['naziv'], route('font.font', ['font_id' => $id]));
 });
 
 Breadcrumbs::for('blog', function (BreadcrumbTrail $trail) {

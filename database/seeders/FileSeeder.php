@@ -68,6 +68,12 @@ class FileSeeder extends Seeder
 
             ['naziv' => 'InfluBG.zip', 'font_id' => 17],
 
+            ['naziv' => 'NotoSans.zip', 'font_id' => 18],
+
+            ['naziv' => 'Montserrat.zip', 'font_id' => 19],
+
+            ['naziv' => 'Merriweather.zip', 'font_id' => 20],
+
             // ['naziv' => 'Bipolar.zip', 'font_id' => 20],
 
             // ['naziv' => 'Cevka.zip', 'font_id' => 21],

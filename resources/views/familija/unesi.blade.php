@@ -26,4 +26,9 @@
         </form>
     </div>
 
+    <style>
+        .otkazi{
+            border: 1px solid #214252;
+        }
+    </style>
 @endsection

@@ -23,7 +23,7 @@
             <div class="mb-3">
                 <div class="row justify-content-center">
                     <button type="submit" class="col-2 mx-1 btn btn-primary">Унеси</button>
-                    <a href="{{route('resurs.list')}}" class="col-2 mx-1 btn btn-link" style="border: 1px solid #214252;">Откажи</a>
+                    <a href="{{route('resurs.list')}}" class="col-2 mx-1 btn btn-link otkazi">Откажи</a>
                 </div>
             </div>
         </form>

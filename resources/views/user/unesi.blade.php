@@ -1,6 +1,6 @@
 @extends('layouts.public')
 @section('content')
-    <div class="container my-5 col-4">
+    <div class="container my-5 col-6">
         <h1>{{$title}}</h1>
         <form action="{{ route('korisnici.unesiSubmit') }}" method="POST">
             @csrf
@@ -28,7 +28,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Унеси</button>
-            <a href="{{route('korisnici.list')}}" class="col-3 mx-1 btn btn-link" style="border: 1px solid #214252;">Откажи</a>
+            <a href="{{route('korisnici.list')}}" class="col-2 mx-1 btn btn-link" style="border: 1px solid #214252;">Откажи</a>
         </form>
     </div>
 @endsection

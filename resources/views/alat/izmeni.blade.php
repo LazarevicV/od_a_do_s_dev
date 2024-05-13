@@ -1,6 +1,6 @@
 @extends('layouts.public')
 @section('content')
-<div class="container mt-5 col-4">
+<div class="container mt-5 col-6">
     <h1>{{$title}}</h1>
     <form method="POST" action="{{ route('alat.izmeniSubmit', $alat->id) }}" enctype="multipart/form-data">
         @csrf
@@ -32,11 +32,10 @@
         
         <div class="mb-3">
             <div class="row justify-content-center">
-                <button class="col-3 mx-1 btn btn-primary">
+                <button class="col-2 mx-1 btn btn-primary">
                     Сачувај
                 </button>
-                <a href="{{route('alat.list')}}" class="col-3 mx-1 btn btn-link"
-                    style="border: 1px solid #214252;">Откажи</a>
+                <a href="{{route('alat.list')}}" class="col-2 mx-1 btn btn-link otkazi">Откажи</a>
             </div>
         </div>
     </form>

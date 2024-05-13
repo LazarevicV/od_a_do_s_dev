@@ -27,7 +27,7 @@
         <div class="mb-3">
             <label for="slika" class="form-label">Слика:</label>
             <input type="file" class="form-control" name="slika" id="imageUpload" accept="image/*" required>
-            <img id="imagePreview" src="#" alt="Odabrana slika" style="display:none; max-width: 500px; max-height: 500px;"/>
+            <img id="imagePreview" src="#" alt="Odabrana slika"/>
         </div>
 
         <div class="mb-3">
@@ -49,8 +49,7 @@
         <div class="mb-3">
             <div class="row justify-content-center">
                 <button type="submit" class="col-2 mx-1 btn btn-primary">Унеси</button>
-                <a href="{{route('blog.list')}}" class="col-2 mx-1 btn btn-link"
-                    style="border: 1px solid #214252;">Откажи</a>
+                <a href="{{route('blog.list')}}" class="col-2 mx-1 btn btn-link otkazi">Откажи</a>
             </div>
         </div>
     </form>
@@ -83,4 +82,11 @@
         });
 </script>
 
+<style>
+    img{
+        display:none; 
+        max-width: 500px; 
+        max-height: 500px;
+    }
+</style>
 @endsection
