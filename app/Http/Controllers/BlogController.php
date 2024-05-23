@@ -63,15 +63,24 @@ class BlogController extends Controller
         $blogovi = Blog::where('kategorija_id', '4')->where('objavljen', 1)->get();
         return $blogovi;
     }
-    
+
+    public static function broj_istaknutih()
+    {
+        $broj_istaknutih= Blog::where('istaknut', 1)->count();
+
+        return $broj_istaknutih;
+    }
+
     //crud metode
     public function list()
     {
+        $broj_istaknutih= Blog::where('istaknut', 1)->count();
         $blogovi = Blog::all();
 
         return view('blog.list', [
             'blogovi' => $blogovi,
             'title' => 'Листа блогова',
+            'broj_istaknutih'=> $broj_istaknutih
         ]);
     }
 
@@ -167,6 +176,9 @@ class BlogController extends Controller
     public function unpublish($id)
     {
         $blog = Blog::find($id);
+        if ($blog->istaknut==1) {
+            return redirect(route('blog.list'))->with('info', 'Блог не може бити сакривен ако је истакнут.');
+        }
         if (!$blog) {
             return abort(404);
         }
@@ -179,13 +191,21 @@ class BlogController extends Controller
     public function istakni($id)
     {
         $blog = Blog::find($id);
-        if (!$blog) {
-            return abort(404);
+        if ($blog->objavljen==0) {
+            return redirect(route('blog.list'))->with('info', 'Блог не може бити истакнут ако је сакривен.');
         }
-        $blog->istaknut = 1;
-        $blog->save();
-
-        return redirect(route('blog.list'));
+        $broj_istaknutih= Blog::where('istaknut', 1)->count();
+        if ($broj_istaknutih<7) {
+            if (!$blog) {
+                return abort(404);
+            }
+            $blog->istaknut = 1;
+            $blog->save();
+            return redirect(route('blog.list'));
+        }
+        else {
+            return redirect(route('blog.list'))->with('info', 'Максималан број истакнутих блогова је 7.');
+        }
     }
 
     public function obrisi_istakni($id)
@@ -205,6 +225,9 @@ class BlogController extends Controller
         $blog = Blog::find($id);
         if (!$blog) {
             return abort(404);
+        }
+        if ($blog->istaknut=1) {
+            return redirect(route('blog.list'))->with('info', 'Блогови који су истакнути не могу бити обрисани.');
         }
         $blog->delete();
 

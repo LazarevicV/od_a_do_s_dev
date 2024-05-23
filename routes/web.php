@@ -25,9 +25,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $istaknuti_blogovi = BlogController::istaknuti();
+    $broj_istaknutih = BlogController::broj_istaknutih();
     return view('pocetna', [
         'istaknuti_blogovi' => $istaknuti_blogovi,
         'title' => 'Почетна страница',
+        'broj_istaknutih' => $broj_istaknutih
     ]);
 })->name('pocetna');
 
