@@ -43,7 +43,24 @@ class BlogController extends Controller
     public static function uputstva()
     {
         $blogovi = Blog::where('kategorija_id', '1')->where('objavljen', 1)->get();
+        return $blogovi;
+    }
 
+    public static function resursi()
+    {
+        $blogovi = Blog::where('kategorija_id', '2')->where('objavljen', 1)->get();
+        return $blogovi;
+    }
+
+    public static function zanimljivosti()
+    {
+        $blogovi = Blog::where('kategorija_id', '3')->where('objavljen', 1)->get();
+        return $blogovi;
+    }
+
+    public static function nekategorisani()
+    {
+        $blogovi = Blog::where('kategorija_id', '4')->where('objavljen', 1)->get();
         return $blogovi;
     }
 

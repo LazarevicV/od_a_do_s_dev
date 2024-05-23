@@ -1,7 +1,7 @@
 @extends('layouts.public')
 @section('content')
     <div class="container mt-5 col-6">
-        <h1>{{$title}}</h1>
+        <h1>{{ $title }}</h1>
         <form method="POST" action="{{ route('font.izmeniSubmit', $font->id) }}">
             @csrf
             <div class="mb-3">
@@ -14,10 +14,10 @@
                 <select id="familija" name="familija" class="form-control">
                     <option disabled selected></option>
                     @foreach ($familije as $familija)
-                        @if ($font->familija_id==$familija->id)
-                            <option value="{{$familija->id}}" selected>{{$familija->naziv}}</option>
+                        @if ($font->familija_id == $familija->id)
+                            <option value="{{ $familija->id }}" selected>{{ $familija->naziv }}</option>
                         @else
-                            <option value="{{$familija->id}}">{{$familija->naziv}}</option>
+                            <option value="{{ $familija->id }}">{{ $familija->naziv }}</option>
                         @endif
                     @endforeach
                 </select>
@@ -29,8 +29,11 @@
                     @foreach ($tezine as $tezina)
                         <div class="tezina">
                             <div class="form-group">
-                                <input type="checkbox" id="tezine{{ $tezina->id }}" name="tezine[]" value="{{ $tezina->id }}" {{ $font->tezine->contains('id', $tezina->id) ? 'checked' : '' }}>
-                                <label for="tezine{{ $tezina->id }}">{{ ucwords(str_replace("_", " ", $tezina->naziv)) }}</label><br>
+                                <input type="checkbox" id="tezine{{ $tezina->id }}" name="tezine[]"
+                                    value="{{ $tezina->id }}"
+                                    {{ $font->tezine->contains('id', $tezina->id) ? 'checked' : '' }}>
+                                <label
+                                    for="tezine{{ $tezina->id }}">{{ ucwords(str_replace('_', ' ', $tezina->naziv)) }}</label><br>
                             </div>
                         </div>
                     @endforeach
@@ -39,12 +42,12 @@
 
             <div class="mb-3">
                 <label for="opis" class="form-label">Опис:</label>
-                <textarea class="form-control" name="opis" required>{{$font->opis}}</textarea>
+                <textarea class="form-control" name="opis" required>{{ $font->opis }}</textarea>
             </div>
 
             <div class="mb-3">
                 <label for="link_detaljno" class="form-label">Линк за детаљније:</label>
-                <input type="text" class="form-control" name="link_detaljno" value="{{$font->link_detaljno}}">
+                <input type="text" class="form-control" name="link_detaljno" value="{{ $font->link_detaljno }}">
             </div>
 
             <input type="hidden" name="objavljen" value="{{ $font->objavljen }}" readonly>
@@ -55,10 +58,9 @@
                     <button class="col-2 mx-1 btn btn-primary">
                         Сачувај
                     </button>
-                    <a href="{{route('font.list')}}" class="col-2 mx-1 btn btn-link otkazi">Откажи</a>
+                    <a href="{{ route('font.list') }}" class="col-2 mx-1 btn btn-link otkazi">Откажи</a>
                 </div>
             </div>
         </form>
     </div>
-
 @endsection
