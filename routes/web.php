@@ -31,7 +31,7 @@ Route::get('/', function () {
     ]);
 })->name('pocetna');
 
-Route::get('/упутства', function () {
+Route::get('/блог-упутства', function () {
     $uputstva_blogovi = BlogController::uputstva();
 
     return view('blog.blogovi', [
@@ -39,6 +39,34 @@ Route::get('/упутства', function () {
         'title' => 'Упутства',
     ]);
 })->name('uputstva');
+
+Route::get('/блог-ресурси', function () {
+    $resursi_blogovi = BlogController::resursi();
+
+    return view('blog.blogovi', [
+        'blogovi' => $resursi_blogovi,
+        'title' => 'Ресурси',
+    ]);
+})->name('blog-resursi');
+
+Route::get('/блог-занимљивости', function () {
+    $zanimljivosti_blogovi = BlogController::zanimljivosti();
+
+    return view('blog.blogovi', [
+        'blogovi' => $zanimljivosti_blogovi,
+        'title' => 'Занимљивости',
+    ]);
+})->name('zanimljivosti');
+
+Route::get('/блог-некатегорисани', function () {
+    $nekategorisani_blogovi = BlogController::nekategorisani();
+
+    return view('blog.blogovi', [
+        'blogovi' => $nekategorisani_blogovi,
+        'title' => 'Некатегорисани',
+    ]);
+})->name('nekategorisani');
+
 
 Route::controller(Controller::class)->group(function () {
     Route::get('/претрага', 'pretraga')->name('pretraga');

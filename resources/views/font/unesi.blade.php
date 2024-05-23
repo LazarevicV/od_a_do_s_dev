@@ -1,7 +1,7 @@
 @extends('layouts.public')
 @section('content')
     <div class="container my-5 col-6">
-        <h1>{{$title}}</h1>
+        <h1>{{ $title }}</h1>
         <form action="{{ route('font.unesiSubmit') }}" method="POST">
             @csrf
             <div class="mb-3">
@@ -14,11 +14,11 @@
                 <select id="familija" name="familija" class="form-control">
                     <option disabled selected></option>
                     @foreach ($familije as $familija)
-                        <option value="{{$familija->id}}">{{$familija->naziv}}</option>
+                        <option value="{{ $familija->id }}">{{ $familija->naziv }}</option>
                     @endforeach
                 </select>
             </div>
-            
+
             <div class="mb-3">
                 <label for="tezine" class="form-label">Тежине:</label>
                 <div class="tezine">
@@ -26,8 +26,8 @@
                         <div class="tezina">
                             <option disabled selected></option>
                             <div class="form-group">
-                                <input type="checkbox" id="tezine" name="tezine[]" value="{{$tezina->id}}">
-                                <label for="tezine">{{ucwords(str_replace("_", " ", $tezina->naziv))}}</label><br>
+                                <input type="checkbox" id="tezine" name="tezine[]" value="{{ $tezina->id }}">
+                                <label for="tezine">{{ ucwords(str_replace('_', ' ', $tezina->naziv)) }}</label><br>
                             </div>
                         </div>
                     @endforeach
@@ -58,11 +58,9 @@
             <div class="mb-3">
                 <div class="row justify-content-center">
                     <button type="submit" class="col-2 btn btn-primary">Унеси</button>
-                    <a href="{{route('font.list')}}" class="col-2 mx-1 btn btn-link otkazi">Откажи</a>
+                    <a href="{{ route('font.list') }}" class="col-2 mx-1 btn btn-link otkazi">Откажи</a>
                 </div>
             </div>
         </form>
     </div>
-
-
 @endsection

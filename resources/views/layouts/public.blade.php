@@ -27,6 +27,8 @@
 
     <script src="https://cdn.tiny.cloud/1/8v3b971q7hj0d1fl7gh8kxyl31oyrlout36k8wr8ykfoiliy/tinymce/7/tinymce.min.js"
         referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/8v3b971q7hj0d1fl7gh8kxyl31oyrlout36k8wr8ykfoiliy/tinymce/7/tinymce.min.js"
+        referrerpolicy="origin"></script>
 
     <link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}">
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
@@ -64,7 +66,6 @@
                 });
             });
         });
-
     </script>
 </head>
 
@@ -84,7 +85,7 @@
                 <div class="site-navigation col-12 d-flex align-items-center justify-content-between">
                     <div class="heder-logo d-flex justify-content-left">
                         <a class="mt-5" href="{{ route('pocetna') }}">
-                            <img src="{{ asset('img/logo.png') }}" alt="" class="logo-img" >
+                            <img src="{{ asset('img/logo.png') }}" alt="" class="logo-img">
                         </a>
                     </div>
                     <div class="flex-1 ">
@@ -98,7 +99,7 @@
                                     <li class="has-children">
                                         <a>Админ мени <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                 height="16" fill="none" stroke="currentColor" stroke-width="2"
-                                                viewBox="0 0 16 16" >
+                                                viewBox="0 0 16 16">
                                                 <path fill-rule="evenodd"
                                                     d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
                                                 </path>
@@ -121,8 +122,7 @@
                                 <li><a href="{{ route('pocetna') }}">Почетна</a></li>
                                 <li class="has-children">
                                     <a>Развој <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16"
-                                            >
+                                            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd"
                                                 d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
                                             </path>
@@ -136,7 +136,7 @@
                                     <a href="{{ route('resurs.resursi') }}">Ресурси <svg
                                             xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="none" stroke="currentColor" stroke-width="2"
-                                            viewBox="0 0 16 16" >
+                                            viewBox="0 0 16 16">
                                             <path fill-rule="evenodd"
                                                 d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
                                             </path>
@@ -212,9 +212,12 @@
                 <ul>
                     @if (Auth::check() and Auth::user()->hasRole('admin'))
                         <li class="has-children toggle-submenu">
-                            <a>Админ мени 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16" >
-                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"></path>
+                            <a>Админ мени
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                                    stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
+                                    </path>
                                 </svg>
                             </a>
                             <ul class="dropdown">
@@ -236,8 +239,11 @@
                     <li class="has-children toggle-submenu">
                         <a>
                             Развој
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16" >
-                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
+                                </path>
                             </svg>
                         </a>
                         <ul class="dropdown">
@@ -248,8 +254,11 @@
                     <li class="has-children toggle-submenu">
                         <a href="{{ route('resurs.resursi') }}">
                             Ресурси
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16" >
-                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
+                                </path>
                             </svg>
                         </a>
                         <ul class="dropdown">
@@ -278,7 +287,7 @@
 
     <footer class="site-footer mt-auto pb-0">
         <div class="container p-0">
-            <div class="row py-4 px-4">
+            <div class=" py-4 px-4">
                 <div class="container futer-body d-flex justify-content-between p-0">
                     <div class="widget col-7 d-flex white align-items-start">
                         <div class="futer-rnids">
@@ -291,7 +300,7 @@
                                 за размену знања за употребу ћирилице у дигиталном окружењу. </p>
                         </div>
                     </div>
-                    <div class="socials col-3 d-flex flex-column white justify-content-center align-items-end m-0">
+                    <div class="socials col-3 d-flex flex-column white justify-content-center align-items-center m-0">
                         <div class="col-8">
                             <img src="{{ asset('img/rnids_logo_footer.png') }}" alt="" class="socials-img">
                         </div>
@@ -342,17 +351,20 @@
 
 
     <style>
-        .bodi{
+        .bodi {
             min-height: 100vh;
         }
-        .logo-img{
+
+        .logo-img {
             width: 120px;
         }
-        nav #pretraga{
-            width: 135px; 
+
+        nav #pretraga {
+            width: 135px;
             height: 35px;
         }
-        .pretraga-button{
+
+        .pretraga-button {
             background-color: transparent;
             border: none;
             cursor: pointer;
@@ -361,7 +373,8 @@
             font-size: 24px;
             color: #b7bbbf;
         }
-        .odjava-button{
+
+        .odjava-button {
             background-color: transparent;
             border: none;
             cursor: pointer;
@@ -371,19 +384,22 @@
             width: 98px;
             color: #b7bbbf
         }
-        .odjava-button > a{
-            color: #000E75!important; 
+
+        .odjava-button>a {
+            color: #000E75 !important;
             font-size: 16px;
         }
-        .prijava-button{
+
+        .prijava-button {
             background-color: #D6CFBA;
             border: none;
             border-radius: 5px;
-            padding: 0px 4px!important;
+            padding: 0px 4px !important;
             cursor: pointer;
             height: 37px;
             margin-top: 4px
         }
+
         #sticky-nav {
             position: -webkit-sticky;
             position: sticky;
@@ -394,31 +410,39 @@
         .dropdaun {
             font-size: 16px !important;
         }
+
         .site-footer * {
             color: #ffffff;
         }
-        .futer-rnids{
+
+        .futer-rnids {
             width: 130px;
         }
-        .futer-rnids >img{
+
+        .futer-rnids>img {
             width: 100%;
         }
-        .px-3 > .m-0{
+
+        .px-3>.m-0 {
             font-size: 18px
         }
-        .socials-img{
+
+        .socials-img {
             width: 100%;
         }
-        .follow{
+
+        .follow {
             text-align: right
         }
-        .copyrights{
+
+        .copyrights {
             background-color: #EFEBDC;
         }
-        .copyrights > .container{
-            text-align: right; 
-            font-size:18px; 
-            color:#000E75;
+
+        .copyrights>.container {
+            text-align: right;
+            font-size: 18px;
+            color: #000E75;
         }
     </style>
 

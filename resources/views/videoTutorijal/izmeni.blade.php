@@ -1,7 +1,7 @@
 @extends('layouts.public')
 @section('content')
     <div class="container mt-5 col-6">
-        <h1>{{$title}}</h1>
+        <h1>{{ $title }}</h1>
         <form method="POST" action="{{ route('videoTutorijal.izmeniSubmit', $videoTutorijal->id) }}">
             @csrf
             <div class="mb-3">
@@ -11,12 +11,12 @@
 
             <div class="mb-3">
                 <label for="opis" class="form-label">Опис:</label>
-                <textarea class="form-control" name="opis" required>{{$videoTutorijal->opis}}</textarea>
+                <textarea class="form-control" name="opis" required>{{ $videoTutorijal->opis }}</textarea>
             </div>
 
             <div class="mb-3">
                 <label for="embed_video" class="form-label">Видео:</label>
-                <textarea class="form-control" name="embed_video" required>{{$videoTutorijal->embed_video}}</textarea>
+                <textarea class="form-control" name="embed_video" required>{{ $videoTutorijal->embed_video }}</textarea>
             </div>
 
             <input type="hidden" name="objavljen" value="{{ $videoTutorijal->objavljen }}" readonly>
@@ -27,10 +27,9 @@
                     <button class="col-2 mx-1 btn btn-primary">
                         Сачувај
                     </button>
-                    <a href="{{route('videoTutorijal.list')}}" class="col-2 mx-1 btn btn-link otkazi">Откажи</a>
+                    <a href="{{ route('videoTutorijal.list') }}" class="col-2 mx-1 btn btn-link otkazi">Откажи</a>
                 </div>
             </div>
         </form>
     </div>
-
 @endsection

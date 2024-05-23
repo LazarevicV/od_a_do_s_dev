@@ -20,6 +20,21 @@ Breadcrumbs::for('blogovi', function (BreadcrumbTrail $trail) {
     $trail->push('Блог', route('blog.blogovi'));
 });
 
+Breadcrumbs::for('blog-resursi', function (BreadcrumbTrail $trail) {
+    $trail->parent('blogovi');
+    $trail->push('Ресурси', route('blog-resursi'));
+});
+
+Breadcrumbs::for('zanimljivosti', function (BreadcrumbTrail $trail) {
+    $trail->parent('blogovi');
+    $trail->push('Занимљивости', route('zanimljivosti'));
+});
+
+Breadcrumbs::for('nekategorisani', function (BreadcrumbTrail $trail) {
+    $trail->parent('blogovi');
+    $trail->push('Некатегорисани', route('nekategorisani'));
+});
+
 Breadcrumbs::for('razvoj', function (BreadcrumbTrail $trail) {
     $trail->push('Развој', route('resurs.resursi'));
 });
