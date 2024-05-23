@@ -4,6 +4,11 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-8 offset-2 mt-4">
+            @if ($broj_istaknutih<7)
+            <div class="bg-danger text-white p-2 text-center rounded-1 mb-3">
+                <p class="m-0" style="font-size:20px">Минималан број истакнутих блогова је 7, морате истакнути још {{7 - $broj_istaknutih}}</p>
+            </div>
+            @endif
             <div class="d-flex justify-content-between align-items-center">
                 <h1>{{ $title }}</h1>
                 <a href="{{ route('blog.unesi') }}" class="btn btn-primary btn-sm p-2">
