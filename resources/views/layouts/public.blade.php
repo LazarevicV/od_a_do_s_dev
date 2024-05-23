@@ -392,12 +392,18 @@
 
         .prijava-button {
             background-color: #D6CFBA;
+            color: #000E75!important;
             border: none;
             border-radius: 5px;
             padding: 0px 4px !important;
             cursor: pointer;
             height: 37px;
             margin-top: 4px
+        }
+
+        .prijava-button>a {
+            color: #000E75 !important;
+            font-size: 16px;
         }
 
         #sticky-nav {

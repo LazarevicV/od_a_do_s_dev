@@ -2,10 +2,10 @@
 @section('content')
     <section>
         <div class="hero">
-            <svg width="100%" viewBox="0 0 1920 747" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
+            {{-- <svg width="100%" viewBox="0 0 1920 747" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
                 <path d="M1920 583.133C1920 583.133 1437.17 747 949.36 747C411.06 747 0 583.133 0 583.133V0H1920V583.133Z"
                     fill="#EFEBDC" />
-            </svg>
+            </svg> --}}
             <div class="hero-section container d-flex justify-center align-items-start">
                 <div class="hero-left col-7 black">
                     <p>Шта све има на ћирилици?</p>
@@ -133,6 +133,16 @@
 
 
     <style>
+        .hero {
+        width: 100%;
+        height: auto;
+        min-height: 770px; /* Fixed height */
+        background-image: url('data:image/svg+xml;utf8,<svg width="2560" height="770" viewBox="0 0 2560 997" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2560 777.511C2560 777.511 1917.56 997 1265.81 997C548.08 997 0 777.511 0 777.511V0H2560V777.511Z" fill="%23EFEBDC"/></svg>');
+        background-size: 2560px 770px; /* Fixed size */
+        background-repeat: no-repeat;
+        background-position: center top;
+        }
+
         .hero-section {
             padding-top: 100px;
         }
