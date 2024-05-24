@@ -5638,6 +5638,7 @@ fieldset:disabled .btn {
     margin-bottom: 1rem;
     border: 1px solid transparent;
     border-radius: 0.25rem;
+    width: 400px;
 }
 
 .alert-heading {
@@ -14310,24 +14311,42 @@ input[type="file"].form-control {
     .site-navigation {
         justify-content: end !important;
     }
+
+    .text{
+        padding: 10px!important;
+    }
+    .text > span{
+        font-size: 14px!important;
+    }
+
+    .text > h2{
+        font-size: 18px!important;
+    }
 }
 
 @media (max-width: 435px) {
+
+    .socials > .col-8 {
+        width: 60% !important;
+    }
+    .socials > .col-12 > p {
+        text-align: left !important;
+    }
+}
+
+@media (max-width: 465px) {
     .socials {
         align-items: start !important;
         flex-direction: column !important;
         gap: 1rem;
-    }
-    .socials > .col-8 {
-        width: 60% !important;
     }
     .socials > .col-12 {
         width: 100% !important;
         padding: 0 !important;
         align-items: start !important;
     }
-    .socials > .col-12 > p {
-        text-align: left !important;
+    p.m-0{
+        font-size: 14px!important;
     }
 }
 

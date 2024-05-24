@@ -75,15 +75,14 @@
     </div>
 </div>
 
-<style>
-    .btn-cell {
-        width: 40px; 
-        height: 40px;
-    }
+    <style>
+        .btn-cell {
+            width: 40px;
+            height: 40px;
+        }
 
-    .bi {
-        font-size: 1.2em;
-    }
-</style>
-
+        .bi {
+            font-size: 1.2em;
+        }
+    </style>
 @endsection
