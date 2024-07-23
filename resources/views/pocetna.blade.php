@@ -48,165 +48,76 @@
         </div>
     </section>
 
+    @if ($broj_istaknutih>1)
     <section>
         <div class="blog-section container d-flex flex-column justify-content-evenly retro-layout-alt mb-5 p-0">
             <div>
                 <p>Истакнути чланци</p>
             </div>
             <div class="blog-row d-flex flex-row justify-content-between">
-                <a href="{{ route('blog.blog', $istaknuti_blogovi[2]->id) }}" class="hentry img-2 v-height my-3 gradient"
-                    style="width: 66%;">
-                    <div class="featured-img"
-                        style="background-image: url({{ asset('img/' . $istaknuti_blogovi[2]->slika) }});"></div>
+                <a href="{{ route('blog.blog', $istaknuti_blogovi[0]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 66%;">
+                    <div class="featured-img" style="background-image: url({{asset('img/' . $istaknuti_blogovi[0]->slika)}});"></div>
                     <div class="text">
-                        <span>{{ $istaknuti_blogovi[2]->kategorija->naziv }}</span>
-                        <h2>{{ $istaknuti_blogovi[2]->naslov }}</h2>
+                        <span>{{$istaknuti_blogovi[0]->kategorija->naziv}}</span>
+                        <h2>{{$istaknuti_blogovi[0]->naslov}}</h2>
                     </div>
                 </a>
-                <a href="{{ route('blog.blog', $istaknuti_blogovi[1]->id) }}" class="hentry img-2 v-height my-3 gradient"
-                    style="width: 32%;">
-                    <div class="featured-img"
-                        style="background-image: url({{ asset('img/' . $istaknuti_blogovi[1]->slika) }});"></div>
+                <a href="{{ route('blog.blog', $istaknuti_blogovi[1]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 32%;">
+                    <div class="featured-img" style="background-image: url({{asset('img/' . $istaknuti_blogovi[1]->slika)}});"></div>
                     <div class="text">
-                        <span>{{ $istaknuti_blogovi[1]->kategorija->naziv }}</span>
-                        <h2>{{ $istaknuti_blogovi[1]->naslov }}</h2>
+                        <span>{{$istaknuti_blogovi[1]->kategorija->naziv}}</span>
+                        <h2>{{$istaknuti_blogovi[1]->naslov}}</h2>
                     </div>
                 </a>
             </div>
 
+            @if ($broj_istaknutih>4)
             <div class="blog-row d-flex flex-row justify-content-between">
-                <a href="{{ route('blog.blog', $istaknuti_blogovi[0]->id) }}" class="hentry img-2 v-height my-3 gradient"
-                    style="width: 32%;">
-                    <div class="featured-img"
-                        style="background-image: url({{ asset('img/' . $istaknuti_blogovi[0]->slika) }});"></div>
+                <a href="{{ route('blog.blog', $istaknuti_blogovi[2]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 32%;">
+                    <div class="featured-img" style="background-image: url({{asset('img/' . $istaknuti_blogovi[2]->slika)}});"></div>
                     <div class="text">
-                        <span>{{ $istaknuti_blogovi[0]->kategorija->naziv }}</span>
-                        <h2>{{ $istaknuti_blogovi[0]->naslov }}</h2>
+                        <span>{{$istaknuti_blogovi[2]->kategorija->naziv}}</span>
+                        <h2>{{$istaknuti_blogovi[2]->naslov}}</h2>
                     </div>
                 </a>
-                <a href="{{ route('blog.blog', $istaknuti_blogovi[3]->id) }}" class="hentry img-2 v-height my-3 gradient"
-                    style="width: 32%;">
-                    <div class="featured-img"
-                        style="background-image: url({{ asset('img/' . $istaknuti_blogovi[3]->slika) }});"></div>
+                <a href="{{ route('blog.blog', $istaknuti_blogovi[3]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 32%;">
+                    <div class="featured-img" style="background-image: url({{asset('img/' . $istaknuti_blogovi[3]->slika)}});"></div>
                     <div class="text">
-                        <span>{{ $istaknuti_blogovi[3]->kategorija->naziv }}</span>
-                        <h2>{{ $istaknuti_blogovi[3]->naslov }}</h2>
+                        <span>{{$istaknuti_blogovi[3]->kategorija->naziv}}</span>
+                        <h2>{{$istaknuti_blogovi[3]->naslov}}</h2>
                     </div>
                 </a>
-                <a href="{{ route('blog.blog', $istaknuti_blogovi[4]->id) }}" class="hentry img-2 v-height my-3 gradient"
-                    style="width: 32%;">
-                    <div class="featured-img"
-                        style="background-image: url({{ asset('img/' . $istaknuti_blogovi[4]->slika) }});"></div>
+                <a href="{{ route('blog.blog', $istaknuti_blogovi[4]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 32%;">
+                    <div class="featured-img" style="background-image: url({{asset('img/' . $istaknuti_blogovi[4]->slika)}});"></div>
                     <div class="text">
-                        <span>{{ $istaknuti_blogovi[4]->kategorija->naziv }}</span>
-                        <h2>{{ $istaknuti_blogovi[4]->naslov }}</h2>
+                        <span>{{$istaknuti_blogovi[4]->kategorija->naziv}}</span>
+                        <h2>{{$istaknuti_blogovi[4]->naslov}}</h2>
                     </div>
                 </a>
             </div>
+            @endif
 
+            @if ($broj_istaknutih>6)
             <div class="blog-row d-flex flex-row justify-content-between">
-                <a href="{{ route('blog.blog', $istaknuti_blogovi[5]->id) }}" class="hentry img-2 v-height my-3 gradient"
-                    style="width: 32%;">
-                    <div class="featured-img"
-                        style="background-image: url({{ asset('img/' . $istaknuti_blogovi[5]->slika) }});"></div>
+                <a href="{{ route('blog.blog', $istaknuti_blogovi[5]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 32%;">
+                    <div class="featured-img" style="background-image: url({{asset('img/' . $istaknuti_blogovi[5]->slika)}});"></div>
                     <div class="text">
-                        <span>{{ $istaknuti_blogovi[5]->kategorija->naziv }}</span>
-                        <h2>{{ $istaknuti_blogovi[5]->naslov }}</h2>
+                        <span>{{$istaknuti_blogovi[5]->kategorija->naziv}}</span>
+                        <h2>{{$istaknuti_blogovi[5]->naslov}}</h2>
                     </div>
                 </a>
-                <a href="{{ route('blog.blog', $istaknuti_blogovi[6]->id) }}" class="hentry img-2 v-height my-3 gradient"
-                    style="width: 66%;">
-                    <div class="featured-img"
-                        style="background-image: url({{ asset('img/' . $istaknuti_blogovi[6]->slika) }});"></div>
+                <a href="{{ route('blog.blog', $istaknuti_blogovi[6]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 66%;">
+                    <div class="featured-img" style="background-image: url({{asset('img/' . $istaknuti_blogovi[6]->slika)}});"></div>
                     <div class="text">
-                        <span>{{ $istaknuti_blogovi[6]->kategorija->naziv }}</span>
-                        <h2>{{ $istaknuti_blogovi[6]->naslov }}</h2>
+                        <span>{{$istaknuti_blogovi[6]->kategorija->naziv}}</span>
+                        <h2>{{$istaknuti_blogovi[6]->naslov}}</h2>
                     </div>
                 </a>
             </div>
+            @endif
         </div>
-        <div class="col-6 azbuka-right">
-            <p>За дизајнере и веб-дизајнере</p>
-            <p>Пронађите савршене фонтове за ваш уметнички и комерцијални пројекат. Тестирајте приказе и пронађите додатне ресурсе за оригиналне дизајнерске подухвате. </p>
-        </div>
-    </div>
-</section>
-
-@if ($broj_istaknutih>1)
-<section>
-    <div class="blog-section container d-flex flex-column justify-content-evenly retro-layout-alt mb-5 p-0">
-        <div>
-            <p>Истакнути чланци</p>
-        </div>
-        <div class="blog-row d-flex flex-row justify-content-between">
-            <a href="{{ route('blog.blog', $istaknuti_blogovi[0]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 66%;">
-                <div class="featured-img" style="background-image: url({{asset('img/' . $istaknuti_blogovi[0]->slika)}});"></div>
-                <div class="text">
-                    <span>{{$istaknuti_blogovi[0]->kategorija->naziv}}</span>
-                    <h2>{{$istaknuti_blogovi[0]->naslov}}</h2>
-                </div>
-            </a>
-            <a href="{{ route('blog.blog', $istaknuti_blogovi[1]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 32%;">
-                <div class="featured-img" style="background-image: url({{asset('img/' . $istaknuti_blogovi[1]->slika)}});"></div>
-                <div class="text">
-                    <span>{{$istaknuti_blogovi[1]->kategorija->naziv}}</span>
-                    <h2>{{$istaknuti_blogovi[1]->naslov}}</h2>
-                </div>
-            </a>
-        </div>
-
-        @if ($broj_istaknutih>4)
-        <div class="blog-row d-flex flex-row justify-content-between">
-            <a href="{{ route('blog.blog', $istaknuti_blogovi[2]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 32%;">
-                <div class="featured-img" style="background-image: url({{asset('img/' . $istaknuti_blogovi[0]->slika)}});"></div>
-                <div class="text">
-                    <span>{{$istaknuti_blogovi[2]->kategorija->naziv}}</span>
-                    <h2>{{$istaknuti_blogovi[2]->naslov}}</h2>
-                </div>
-            </a>
-            <a href="{{ route('blog.blog', $istaknuti_blogovi[3]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 32%;">
-                <div class="featured-img" style="background-image: url({{asset('img/' . $istaknuti_blogovi[3]->slika)}});"></div>
-                <div class="text">
-                    <span>{{$istaknuti_blogovi[3]->kategorija->naziv}}</span>
-                    <h2>{{$istaknuti_blogovi[3]->naslov}}</h2>
-                </div>
-            </a>
-            <a href="{{ route('blog.blog', $istaknuti_blogovi[4]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 32%;">
-                <div class="featured-img" style="background-image: url({{asset('img/' . $istaknuti_blogovi[4]->slika)}});"></div>
-                <div class="text">
-                    <span>{{$istaknuti_blogovi[4]->kategorija->naziv}}</span>
-                    <h2>{{$istaknuti_blogovi[4]->naslov}}</h2>
-                </div>
-            </a>
-        </div>
-        @endif
-
-        @if ($broj_istaknutih>6)
-        <div class="blog-row d-flex flex-row justify-content-between">
-            <a href="{{ route('blog.blog', $istaknuti_blogovi[5]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 32%;">
-                <div class="featured-img" style="background-image: url({{asset('img/' . $istaknuti_blogovi[5]->slika)}});"></div>
-                <div class="text">
-                    <span>{{$istaknuti_blogovi[5]->kategorija->naziv}}</span>
-                    <h2>{{$istaknuti_blogovi[5]->naslov}}</h2>
-                </div>
-            </a>
-            <a href="{{ route('blog.blog', $istaknuti_blogovi[6]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 66%;">
-                <div class="featured-img" style="background-image: url({{asset('img/' . $istaknuti_blogovi[6]->slika)}});"></div>
-                <div class="text">
-                    <span>{{$istaknuti_blogovi[6]->kategorija->naziv}}</span>
-                    <h2>{{$istaknuti_blogovi[6]->naslov}}</h2>
-                </div>
-            </a>
-        </div>
-        @endif
-    </div>
-</section>
-@endif
-
-
-
-
-
+    </section>
+    @endif
 
     <style>
         .hero {

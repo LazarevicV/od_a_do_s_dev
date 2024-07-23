@@ -23,7 +23,7 @@
                 @foreach ($blogovi as $blog)
                     <div class="col-4 mb-4">
                         <div class="card d-flex flex-column p-1 card-height">
-                            <img src="{{ asset('img/' . $blog->slika) }}" class="card-img-top" alt="{{ $blog->naslov }}">
+                            <a href="{{ route('blog.blog', $blog->id) }}"><img src="{{ asset('img/' . $blog->slika) }}" class="card-img-top" alt="{{ $blog->naslov }}"></a>
                             <div class="card-body d-flex flex-column justify-content-between card-body-height">
                                 <h5 class="card-title">
                                     {{ mb_substr($blog->naslov, 0, 30) }}{{ mb_strlen($blog->naslov) > 30 ? '...' : '' }}

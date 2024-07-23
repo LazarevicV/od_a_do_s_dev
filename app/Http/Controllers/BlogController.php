@@ -10,7 +10,7 @@ class BlogController extends Controller
 {
     public function blogovi()
     {
-        $blogovi = Blog::all();
+        $blogovi = Blog::where('objavljen', 1)->get();
         $istaknuti_blogovi = BlogController::istaknuti();
 
         return view('blog.blogovi', [

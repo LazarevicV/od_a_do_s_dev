@@ -159,7 +159,8 @@ Route::prefix('/ресурс')->group(function () {
                     Route::get('/обриши/{id}', 'obrisi')->name('obrisi');
                 });
             });
-            Route::get('/{id}', 'resurs')->name('resurs');
+            Route::get('/база-фонтова', 'baza_fontova')->name('baza-fontova');
+            Route::get('/видео-туторијали', 'video_tutorijali')->name('video-tutorijali');
         });
     });
 });

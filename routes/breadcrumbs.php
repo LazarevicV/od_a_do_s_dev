@@ -55,12 +55,12 @@ Breadcrumbs::for('resursi', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('baza-fontova', function (BreadcrumbTrail $trail) {
     $trail->parent('resursi');
-    $trail->push('База фонтова', route('resurs.resurs', 1));
+    $trail->push('База фонтова', route('resurs.baza-fontova'));
 });
 
 Breadcrumbs::for('video-tutorijali', function (BreadcrumbTrail $trail) {
     $trail->parent('resursi');
-    $trail->push('Видео туторијали', route('resurs.resurs', 2));
+    $trail->push('Видео туторијали', route('resurs.video-tutorijali'));
 });
 
 Breadcrumbs::for('prikaz-svih-fontova', function (BreadcrumbTrail $trail) {
