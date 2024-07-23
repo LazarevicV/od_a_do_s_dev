@@ -43,7 +43,7 @@
             @endif
             @foreach ($pretraga_fontovi as $font)
                 <div class="col-2">
-                    <div class="font-preview mb-2">
+                    <div class="font-preview mb-2" style="font-family: '{{ $font->naziv }}';">
                         <div class="font-detail">
                             <p class="m-0">{{ $font->naziv }}</p>
                             <a href="/fonts/cirilica/{{ $font->fajlovi[0]->naziv }}">
@@ -82,7 +82,6 @@
         }
 
         .font-preview {
-            font-family: '{{ $font->naziv }}';
             font-size: 22px;
         }
 

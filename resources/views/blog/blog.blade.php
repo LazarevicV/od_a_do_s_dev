@@ -10,8 +10,8 @@
                     <h1 class="main-title">{{ $blog->naslov }}</h1>
                     <img src="{{ asset('img/' . $blog->slika) }}" class="img-fluid rounded" alt="{{ $blog->naslov }}">
                 </div>
-                <p class="my-5 content-text">Категорија: {{ $blog->kategorija->naziv }}</p>
-                <p class="content-text">{!! $blog->sadrzaj !!}</p>
+                <p class="my-5 kategorija">Категорија: {{ $blog->kategorija->naziv }}</p>
+                <p>{!! $blog->sadrzaj !!}</p>
             </div>
         </div>
     </div>
@@ -62,6 +62,9 @@
 
         .content-text {
             font-family: 'OrtoRNIDS-Regular';
+        }
+        .kategorija{
+            font-size: 20px;
         }
     </style>
 @endsection

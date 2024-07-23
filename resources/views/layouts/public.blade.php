@@ -25,10 +25,21 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <script src="https://cdn.tiny.cloud/1/8v3b971q7hj0d1fl7gh8kxyl31oyrlout36k8wr8ykfoiliy/tinymce/7/tinymce.min.js"
-        referrerpolicy="origin"></script>
-    <script src="https://cdn.tiny.cloud/1/8v3b971q7hj0d1fl7gh8kxyl31oyrlout36k8wr8ykfoiliy/tinymce/7/tinymce.min.js"
-        referrerpolicy="origin"></script>
+    {{-- <script src="https://cdn.tiny.cloud/1/8v3b971q7hj0d1fl7gh8kxyl31oyrlout36k8wr8ykfoiliy/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script> --}}
+    <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#editor',
+            setup: function(editor) {
+                editor.on('change', function() {
+                    editor.save();
+                });
+            },
+            plugins: 'code powerpaste casechange importcss searchreplace autolink advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker imagetools textpattern noneditable help formatpainter permanentpen pageembed charmap mentions quickbars linkchecker advtable',
+            menubar: 'edit view insert format tools table tc',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | charmap | fullscreen code | insertfile image media pageembed link anchor'
+        });
+    </script>
 
     <link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}">
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
@@ -50,7 +61,6 @@
                 }
             }
 
-            // Attach event listeners directly to prevent issues with inline `onclick`
             var burgerMenuButton = document.querySelector('.burger-menu-container');
             if (burgerMenuButton) {
                 burgerMenuButton.addEventListener('click', toggleSideMenu);
@@ -62,7 +72,7 @@
             toggles.forEach(function(toggle) {
                 toggle.addEventListener('click', function() {
                     var parent = this.parentNode;
-                    parent.classList.toggle('active'); // Simply toggle the 'active' class on or off
+                    parent.classList.toggle('active'); 
                 });
             });
         });
@@ -142,9 +152,9 @@
                                             </path>
                                         </svg></a>
                                     <ul class="dropdown">
-                                        <li><a href="{{ route('resurs.resurs', 1) }}" class="dropdaun">База
+                                        <li><a href="{{ route('resurs.baza-fontova') }}" class="dropdaun">База
                                                 фонтова</a></li>
-                                        <li><a href="{{ route('resurs.resurs', 2) }}" class="dropdaun">Видео
+                                        <li><a href="{{ route('resurs.video-tutorijali') }}" class="dropdaun">Видео
                                                 туторијали</a></li>
                                     </ul>
                                 </li>
@@ -171,12 +181,12 @@
                                 </form>
                                 {{-- </li> --}}
                             @else
-                                <li class="prijava-button">
+                                {{-- <li class="prijava-button">
                                     <a href="{{ route('login') }}">
                                         Пријавите се
                                     </a>
                                 </li>
-                                {{-- <li><a href="{{route('register')}}">Региструј се</a></li> --}}
+                                <li><a href="{{route('register')}}">Региструј се</a></li> --}}
                             @endif
 
                             <div class="burger-menu-container nav-item ms-2" onclick="toggleSideMenu()">
@@ -263,10 +273,10 @@
                         </a>
                         <ul class="dropdown">
                             <li>
-                                <a href="{{ route('resurs.resurs', 1) }}" class="dropdaun">База фонтова</a>
+                                <a href="{{ route('resurs.baza-fontova') }}" class="dropdaun">База фонтова</a>
                             </li>
                             <li>
-                                <a href="{{ route('resurs.resurs', 2) }}" class="dropdaun">Видео туторијали</a>
+                                <a href="{{ route('resurs.video-tutorijali') }}" class="dropdaun">Видео туторијали</a>
                             </li>
                         </ul>
                     </li>

@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="col-12 mb-3">
-                    <div class="font-preview bold-italic">
+                    <div class="font-preview bold italic">
                         <p class="style-name">Bold Italic</p>
                         <p class="message"></p>
                     </div>
@@ -71,6 +71,13 @@
     </script>
 
     <style>
+        .bold{
+            font-weight: bold;
+        }
+
+        .italic{
+            font-style: italic
+        }
         .pozadina {
             background-color: #EFEBDC;
             min-height: 90vh;

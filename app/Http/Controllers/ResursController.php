@@ -17,12 +17,22 @@ class ResursController extends Controller
         ]);
     }
 
-    public function resurs($id)
+    public function baza_fontova()
     {
-        $resurs = Resurs::find($id);
+        $resurs = Resurs::find(1);
 
         return view('resurs.resurs', [
-            'id' => $id,
+            'id' => 1,
+            'resurs' => $resurs,
+            'title' => $resurs->naziv,
+        ]);
+    }
+    public function video_tutorijali()
+    {
+        $resurs = Resurs::find(2);
+
+        return view('resurs.resurs', [
+            'id' => 2,
             'resurs' => $resurs,
             'title' => $resurs->naziv,
         ]);

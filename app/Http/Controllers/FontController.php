@@ -228,66 +228,67 @@ class FontController extends Controller
 
         return redirect(route('font.list'));
     }
-    public function preview(Request $request)
-    {
-        $fonts = Font::all()->sortBy('id');
-        $familije = Familija::all();
-        $tezine = Tezina::all();
+public function preview(Request $request)
+{
+    $fonts = Font::all()->sortBy('id');
+    $familije = Familija::all();
+    $tezine = Tezina::all();
     
-        return view('fontovi', [
-            'title' => 'Фонтови',
-            'fonts' => $fonts,
-            'familije' => $familije,
-            'tezine'=>$tezine
-        ]);
-    }
+    return view('fontovi', [
+        'title' => 'Фонтови',
+        'fonts' => $fonts,
+        'familije' => $familije,
+        'tezine' => $tezine,
+        'pretraga' => '',
+        'selectedFamilija' => '',
+        'selectedTezina' => ''
+    ]);
+}
+
 
     public function pretraga(Request $request)
     {
         $familije = Familija::all();
         $tezine = Tezina::all();
-        if (!empty($request->input('pretraga'))) {
-            $upit=$request->input('pretraga');
-            $pretraga = Font::where(function($query) use ($upit) {
-                $query->where('naziv', 'LIKE', "%$upit%")->orWhere('opis', 'LIKE', "%$upit%");
-            })->where('objavljen', 1)->get();
+        $searchTerm = $request->input('pretraga', '');  
+        $selectedFamilija = $request->input('familija', '');
+        $selectedTezina = $request->input('tezina_id', '');
+    
+        $pretraga = Font::query();
+    
+        if (!empty($searchTerm)) {
+            $pretraga = $pretraga->where(function($query) use ($searchTerm) {
+                $query->where('naziv', 'LIKE', "%$searchTerm%")
+                      ->orWhere('opis', 'LIKE', "%$searchTerm%");
+            });
         }
-        else {
-            if (!empty($request->input('familija')) && !empty($request->input('tezina_id'))) {
-                $familija_id = $request->input('familija');
-                $tezina_id = $request->input('tezina_id');
-
-                $pretraga = Font::where('familija_id', $familija_id)
-                    ->whereHas('tezine', function ($query) use ($tezina_id) {
-                        $query->where('tezinas.id', $tezina_id);
-                    })
-                    ->where('objavljen', 1)
-                    ->get();
-            }
-            else if (empty($request->input('tezina_id')) && !empty($request->input('familija'))) {
-                $familija_id=$request->input('familija');
-                $pretraga = Font::where('familija_id', $familija_id)->where('objavljen', 1)->get();
-            }
-            else if (empty($request->input('familija')) && !empty($request->input('tezina_id'))) {
-                $tezina_id=$request->input('tezina_id');
-                $pretraga = Font::whereHas('tezine', function ($query) use ($tezina_id) {
-                    $query->where('tezinas.id', $tezina_id);
-                })->get();
-
-            }
-            if (empty($pretraga)) {
-                return redirect(route('fontovi'));
-            }
+        
+        if (!empty($selectedFamilija)) {
+            $pretraga = $pretraga->where('familija_id', $selectedFamilija);
         }
-
+        
+        if (!empty($selectedTezina)) {
+            $pretraga = $pretraga->whereHas('tezine', function ($query) use ($selectedTezina) {
+                $query->where('tezinas.id', $selectedTezina);
+            });
+        }
+    
+        $pretraga = $pretraga->where('objavljen', 1)->get();
+    
         return view('fontovi', [
             'title' => 'Фонтови',
             'fonts' => $pretraga,
             'familije' => $familije,
-            'tezine'=>$tezine,
-            'message'=>$request->input('message')
+            'tezine' => $tezine,
+            'message' => $request->input('message', ''),
+            'pretraga' => $searchTerm,
+            'selectedFamilija' => $selectedFamilija,
+            'selectedTezina' => $selectedTezina
         ]);
     }
+    
+    
+
 
     public function obrisi($id)
     {
