@@ -20,24 +20,23 @@ class ResursController extends Controller
     public function baza_fontova()
     {
         $resurs = Resurs::find(1);
-
+    
         return view('resurs.resurs', [
-            'id' => 1,
             'resurs' => $resurs,
             'title' => $resurs->naziv,
         ]);
     }
+    
     public function video_tutorijali()
     {
         $resurs = Resurs::find(2);
-
+    
         return view('resurs.resurs', [
-            'id' => 2,
             'resurs' => $resurs,
             'title' => $resurs->naziv,
         ]);
     }
-
+    
     //crud metode
     public function list()
     {

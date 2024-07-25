@@ -159,8 +159,9 @@ Route::prefix('/ресурс')->group(function () {
                     Route::get('/обриши/{id}', 'obrisi')->name('obrisi');
                 });
             });
-            Route::get('/база-фонтова', 'baza_fontova')->name('baza-fontova');
-            Route::get('/видео-туторијали', 'video_tutorijali')->name('video-tutorijali');
+            Route::get('/база-фонтова', [ResursController::class, 'baza_fontova'])->name('baza-fontova');
+            Route::get('/видео-туторијали', [ResursController::class, 'video_tutorijali'])->name('video-tutorijali');
+            
         });
     });
 });
