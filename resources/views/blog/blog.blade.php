@@ -18,7 +18,7 @@
 
     <section class="forum-section">
         <div class="container d-flex justify-content-center align-items-center mb-3">
-            <div class="col-8 mb-5 d-flex justify-content-between">
+            <div class="col-8 mb-5 d-flex justify-content-between flex-column flex-md-row">
                 <div class="col-7">
                     <h3 class="mb-4 forum-title">Форум</h3>
                     <p class="mb-5 forum-description">Укључите се у разговор – размените предлоге, идеје, трикове,
@@ -39,7 +39,7 @@
         }
 
         .main-title {
-            font-size: 80px;
+            font-size: 50px;
         }
 
         .content-text,
@@ -49,7 +49,7 @@
 
         .forum-section .container {
             background-color: #EFEBDC;
-            padding: 60px;
+            padding-top: 60px;
         }
 
         .forum-title {
@@ -63,8 +63,25 @@
         .content-text {
             font-family: 'OrtoRNIDS-Regular';
         }
-        .kategorija{
+
+        .kategorija {
             font-size: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 30px;
+            }
+
+            .col-8.mb-5.d-flex.justify-content-between {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .col-7, .col-4 {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 @endsection

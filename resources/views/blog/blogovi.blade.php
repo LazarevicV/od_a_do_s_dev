@@ -21,7 +21,7 @@
             </div>
             <div class="row">
                 @foreach ($blogovi as $blog)
-                    <div class="col-4 mb-4">
+                    <div class="col-12 col-md-4 mb-4">
                         <div class="card d-flex flex-column p-1 card-height">
                             <a href="{{ route('blog.blog', $blog->id) }}"><img src="{{ asset('img/' . $blog->slika) }}" class="card-img-top" alt="{{ $blog->naslov }}"></a>
                             <div class="card-body d-flex flex-column justify-content-between card-body-height">
@@ -83,6 +83,12 @@
             object-fit: cover;
             height: 200px;
             width: 100%;
+        }
+
+        @media (max-width: 450px) {
+            .main-title {
+                font-size: 60px;
+            }
         }
     </style>
 @endsection

@@ -30,37 +30,63 @@
     </section>
 
     <style>
-        .breadcrumbs-section {
-            height: 70px;
-        }
-
-        .container.my-5 h1 {
-            font-size: 80px;
-        }
-
-        .container.my-5 .my-5 p {
-            font-size: 22px;
-        }
-
-        .alati {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
-            gap: 25px;
-        }
-
-        .alat {
-            font-size: 18px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            background-color: #EFEBDC;
-        }
-
-        .alat a {
-            font-size: 22px;
-        }
-
-        .naslov .ikonica {
-            height: 100%;
-        }
-    </style>
+      .breadcrumbs-section {
+          height: 70px;
+      }
+  
+      .container.my-5 h1 {
+          font-size: 80px;
+      }
+  
+      .container.my-5 .my-5 p {
+          font-size: 22px;
+      }
+  
+      .alati {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+          gap: 25px;
+      }
+  
+      .alat {
+          font-size: 18px;
+          border: 1px solid #ccc;
+          padding: 10px;
+          background-color: #EFEBDC;
+      }
+  
+      .alat a {
+          font-size: 22px;
+      }
+  
+      .naslov .ikonica {
+          height: 100%;
+      }
+  
+      /* Media query for screens smaller than 600px */
+      @media (max-width: 768px) {
+          .alati {
+              grid-template-columns: 1fr;
+              gap: 15px;
+          }
+  
+          .container.my-5 h1 {
+              font-size: 50px;
+          }
+  
+          .container.my-5 .my-5 p {
+              font-size: 18px;
+          }
+  
+          .alat {
+              font-size: 16px;
+              padding: 8px;
+          }
+  
+          .alat a {
+              font-size: 20px;
+          }
+      }
+  </style>
+  
 @endsection

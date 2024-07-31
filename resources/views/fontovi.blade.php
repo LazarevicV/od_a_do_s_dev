@@ -5,41 +5,47 @@
     <section class="d-flex align-items-center pt-4 px-3 mb-5">
         {{ Breadcrumbs::render('prikaz-svih-fontova') }}
     </section>
-    <div class="col-6 mx-auto mb-2">
-        <form id="searchForm" action="{{ route('font.pretraga') }}" method="POST" class="mb-3">
+    <div class="col-lg-7 col-md-9 mx-auto mb-2">
+      <form id="searchForm" action="{{ route('font.pretraga') }}" method="POST" class="mb-3">
             @csrf
             <div class="container-fluid p-0">
-                <div class="col-12 d-flex mb-2">
-                    <div class="col-4 pe-2 d-flex">
-                        <input type="text" name="pretraga" id="pretraga" placeholder="Претражите фонтове"
-                            class="border-0 col-12 p-2" value="{{ old('pretraga', $pretraga) }}">
+                <div class="col-12 d-flex mb-2 filter">
+                    <div class="col-6 d-flex red">
+                      <div class="col-8 pe-2 d-flex">
+                          <input type="text" name="pretraga" id="pretraga" placeholder="Претражите фонтове"
+                              class="border-0 col-12 p-2" value="{{ old('pretraga', $pretraga) }}">
+                      </div>
+
+                      <div class="col-4 d-flex justify-content-start pe-2">
+                          <button type="submit">
+                              <p class="m-0"><span class="prikazi">Прикажи</span> <span class="bi-search"></span></p>
+                          </button>
+                      </div>
                     </div>
 
-                    <div class="col-2 d-flex justify-content-start pe-2">
-                        <button type="submit">
-                            <p class="m-0">Прикажи <span class="bi-search"></span></p>
-                        </button>
-                    </div>
+                    <div class="col-6 d-flex red">
+                      <div class="col-8 d-flex dropdown">
+                          <div class="col-6 p-0">
+                            <select name="familija" class="col-12 border-0 rounded-0 bg-white" id="familija">
+                                <option disabled {{ old('familija', $selectedFamilija) ? '' : 'selected' }}>Врста</option>
+                                @foreach ($familije as $familija)
+                                    <option value="{{ $familija->id }}" {{ old('familija', $selectedFamilija) == $familija->id ? 'selected' : '' }}>{{ $familija->naziv }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
-                    <div class="col-2 p-0">
-                        <select name="familija" class="col-12 border-0 rounded-0 bg-white" id="familija">
-                            <option disabled {{ old('familija', $selectedFamilija) ? '' : 'selected' }}>Врста</option>
-                            @foreach ($familije as $familija)
-                                <option value="{{ $familija->id }}" {{ old('familija', $selectedFamilija) == $familija->id ? 'selected' : '' }}>{{ $familija->naziv }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="col-2 p-0 ps-2">
-                        <select name="tezina_id" class="col-12 border-0 rounded-0 bg-white" id="tezina_id">
-                            <option disabled {{ old('tezina_id', $selectedTezina) ? '' : 'selected' }}>Тежина</option>
-                            @foreach ($tezine as $tezina)
-                                <option value="{{ $tezina->id }}" {{ old('tezina_id', $selectedTezina) == $tezina->id ? 'selected' : '' }}>{{ ucwords(str_replace('_', ' ', $tezina->naziv)) }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col-2 d-flex justify-content-start ps-2">
-                        <button type="button" id="resetButton" style="background-color:#CF0A00;">Обриши</button>
+                        <div class="col-6 p-0 ps-2">
+                            <select name="tezina_id" class="col-12 border-0 rounded-0 bg-white" id="tezina_id">
+                                <option disabled {{ old('tezina_id', $selectedTezina) ? '' : 'selected' }}>Тежина</option>
+                                @foreach ($tezine as $tezina)
+                                    <option value="{{ $tezina->id }}" {{ old('tezina_id', $selectedTezina) == $tezina->id ? 'selected' : '' }}>{{ ucwords(str_replace('_', ' ', $tezina->naziv)) }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                      </div>
+                      <div class="col-4 d-flex justify-content-start ps-2">
+                          <button type="button" id="resetButton" style="background-color:#CF0A00;"><span class="prikazi">Обриши</span> <span class="bi-x-lg"></span></button>
+                      </div>
                     </div>
                 </div>
                 <div class="col-12 mb-2">
@@ -163,5 +169,46 @@
             color: #D6CFBA;
             opacity: 1;
         }
-    </style>
+
+        @media (max-width: 991px) {
+        
+          .filter{
+            flex-direction: column;
+            margin-bottom: 0px!important;
+          }
+
+          .filter .red{
+            width: 100%;
+            margin-bottom: 0.5rem!important;
+          }
+          .col-4.d-flex.justify-content-start {
+              padding-right: 0px!important;
+          }
+
+        }
+        @media (max-width: 522px) {
+          .filter .red .col-4.d-flex.justify-content-start.pe-2{
+                width: 20%!important;
+            }
+
+            .filter .red .col-8.pe-2.d-flex{
+                width: 80%!important;
+            }
+
+            .prikazi{
+              display: none;
+            }
+        }
+        @media (max-width: 437px) {
+          .filter .red .col-4.d-flex.justify-content-start.pe-2{
+                width: 55px!important;
+            }
+            .filter .red .col-4.d-flex.justify-content-start.ps-2{
+                width: 55px!important;
+            }
+            .dropdown{
+              width: 80%;
+            }
+      }
+</style>
 @endsection
