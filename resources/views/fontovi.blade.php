@@ -72,7 +72,7 @@
                     <div class="col-12 mb-2">
                         <div class="font-preview mb-4" style="font-family: '{{ $font->naziv }}';">
                             <p class="mb-0">
-                                <span><a href="{{ route('font.font', $font->id) }}">{{ $font->naziv }}</a></span>
+                                <span><a href="{{ route('font.font', $font->id) }}">{{ $font->naziv }} <i class="bi bi-info-circle"></i></a></span>
                                 @if (!empty($font->fajlovi[0]) && $font->downloadable == 1)
                                     <a href="/fonts/cirilica/{{ $font->fajlovi[0]->naziv }}">
                                         <i class="bi bi-file-earmark-arrow-down"></i>
@@ -137,7 +137,7 @@
         .font-preview>.mb-0 {
             display: flex;
             justify-content: space-between;
-            font-size: 15px;
+            font-size: 18px;
             height: 25px
         }
 

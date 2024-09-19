@@ -51,32 +51,40 @@
     <title>{{ $title }}</title>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            function toggleSideMenu() {
-                var menu = document.getElementById('right-side-menu');
-                if (menu.style.right === '0px' || menu.style.right === '') {
-                    menu.style.right = '-100%';
-                } else {
-                    menu.style.right = '0px';
-                }
-            }
-
-            var burgerMenuButton = document.querySelector('.burger-menu-container');
-            if (burgerMenuButton) {
-                burgerMenuButton.addEventListener('click', toggleSideMenu);
-            }
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            var toggles = document.querySelectorAll('.toggle-submenu');
-
-            toggles.forEach(function(toggle) {
-                toggle.addEventListener('click', function() {
-                    var parent = this.parentNode;
-                    parent.classList.toggle('active'); 
-                });
-            });
-        });
-    </script>
+      document.addEventListener("DOMContentLoaded", function() {
+          
+          // Define the toggleSideMenu function
+          function toggleSideMenu() {
+              var menu = document.getElementById('right-side-menu');
+              if (menu.style.right === '0px' || menu.style.right === '') {
+                  menu.style.right = '-100%';
+              } else {
+                  menu.style.right = '0px';
+              }
+          }
+  
+          // Attach event listener to burger menu button
+          var burgerMenuButton = document.querySelector('.burger-menu-container');
+          if (burgerMenuButton) {
+              burgerMenuButton.addEventListener('click', toggleSideMenu);
+          }
+  
+          // Dropdown toggle logic for the SVG icon
+          var toggles = document.querySelectorAll('.dropdown-toggle-icon');
+          toggles.forEach(function(toggle) {
+              toggle.addEventListener('click', function(event) {
+                  event.stopPropagation();
+                  var parent = this.closest('.has-children');
+                  if (parent) {
+                      parent.classList.toggle('active');
+                  }
+              });
+          });
+      });
+  </script>
+  
+  
+  
 </head>
 
 <body class="d-flex flex-column bodi">
@@ -107,13 +115,14 @@
                             <div class="meni-hide">
                                 @if (Auth::check() and Auth::user()->hasRole('admin'))
                                     <li class="has-children">
-                                        <a>Админ мени <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                height="16" fill="none" stroke="currentColor" stroke-width="2"
-                                                viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd"
-                                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
-                                                </path>
-                                            </svg></a>
+                                        <a>Админ мени </a>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                            height="16" fill="none" stroke="currentColor" stroke-width="2"
+                                            viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
+                                            </path>
+                                        </svg>
                                         <ul class="dropdown">
                                             <li><a href="{{ route('blog.list') }}" class="dropdaun">Блогови</a></li>
                                             <li><a href="{{ route('kategorija.list') }}" class="dropdaun">Категорије
@@ -131,26 +140,26 @@
                                 @endif
                                 <li><a href="{{ route('pocetna') }}">Почетна</a></li>
                                 <li class="has-children">
-                                    <a>Развој <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd"
-                                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
-                                            </path>
-                                        </svg></a>
+                                    <a href="{{ route('razvoj') }}">Развој </a>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
+                                        </path>
+                                    </svg>
                                     <ul class="dropdown">
                                         <li><a href="{{ route('alat.alati') }}" class="dropdaun">Алати</a></li>
                                         <li><a href="{{ route('uputstva') }}" class="dropdaun">Упутства</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-children">
-                                    <a href="{{ route('resurs.resursi') }}">Ресурси <svg
-                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="none" stroke="currentColor" stroke-width="2"
-                                            viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd"
-                                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
-                                            </path>
-                                        </svg></a>
+                                    <a href="{{ route('resurs.resursi') }}">Ресурси</a>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="none" stroke="currentColor" stroke-width="2"viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
+                                        </path>
+                                    </svg>
                                     <ul class="dropdown">
                                         <li><a href="{{ route('resurs.baza-fontova') }}" class="dropdaun">База
                                                 фонтова</a></li>
@@ -188,29 +197,25 @@
                                 </li>
                                 <li><a href="{{route('register')}}">Региструј се</a></li> --}}
                             @endif
-
-                            <div class="burger-menu-container nav-item ms-2" onclick="toggleSideMenu()">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 18">
-                                    <defs>
-                                        <style>
-                                            .cls-1 {
-                                                fill: none;
-                                                stroke: #fff;
-                                                stroke-linecap: round;
-                                                stroke-miterlimit: 10;
-                                                stroke-width: 3px;
-                                            }
-                                        </style>
-                                    </defs>
-                                    <line class="cls-1" x1="1" y1="2" x2="20"
-                                        y2="2"></line>
-                                    <line class="cls-1" x1="1" y1="9" x2="20"
-                                        y2="9"></line>
-                                    <line class="cls-1" x1="1" y1="16" x2="20"
-                                        y2="16"></line>
-                                </svg>
-
-                            </div>
+                            <div class="burger-menu-container nav-item ms-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 18">
+                                  <defs>
+                                      <style>
+                                          .cls-1 {
+                                              fill: none;
+                                              stroke: #fff;
+                                              stroke-linecap: round;
+                                              stroke-miterlimit: 10;
+                                              stroke-width: 3px;
+                                          }
+                                      </style>
+                                  </defs>
+                                  <line class="cls-1" x1="1" y1="2" x2="20" y2="2"></line>
+                                  <line class="cls-1" x1="1" y1="9" x2="20" y2="9"></line>
+                                  <line class="cls-1" x1="1" y1="16" x2="20" y2="16"></line>
+                              </svg>
+                          </div>
+                          
                         </ul>
                     </div>
                 </div>
@@ -220,10 +225,10 @@
         <div id="right-side-menu" class="right-side-nav">
             <nav>
                 <ul>
-                    @if (Auth::check() and Auth::user()->hasRole('admin'))
+                    @if (Auth::check() && Auth::user()->hasRole('admin'))
                         <li class="has-children toggle-submenu">
                             <a>Админ мени
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                                <svg class="dropdown-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
                                     stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                         d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
@@ -232,62 +237,49 @@
                             </a>
                             <ul class="dropdown">
                                 <li><a href="{{ route('blog.list') }}" class="dropdaun">Блогови</a></li>
-                                <li><a href="{{ route('kategorija.list') }}" class="dropdaun">Категорије
-                                        блогова</a></li>
+                                <li><a href="{{ route('kategorija.list') }}" class="dropdaun">Категорије блогова</a></li>
                                 <li><a href="{{ route('alat.list') }}" class="dropdaun">Алати</a></li>
                                 <li><a href="{{ route('resurs.list') }}" class="dropdaun">Ресурси</a></li>
                                 <li><a href="{{ route('font.list') }}" class="dropdaun">Фонтови</a></li>
-                                <li><a href="{{ route('familija.list') }}" class="dropdaun">Фамилије</a>
-                                <li><a href="{{ route('videoTutorijal.list') }}" class="dropdaun">Видео
-                                        туторијали</a></li>
-                                <li><a href="{{ route('korisnici.list') }}" class="dropdaun">Корисници</a>
-                                </li>
+                                <li><a href="{{ route('familija.list') }}" class="dropdaun">Фамилије</a></li>
+                                <li><a href="{{ route('videoTutorijal.list') }}" class="dropdaun">Видео туторијали</a></li>
+                                <li><a href="{{ route('korisnici.list') }}" class="dropdaun">Корисници</a></li>
                             </ul>
                         </li>
                     @endif
                     <li><a href="{{ route('pocetna') }}">Почетна</a></li>
                     <li class="has-children toggle-submenu">
-                        <a>
-                            Развој
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                                stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
-                                </path>
-                            </svg>
-                        </a>
+                        <a href="{{ route('razvoj') }}">Развој</a>
+                        <svg class="dropdown-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
+                            </path>
+                        </svg>
                         <ul class="dropdown">
                             <li><a href="{{ route('alat.alati') }}" class="dropdaun">Алати</a></li>
                             <li><a href="{{ route('uputstva') }}" class="dropdaun">Упутства</a></li>
                         </ul>
                     </li>
                     <li class="has-children toggle-submenu">
-                        <a href="{{ route('resurs.resursi') }}">
-                            Ресурси
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                                stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
-                                </path>
-                            </svg>
-                        </a>
+                        <a href="{{ route('resurs.resursi') }}">Ресурси</a>
+                        <svg class="dropdown-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
+                            </path>
+                        </svg>
                         <ul class="dropdown">
-                            <li>
-                                <a href="{{ route('resurs.baza-fontova') }}" class="dropdaun">База фонтова</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('resurs.video-tutorijali') }}" class="dropdaun">Видео туторијали</a>
-                            </li>
+                            <li><a href="{{ route('resurs.baza-fontova') }}" class="dropdaun">База фонтова</a></li>
+                            <li><a href="{{ route('resurs.video-tutorijali') }}" class="dropdaun">Видео туторијали</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Форум</a></li>
-
                     <li><a href="{{ route('blog.blogovi') }}">Блог</a></li>
-
-
                 </ul>
             </nav>
         </div>
+      
     </nav>
     <div class="col-2 mx-auto">
         @include('flash-message')

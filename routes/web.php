@@ -139,6 +139,7 @@ Route::prefix('/алат/')->group(function () {
 });
 
 Route::get('/ресурси', [ResursController::class, 'resursi'])->name('resurs.resursi');
+Route::get('/развој', [ResursController::class, 'razvoj'])->name('razvoj');
 
 Route::prefix('/ресурс')->group(function () {
     Route::controller(ResursController::class)->group(function () {

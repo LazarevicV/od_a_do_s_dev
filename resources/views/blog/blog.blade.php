@@ -11,7 +11,9 @@
                     <img src="{{ asset('img/' . $blog->slika) }}" class="img-fluid rounded" alt="{{ $blog->naslov }}">
                 </div>
                 <p class="my-5 kategorija">Категорија: {{ $blog->kategorija->naziv }}</p>
-                <p>{!! $blog->sadrzaj !!}</p>
+                <div class="blog-content">
+                  <p>{!! $blog->sadrzaj !!}</p>
+              </div>
             </div>
         </div>
     </div>
@@ -68,6 +70,13 @@
             font-size: 20px;
         }
 
+        .blog-content iframe {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            border: 0;
+        }
+
         @media (max-width: 768px) {
             .main-title {
                 font-size: 30px;
@@ -82,6 +91,11 @@
                 width: 100%;
                 text-align: center;
             }
+
+            .blog-content iframe {
+                aspect-ratio: 16/9;
+            }
         }
+
     </style>
 @endsection

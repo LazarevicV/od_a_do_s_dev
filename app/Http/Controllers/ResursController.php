@@ -17,6 +17,13 @@ class ResursController extends Controller
         ]);
     }
 
+    public function razvoj()
+    {
+        return view('razvoj', [
+            'title' => 'Развој',
+        ]);
+    }
+
     public function baza_fontova()
     {
         $resurs = Resurs::find(1);
