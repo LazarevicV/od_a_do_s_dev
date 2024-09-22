@@ -12,12 +12,8 @@
     @if (!empty($resurs->fontovi[0]))
     <div class="d-flex resource-section">
         <div class="col-7">
-            <h1 class="resource-title">База фонтова</h1>
-            <p class="resource-description">
-                Фонтови играју кључну улогу у дизајну пружајући визуелни идентитет, тон и побољшавајући читљивост.
-            </p>
-            <p class="resource-description">
-                За дизајнере који стварају садржај на српском, доступност различитих ћириличних фонтова је од суштинског значаја, омогућавајући им усаглашавање са културним нијансама и постизање хармоничне комбинације естетског привлачења и језичке аутентичности у њиховим дизајнима.                </p>      
+            <h1 class="resource-title">{{ $parametri[0]->parametar_value }}</h1>
+            {!! $parametri[1]->parametar_value !!}
                 <a href="{{route('fontovi')}}" class="btn btn-primary resource-button">Тестирајте приказе</a>
             </div>
         <div class="col-5 d-flex justify-content-center">
@@ -51,16 +47,8 @@
     @if (!empty($resurs->videoTutorijali[0]))
     <div class="d-flex resource-section">
         <div class="col-7">
-            <h1 class="mb-5 resource-title">Видео туторијали</h1>
-            <p class="tutorial-description">
-                Видео туториjали представљају неизоставан извор образовања за широк спектар интересовања, укључујући
-                области као што су SEO оптимизација и употреба ћирилице.
-            </p>
-            <p class="tutorial-description">
-                Ови туториали обезбеђују визуелно и лако разумљиво учење, што је посебно битно за брзо усвајање и
-                примену комплексних концепата. Независно од области примене, видео туториали су кључни за унапређење
-                разумевања и успешну примену различитих вештина и техника.
-            </p>
+            <h1 class="resource-title">{{ $parametri[0]->parametar_value }}</h1>
+            {!! $parametri[1]->parametar_value !!}
         </div>
         <div class="col-5 d-flex justify-content-center align-items-center">
           <img src="{{ asset('img/video-tutorijali.png') }}" alt="" class="tutorial-image">

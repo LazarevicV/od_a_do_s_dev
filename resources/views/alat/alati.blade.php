@@ -6,9 +6,9 @@
             <section class="d-flex align-items-center pt-4">
                 {{ Breadcrumbs::render('alati') }}
             </section>
-            <h1>{{ $title }}</h1>
+            <h1>{{ $parametri[0]->parametar_value }}</h1>
             <div class="my-5">
-                <p>Овде можете пронаћи разноврсне алате који вам могу бити од користи приликом рада са ћириличним писмом. Без обзира да ли вам је потребно конвертовање текста, алати за друге програме или неки други користан алат, наша колекција вам може помоћи да олакшате свој рад са овим писмом</p>
+                {!! $parametri[1]->parametar_value !!}
             </div>
             <div class="alati">
                 @if (!empty($alati[0]))

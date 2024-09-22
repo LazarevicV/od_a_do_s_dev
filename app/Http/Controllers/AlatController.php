@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alat;
+use App\Models\Config;
 use Illuminate\Http\Request;
 
 class AlatController extends Controller
@@ -10,10 +11,12 @@ class AlatController extends Controller
     public function alati()
     {
         $alati = Alat::all();
+        $parametri = Config::where('parametar_name', 'like', 'alati_%')->get();
 
         return view('alat.alati', [
             'alati' => $alati,
-            'title' => 'Алати',
+            'title' => $parametri[0]->parametar_value,
+            'parametri'=> $parametri
         ]);
     }
 

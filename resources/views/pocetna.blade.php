@@ -8,11 +8,8 @@
             </svg> --}}
             <div class="hero-section container d-flex justify-center align-items-start">
                 <div class="hero-left col-7 black">
-                    <p>Шта све има на ћирилици?</p>
-                    <p>Садржаји сајтова, дизајнерска решења, линкови, домени...</p>
-                    <p>Ако вам недостају ресурси, савети или идеје како да креирате дигитална решења и дигиталне производе
-                        користећи ћириличко писмо овај сајт вам може помоћи – да пронађете ресурсе и размените знања
-                        потребна да разноврстан свет ћириличког писма представите у дигиталном свету.</p>
+                    <p>{{$parametri[0]->parametar_value}}</p>
+                    {!! $parametri[1]->parametar_value !!}
                 </div>
                 <div class="hero-right col-5">
                     <img src="{{ asset('img/dzivdzan.png') }}" alt="">
@@ -24,10 +21,8 @@
     <section>
         <div class="gif-section container d-flex justify-content-between align-items-center gap-4">
             <div class="col-6 gif-left black">
-                <p>За веб-дивелопере и програмере</p>
-                <p>Како правити линкове на ћирилици, како програмирати на ћирилици, како пресловљавати? Која готова решења
-                    постоје за лакшу израду веб-сајтова на ћирилици?</p>
-                <p>Пронађите алате и упутства у секцији <span class="underline">Развој.</span></p>
+                <p>{{$parametri[2]->parametar_value}}</p>
+                {!! $parametri[3]->parametar_value !!}
             </div>
             <div class="col-6 gif-right">
                 <img src="{{ asset('img/gugl-razume-cirilicu-gif.gif') }}" alt="">
@@ -41,9 +36,8 @@
                 <img src="{{ asset('img/azbuka.png') }}" alt="">
             </div>
             <div class="col-6 azbuka-right">
-                <p>За дизајнере и веб-дизајнере</p>
-                <p>Пронађите савршене фонтове за ваш уметнички и комерцијални пројекат. Тестирајте приказе и пронађите
-                    додатне ресурсе за оригиналне дизајнерске подухвате. </p>
+                <p>{{$parametri[4]->parametar_value}}</p>
+                {!! $parametri[5]->parametar_value !!}
             </div>
         </div>
     </section>
@@ -52,7 +46,7 @@
     <section>
         <div class="blog-section container d-flex flex-column justify-content-evenly retro-layout-alt mb-5 p-0">
             <div>
-                <p>Истакнути чланци</p>
+                <p>{{$parametri[6]->parametar_value}}</p>
             </div>
             <div class="blog-row d-flex flex-row justify-content-between">
                 <a href="{{ route('blog.blog', $istaknuti_blogovi[0]->id) }}" class="hentry img-2 v-height my-3 gradient" style="width: 66%;">

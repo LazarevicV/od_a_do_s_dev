@@ -329,5 +329,9 @@ class BlogSeeder extends Seeder
 
 
         ]);
+
+        $this->call([
+            ConfigSeeder::class
+        ]);
     }
 }

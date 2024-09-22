@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Config;
 use App\Models\KategorijaBlog;
 use Illuminate\Http\Request;
 
@@ -12,11 +13,13 @@ class BlogController extends Controller
     {
         $blogovi = Blog::where('objavljen', 1)->get();
         $istaknuti_blogovi = BlogController::istaknuti();
+        $parametri = Config::where('parametar_name', 'like', 'blogovi_%')->get();
 
         return view('blog.blogovi', [
             'blogovi' => $blogovi,
             'istaknuti_blogovi' => $istaknuti_blogovi,
             'title' => 'Блогови',
+            'parametri'=>$parametri
         ]);
     }
 

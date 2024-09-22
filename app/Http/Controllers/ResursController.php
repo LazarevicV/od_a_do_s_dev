@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Config;
 use App\Models\Resurs;
 use Illuminate\Http\Request;
 
@@ -10,6 +11,7 @@ class ResursController extends Controller
     public function resursi()
     {
         $resursi = Resurs::where('objavljen', 1)->get();
+        $parametar = Config::where('parametar_name', '=', 'resursi_title')->get();
 
         return view('resurs.resursi', [
             'resursi' => $resursi,
@@ -19,28 +21,35 @@ class ResursController extends Controller
 
     public function razvoj()
     {
+        $parametri = Config::where('parametar_name', 'like', 'razvoj_%')->get();
         return view('razvoj', [
-            'title' => 'Развој',
+            'parametri' => $parametri,
+            'title' => 'Развој'
         ]);
     }
 
     public function baza_fontova()
     {
         $resurs = Resurs::find(1);
+        $parametri = Config::where('parametar_name', 'like', 'baza_fontova_%')->get();
+
     
         return view('resurs.resurs', [
             'resurs' => $resurs,
-            'title' => $resurs->naziv,
+            'title' => 'База фонтова',
+            'parametri'=> $parametri
         ]);
     }
     
     public function video_tutorijali()
     {
         $resurs = Resurs::find(2);
-    
+        $parametri = Config::where('parametar_name', 'like', 'video_tutorijali_%')->get();
+
         return view('resurs.resurs', [
             'resurs' => $resurs,
-            'title' => $resurs->naziv,
+            'title' => 'Видео туторијали',
+            'parametri'=> $parametri
         ]);
     }
     

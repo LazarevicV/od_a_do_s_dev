@@ -135,9 +135,71 @@
                                                     туторијали</a></li>
                                             <li><a href="{{ route('korisnici.list') }}" class="dropdaun">Корисници</a>
                                             </li>
+                                            <li><a href="{{ route('config.footer_sadrzaj') }}" class="dropdaun">Футер садржај</a>
+                                            </li>
                                         </ul>
                                     </li>
                                 @endif
+                                @if (Auth::check() and Auth::user()->hasRole('admin'))
+                                <li class="has-children">
+                                    <a href="{{ route('pocetna') }}">Почетна </a>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
+                                        </path>
+                                    </svg>
+                                    <ul class="dropdown">
+                                        <li><a href="{{ route('config.pocetna_sadrzaj') }}" class="dropdaun">Почетна садржај</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <a href="{{ route('razvoj') }}">Развој </a>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
+                                        </path>
+                                    </svg>
+                                    <ul class="dropdown">
+                                        <li><a href="{{ route('config.razvoj_sadrzaj') }}" class="dropdaun">Развој садржај</a></li>
+                                        <li><a href="{{ route('alat.alati') }}" class="dropdaun">Алати</a></li>
+                                        <li><a href="{{ route('config.alati_sadrzaj') }}" class="dropdaun">Алати садржај</a></li>
+                                        <li><a href="{{ route('uputstva') }}" class="dropdaun">Упутства</a></li>
+                                        <li><a href="{{ route('config.uputstva_sadrzaj') }}" class="dropdaun">Упутства садржај</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <a href="{{ route('resurs.resursi') }}">Ресурси</a>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
+                                        </path>
+                                    </svg>
+                                    <ul class="dropdown" style="min-width: 250px; white-space: nowrap; overflow: hidden;">
+                                        <li><a href="{{ route('config.resurs_sadrzaj') }}" class="dropdaun">Ресурси садржај</a></li>
+                                        <li><a href="{{ route('resurs.baza-fontova') }}" class="dropdaun">База фонтова</a></li>
+                                        <li><a href="{{ route('config.baza_fontova_sadrzaj') }}" class="dropdaun">База фонтова садржај</a></li>
+                                        <li><a href="{{ route('resurs.video-tutorijali') }}" class="dropdaun">Видео туторијали</a></li>
+                                        <li><a href="{{ route('config.video_tutorijali_sadrzaj') }}" class="dropdaun">Видео туторијали садржај</a></li>
+                                    </ul>
+                                </li>                                
+                                <li><a href="#">Форум</a></li>
+
+                                <li class="has-children">
+                                    <a href="{{ route('blog.blogovi') }}">Блог </a>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708">
+                                        </path>
+                                    </svg>
+                                    <ul class="dropdown">
+                                        <li><a href="{{ route('config.blog_sadrzaj') }}" class="dropdaun">Блог садржај</a></li>
+                                    </ul>
+                                </li>
+                                @else
                                 <li><a href="{{ route('pocetna') }}">Почетна</a></li>
                                 <li class="has-children">
                                     <a href="{{ route('razvoj') }}">Развој </a>
@@ -170,6 +232,7 @@
                                 <li><a href="#">Форум</a></li>
 
                                 <li><a href="{{ route('blog.blogovi') }}">Блог</a></li>
+                                @endif
                             </div>
                             <li>
                                 <form action="{{ route('pretraga') }}" method="get"
@@ -296,10 +359,7 @@
                             <img src="{{ asset('img/logo.png') }}" alt="" class="">
                         </div>
                         <div class="col-8 px-3 pb-2">
-                            <p class="m-0">Иницијална верзија сајта иманаћирилици.срб
-                                настала је на истоименом хакатону. Млади програмери који су креирали решење наставили су
-                                разраду уз подршку РНИДС-а и испоручили сајт који нуди алате, ресурсе и креира простор
-                                за размену знања за употребу ћирилице у дигиталном окружењу. </p>
+                            {!! $footer_parametri[0]->parametar_value !!}
                         </div>
                     </div>
                     <div class="socials col-3 d-flex flex-column white justify-content-center align-items-center m-0">
@@ -342,10 +402,8 @@
             </div>
         </div>
         <div class="py-2 copyrights">
-            <div class="container">Copyrights &copy;
-                <script>
-                    document.write(new Date().getFullYear());
-                </script>.
+            <div class="container">
+                {!! $footer_parametri[1]->parametar_value !!}
             </div>
         </div>
     </footer>

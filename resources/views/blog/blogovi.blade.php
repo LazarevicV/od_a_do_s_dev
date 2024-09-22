@@ -15,9 +15,9 @@
                     {{ Breadcrumbs::render('blogovi') }}
                 @endif
             </section>
-            <h1 class="main-title">{{ $title }}</h1>
+            <h1 class="main-title">{{ $parametri[0]->parametar_value }}</h1>
             <div class="my-5 description-text">
-                <p>Овде можете пронаћи разнолике чланке о ресурсима, алатима и занимљивостима везаним за ћирилично писмо. Чланци ће вам пружити најновије информације, корисне препоруке за алате и занимљиве чињенице о ћирилици. Пратите нас како бисте остали у току са свим што ћирилица има да понуди!</p>
+                {!! $parametri[1]->parametar_value !!}
             </div>
             <div class="row">
                 @foreach ($blogovi as $blog)

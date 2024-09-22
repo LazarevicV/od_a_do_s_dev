@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlatController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\FamilijaController;
 use App\Http\Controllers\FontController;
@@ -10,7 +11,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResursController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoTutorijalController;
+use App\Models\Config as ModelsConfig;
 use Illuminate\Support\Facades\Route;
+use PSpell\Config;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,22 +26,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $istaknuti_blogovi = BlogController::istaknuti();
-    $broj_istaknutih = BlogController::broj_istaknutih();
-    return view('pocetna', [
-        'istaknuti_blogovi' => $istaknuti_blogovi,
-        'title' => 'Почетна страница',
-        'broj_istaknutih' => $broj_istaknutih
-    ]);
-})->name('pocetna');
+Route::get('/',[Controller::class, 'pocetna'])->name('pocetna');
 
 Route::get('/блог-упутства', function () {
     $uputstva_blogovi = BlogController::uputstva();
+    $parametri = ModelsConfig::where('parametar_name', 'like', 'uputstva_%')->get();
 
     return view('blog.blogovi', [
         'blogovi' => $uputstva_blogovi,
         'title' => 'Упутства',
+        'parametri'=>$parametri
     ]);
 })->name('uputstva');
 
@@ -277,6 +274,29 @@ Route::middleware('check_ip')->group(function () {
 
                     Route::get('/publish/{id}', 'publish')->name('publish');
                     Route::get('/unpublish/{id}', 'unpublish')->name('unpublish');
+                });
+            });
+        });
+    });
+});
+
+Route::prefix('/конфигурација')->group(function () {
+    Route::controller(ConfigController::class)->group(function () {
+        Route::name('config.')->group(function () {
+            Route::middleware('check_ip')->group(function () {
+                Route::middleware('check_role:admin')->group(function () {
+                    Route::get('/футер-садржај', 'footer_sadrzaj')->name('footer_sadrzaj');
+                    Route::get('/почетна-садржај', 'pocetna_sadrzaj')->name('pocetna_sadrzaj');
+                    Route::get('/развој-садржај', 'razvoj_sadrzaj')->name('razvoj_sadrzaj');
+                    Route::get('/ресурси-садржај', 'resurs_sadrzaj')->name('resurs_sadrzaj');
+                    Route::get('/блог-садржај', 'blog_sadrzaj')->name('blog_sadrzaj');
+                    Route::get('/алати-садржај', 'alati_sadrzaj')->name('alati_sadrzaj');
+                    Route::get('/упутства-садржај', 'uputstva_sadrzaj')->name('uputstva_sadrzaj');
+                    Route::get('/база-фонтова-садржај', 'baza_fontova_sadrzaj')->name('baza_fontova_sadrzaj');
+                    Route::get('/видео-туторијали-садржај', 'video_tutorijali_sadrzaj')->name('video_tutorijali_sadrzaj');
+
+                    Route::get('/izmeni/{id}', 'izmeni')->name('izmeni');
+                    Route::post('/izmeni/{id}', 'izmeniSubmit')->name('izmeniSubmit');
                 });
             });
         });

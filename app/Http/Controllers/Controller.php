@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alat;
 use App\Models\Blog;
+use App\Models\Config;
 use App\Models\Font;
 use App\Models\Resurs;
 use App\Models\VideoTutorijal;
@@ -58,5 +59,16 @@ class Controller extends BaseController
     private function isLatinica($text)
     {
         return preg_match('/[A-Za-z]/', $text);
+    }
+    public function pocetna(){
+        $istaknuti_blogovi = BlogController::istaknuti();
+        $broj_istaknutih = BlogController::broj_istaknutih();
+        $parametri = Config::where('parametar_name', 'like', 'pocetna_%')->get();
+        return view('pocetna', [
+            'istaknuti_blogovi' => $istaknuti_blogovi,
+            'title' => 'Почетна страница',
+            'broj_istaknutih' => $broj_istaknutih,
+            'parametri'=>$parametri
+        ]);
     }
 }
