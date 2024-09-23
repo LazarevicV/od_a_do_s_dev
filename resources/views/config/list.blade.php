@@ -9,17 +9,13 @@
                 <table id="tabela" class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>Назив тага</th>
-                            <th>Вредност тага</th>
+                            <th></th>
                             <th>Измени</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($parametri as $parametar)
                             <tr>
-                                <td class="align-middle">
-                                    {{ $parametar->parametar_name }}
-                                </td>
                                 <td class="align-middle">
                                     {!! $parametar->parametar_value !!}
                                 </td>
