@@ -11,11 +11,12 @@ class ResursController extends Controller
     public function resursi()
     {
         $resursi = Resurs::where('objavljen', 1)->get();
-        $parametar = Config::where('parametar_name', '=', 'resursi_title')->get();
+        $parametri = Config::where('parametar_name', '=', 'resursi_title')->get();
 
         return view('resurs.resursi', [
             'resursi' => $resursi,
             'title' => 'Ресурси',
+            'parametri'=>$parametri
         ]);
     }
 

@@ -4,7 +4,7 @@
         <section class="d-flex align-items-center pt-4 breadcrumbs-section">
             {{ Breadcrumbs::render('resursi') }}
         </section>
-        <h1>{{ $title }}</h1>
+        <h1>{{ $parametri[0]->parametar_value }}</h1>
         <br>
         @foreach ($resursi as $resurs)
             @if($resurs->id == 1)

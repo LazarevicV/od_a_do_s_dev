@@ -244,14 +244,14 @@
                                 </form>
                             </li>
                             @if (Auth::check())
-                                {{-- <li><a href="{{route('profile.edit')}}">Профил</a></li> --}}
+                                <li><a href="{{route('profile.edit')}}">Профил</a></li>
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
                                     <button class="odjava-button">
                                         Одјави се
                                     </button>
                                 </form>
-                                {{-- </li> --}}
+                                </li>
                             @else
                                 {{-- <li class="prijava-button">
                                     <a href="{{ route('login') }}">
