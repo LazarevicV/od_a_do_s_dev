@@ -14,66 +14,24 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $user = new User();
-        $user->ime_prezime = 'Pera Peric';
-        $user->email = 'peraperic@gmail.com';
+        $user->ime_prezime = 'Petar Prvulović';
+        $user->email = 'petar.prvulovic@gmail.com';
         $user->access_level = 'admin';
         $user->password = bcrypt('perapera');
-        $user->created_at = date('Y-m-d H:i:s');
-        $user->updated_at = date('Y-m-d H:i:s');
         $user->save();
 
         $user = new User();
-        $user->ime_prezime = 'Mika Mikic';
-        $user->email = 'mikamikic@gmail.com';
+        $user->ime_prezime = 'Dijana Milutinović';
+        $user->email = 'dijana.milutinovic@gmail.com';
+        $user->access_level = 'admin';
+        $user->password = bcrypt('ne znam');
+        $user->save();
+
+        $user = new User();
+        $user->ime_prezime = 'Petar Prvulović';
+        $user->email = 'petarprvulovic@gmail.com';
         $user->access_level = 'user';
         $user->password = bcrypt('mikamika');
-        $user->created_at = date('Y-m-d H:i:s');
-        $user->updated_at = date('Y-m-d H:i:s');
-        $user->save();
-
-        $user = new User();
-        $user->ime_prezime = 'Milica Milic';
-        $user->email = 'milicamilic@gmail.com';
-        $user->access_level = 'user';
-        $user->password = bcrypt('milicamilica');
-        $user->created_at = date('Y-m-d H:i:s');
-        $user->updated_at = date('Y-m-d H:i:s');
-        $user->save();
-
-        $user = new User();
-        $user->ime_prezime = 'Nikola Nikolic';
-        $user->email = 'nikolanikolic@gmail.com';
-        $user->access_level = 'user';
-        $user->password = bcrypt('nikolanikola');
-        $user->created_at = date('Y-m-d H:i:s');
-        $user->updated_at = date('Y-m-d H:i:s');
-        $user->save();
-
-        $user = new User();
-        $user->ime_prezime = 'Zika Zikic';
-        $user->email = 'zikazikic@gmail.com';
-        $user->access_level = 'user';
-        $user->password = bcrypt('zikazika');
-        $user->created_at = date('Y-m-d H:i:s');
-        $user->updated_at = date('Y-m-d H:i:s');
-        $user->save();
-
-        $user = new User();
-        $user->ime_prezime = 'Prle Prlic';
-        $user->email = 'prleprlic@gmail.com';
-        $user->access_level = 'user';
-        $user->password = bcrypt('prleprle');
-        $user->created_at = date('Y-m-d H:i:s');
-        $user->updated_at = date('Y-m-d H:i:s');
-        $user->save();
-
-        $user = new User();
-        $user->ime_prezime = 'Krle Krlic';
-        $user->email = 'krlekrlic@gmail.com';
-        $user->access_level = 'user';
-        $user->password = bcrypt('krlekrle');
-        $user->created_at = date('Y-m-d H:i:s');
-        $user->updated_at = date('Y-m-d H:i:s');
         $user->save();
     }
 }
